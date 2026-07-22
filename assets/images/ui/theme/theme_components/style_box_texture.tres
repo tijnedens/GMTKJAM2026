@@ -15,3 +15,4 @@ expand_margin_bottom = 6.0
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 region_rect = Rect2(0, 0, 120, 120)
+modulate_color = Color(0.67, 0.606685, 0.52930003, 1)
