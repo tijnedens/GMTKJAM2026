@@ -1,0 +1,16 @@
+[gd_resource type="Theme" format=3 uid="uid://btposgr6y63dn"]
+
+[ext_resource type="Texture2D" uid="uid://bc528jcia0o48" path="res://assets/images/ui/theme/theme_square.png" id="1_4h1es"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4h1es"]
+texture = ExtResource("1_4h1es")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 9.0
+texture_margin_bottom = 9.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 120, 120)
+
+[resource]
+Panel/styles/panel = SubResource("StyleBoxTexture_4h1es")
