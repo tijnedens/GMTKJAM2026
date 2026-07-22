@@ -1,0 +1,11 @@
+[gd_resource type="Theme" format=3 uid="uid://btposgr6y63dn"]
+
+[ext_resource type="StyleBox" uid="uid://br1yyhga4r20" path="res://assets/images/ui/theme/theme_components/style_box_texture.tres" id="1_4h1es"]
+
+[resource]
+Button/styles/disabled = ExtResource("1_4h1es")
+Button/styles/hover = ExtResource("1_4h1es")
+Button/styles/normal = ExtResource("1_4h1es")
+Button/styles/pressed = ExtResource("1_4h1es")
+Panel/styles/panel = ExtResource("1_4h1es")
+PanelContainer/styles/panel = ExtResource("1_4h1es")
