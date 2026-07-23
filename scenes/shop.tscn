@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://chp7xur0mmb01"]
+
+[ext_resource type="Shader" uid="uid://c6joaulresxfj" path="res://assets/shaders/pixel_shader.gdshader" id="1_2fc2m"]
+[ext_resource type="Script" uid="uid://c2ud1g4xhy3lu" path="res://scenes/shop.gd" id="1_8r1wq"]
+[ext_resource type="Texture2D" uid="uid://b3ofqfya0y3cp" path="res://assets/images/components/gear_big/gear_big_1.png" id="1_032fp"]
+[ext_resource type="Texture2D" uid="uid://llv0n7v28q13" path="res://assets/images/ui/temporaryShopMenuItems/small gear.png" id="2_1l46r"]
+[ext_resource type="Texture2D" uid="uid://c6t4rd3uq3rbw" path="res://assets/images/components/gear_medium/gear_medium_a1.png" id="2_2fc2m"]
+[ext_resource type="Texture2D" uid="uid://bsfnb3q78tnb8" path="res://assets/images/components/gear_small/tandwiel_small_1.png" id="3_8r1wq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8r1wq"]
+shader = ExtResource("1_2fc2m")
+shader_parameter/pixel_size = 1.0
+shader_parameter/mix_sampling = 0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ajxib"]
+shader = ExtResource("1_2fc2m")
+shader_parameter/pixel_size = 1.0
+shader_parameter/mix_sampling = 0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y6sft"]
+shader = ExtResource("1_2fc2m")
+shader_parameter/pixel_size = 1.0
+shader_parameter/mix_sampling = 0
+
+[node name="Shop" type="CenterContainer" unique_id=866003838]
+offset_right = 1153.0
+offset_bottom = 646.0
+script = ExtResource("1_8r1wq")
+
+[node name="container" type="Panel" parent="." unique_id=1671789071]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="container" unique_id=1184080498]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -155.5
+offset_top = -78.0
+offset_right = 155.5
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="container/ScrollContainer" unique_id=407045246]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="container/ScrollContainer/MarginContainer" unique_id=146231922]
+layout_mode = 2
+columns = 4
+
+[node name="button_big_gear" type="Button" parent="container/ScrollContainer/MarginContainer/GridContainer" unique_id=1248568828]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="container/ScrollContainer/MarginContainer/GridContainer/button_big_gear" unique_id=1331202918]
+material = SubResource("ShaderMaterial_8r1wq")
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 160.0
+scale = Vector2(0.44, 0.44)
+texture = ExtResource("1_032fp")
+
+[node name="button_mid_gear" type="Button" parent="container/ScrollContainer/MarginContainer/GridContainer" unique_id=1651581532]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="container/ScrollContainer/MarginContainer/GridContainer/button_mid_gear" unique_id=1042326736]
+material = SubResource("ShaderMaterial_ajxib")
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.605, 0.605)
+texture = ExtResource("2_2fc2m")
+
+[node name="button_small_gear" type="Button" parent="container/ScrollContainer/MarginContainer/GridContainer" unique_id=1803473227]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="container/ScrollContainer/MarginContainer/GridContainer/button_small_gear" unique_id=981919537]
+material = SubResource("ShaderMaterial_y6sft")
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.91, 0.91)
+texture = ExtResource("3_8r1wq")
+
+[node name="Button4" type="Button" parent="container/ScrollContainer/MarginContainer/GridContainer" unique_id=1645258506]
+layout_mode = 2
+icon = ExtResource("2_1l46r")
+
+[node name="Button5" type="Button" parent="container/ScrollContainer/MarginContainer/GridContainer" unique_id=825927770]
+layout_mode = 2
+icon = ExtResource("2_1l46r")
+
+[node name="Button6" type="Button" parent="container/ScrollContainer/MarginContainer/GridContainer" unique_id=309418156]
+layout_mode = 2
+icon = ExtResource("2_1l46r")
+
+[node name="Button7" type="Button" parent="container/ScrollContainer/MarginContainer/GridContainer" unique_id=278199908]
+layout_mode = 2
+icon = ExtResource("2_1l46r")
+
+[node name="Button8" type="Button" parent="container/ScrollContainer/MarginContainer/GridContainer" unique_id=1024408339]
+layout_mode = 2
+icon = ExtResource("2_1l46r")
+
+[node name="Button9" type="Button" parent="container/ScrollContainer/MarginContainer/GridContainer" unique_id=442536078]
+layout_mode = 2
+icon = ExtResource("2_1l46r")
+
+[node name="Button10" type="Button" parent="container/ScrollContainer/MarginContainer/GridContainer" unique_id=6388225]
+layout_mode = 2
+icon = ExtResource("2_1l46r")
+
+[node name="Button11" type="Button" parent="container/ScrollContainer/MarginContainer/GridContainer" unique_id=1276810579]
+layout_mode = 2
+icon = ExtResource("2_1l46r")
+
+[node name="Button12" type="Button" parent="container/ScrollContainer/MarginContainer/GridContainer" unique_id=1896349958]
+layout_mode = 2
+icon = ExtResource("2_1l46r")
+
+[node name="Button13" type="Button" parent="container/ScrollContainer/MarginContainer/GridContainer" unique_id=1353574452]
+layout_mode = 2
+icon = ExtResource("2_1l46r")
+
+[node name="Button14" type="Button" parent="container/ScrollContainer/MarginContainer/GridContainer" unique_id=1543236466]
+layout_mode = 2
+icon = ExtResource("2_1l46r")
+
+[node name="Button15" type="Button" parent="container/ScrollContainer/MarginContainer/GridContainer" unique_id=940548145]
+layout_mode = 2
+icon = ExtResource("2_1l46r")
+
+[node name="Button16" type="Button" parent="container/ScrollContainer/MarginContainer/GridContainer" unique_id=1240070092]
+layout_mode = 2
+icon = ExtResource("2_1l46r")

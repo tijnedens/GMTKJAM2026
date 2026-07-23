@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkb1yoaxoa8g2"
-path="res://.godot/imported/tandwiel_medium_a1.png-b266e7207c31c492af19426b04bdc05f.ctex"
+uid="uid://bh4ms03u0wxl3"
+path="res://.godot/imported/big gear.png-e322dfe5a29e1be5ef523d5148f4eec7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/components/cog_medium/tandwiel_medium_a1.png"
-dest_files=["res://.godot/imported/tandwiel_medium_a1.png-b266e7207c31c492af19426b04bdc05f.ctex"]
+source_file="res://assets/images/ui/temporaryShopMenuItems/big gear.png"
+dest_files=["res://.godot/imported/big gear.png-e322dfe5a29e1be5ef523d5148f4eec7.ctex"]
 
 [params]
 
