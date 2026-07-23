@@ -1,0 +1,204 @@
+[gd_scene format=3 uid="uid://bpoveoh41xnhm"]
+
+[ext_resource type="Script" uid="uid://cqu7smqvl8qcm" path="res://scenes/components/big_bell/BigBellVisualizer.gd" id="1_2eydp"]
+[ext_resource type="Texture2D" uid="uid://dncubo7ft5eyc" path="res://assets/images/components/big_bell/big_bell_1.png" id="2_bgncd"]
+[ext_resource type="Shader" uid="uid://c6joaulresxfj" path="res://assets/shaders/pixel_shader.gdshader" id="2_l8txg"]
+[ext_resource type="Texture2D" uid="uid://b6b5fy7jxpdwl" path="res://assets/images/components/big_bell/big_bell_2.png" id="3_l8txg"]
+[ext_resource type="Texture2D" uid="uid://b1rscx08iygpt" path="res://assets/images/components/big_bell/big_bell_klepel_1.png" id="4_djvbp"]
+[ext_resource type="Texture2D" uid="uid://dikljwr01t7sq" path="res://assets/images/components/big_bell/big_bell_klepel_2.png" id="5_5oims"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_djvbp"]
+shader = ExtResource("2_l8txg")
+shader_parameter/pixel_size = 1.0
+shader_parameter/mix_sampling = 0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y1hr0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_djvbp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5oims")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5oims"]
+shader = ExtResource("2_l8txg")
+shader_parameter/pixel_size = 1.0
+shader_parameter/mix_sampling = 0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3ochu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bgncd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_l8txg")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="Animation" id="Animation_l8txg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BellSprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("KlepelSprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_bgncd"]
+resource_name = "KLENGELENGELENG"
+length = 1.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BellSprite:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.5235987755982988, -0.5235987755982988]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("KlepelSprite:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4, 0.7, 1.2, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.2617993877991494, -0.05235987755982989, -0.2617993877991494, 0.05235987755982989]
+}
+
+[sub_resource type="Animation" id="Animation_djvbp"]
+resource_name = "klengel_startup"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KlepelSprite:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.13439035240356317]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BellSprite:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.5235987755982988]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_djvbp"]
+_data = {
+&"RESET": SubResource("Animation_l8txg"),
+&"klengel": SubResource("Animation_bgncd"),
+&"klengel_startup": SubResource("Animation_djvbp")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l8txg"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_djvbp"]
+animation = &"klengel"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5oims"]
+animation = &"klengel_startup"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_00jqo"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_aeuhq"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_33n0l"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l8txg"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_djvbp"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_l8txg"]
+states/End/position = Vector2(1036.8, 148)
+states/RESET/node = SubResource("AnimationNodeAnimation_l8txg")
+states/RESET/position = Vector2(346.80002, 146.7968)
+states/Start/position = Vector2(152, 148.896)
+states/klengel/node = SubResource("AnimationNodeAnimation_djvbp")
+states/klengel/position = Vector2(512.24, 181.56801)
+states/klengel_startup/node = SubResource("AnimationNodeAnimation_5oims")
+states/klengel_startup/position = Vector2(512.4, 99.2)
+transitions = ["klengel_startup", "klengel", SubResource("AnimationNodeStateMachineTransition_00jqo"), "klengel", "RESET", SubResource("AnimationNodeStateMachineTransition_aeuhq"), "klengel_startup", "RESET", SubResource("AnimationNodeStateMachineTransition_33n0l"), "Start", "RESET", SubResource("AnimationNodeStateMachineTransition_l8txg"), "RESET", "klengel_startup", SubResource("AnimationNodeStateMachineTransition_djvbp")]
+
+[node name="BigBellVisualizer" type="Node2D" unique_id=1492191923]
+script = ExtResource("1_2eydp")
+metadata/_custom_type_script = "uid://cqu7smqvl8qcm"
+
+[node name="KlepelSprite" type="AnimatedSprite2D" parent="." unique_id=812769043]
+texture_filter = 1
+material = SubResource("ShaderMaterial_djvbp")
+position = Vector2(0, -64)
+sprite_frames = SubResource("SpriteFrames_y1hr0")
+autoplay = "default"
+frame_progress = 0.45713502
+offset = Vector2(0, 144)
+
+[node name="BellSprite" type="AnimatedSprite2D" parent="." unique_id=359111622]
+texture_filter = 1
+material = SubResource("ShaderMaterial_5oims")
+position = Vector2(0, -64)
+sprite_frames = SubResource("SpriteFrames_3ochu")
+autoplay = "default"
+frame_progress = 0.79224044
+offset = Vector2(0, 64)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1840884805]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_djvbp")
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=737773378]
+unique_name_in_owner = true
+root_node = NodePath("%AnimationTree/..")
+tree_root = SubResource("AnimationNodeStateMachine_l8txg")
+anim_player = NodePath("../AnimationPlayer")
