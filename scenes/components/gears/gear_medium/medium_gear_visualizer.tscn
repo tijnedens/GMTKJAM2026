@@ -30,7 +30,6 @@ script = ExtResource("1_nim2r")
 metadata/_custom_type_script = "uid://cpydhdcwdr1w2"
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=413009400]
-modulate = Color(1, 0.38, 0.38, 1)
 texture_filter = 1
 material = SubResource("ShaderMaterial_8bbpy")
 sprite_frames = SubResource("SpriteFrames_3ochu")

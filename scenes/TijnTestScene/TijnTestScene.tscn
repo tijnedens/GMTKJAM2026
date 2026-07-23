@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dp5hlhhq6c40e" path="res://scenes/TijnTestScene/tijn_test_scene.gd" id="1_0u3jm"]
 [ext_resource type="PackedScene" uid="uid://drcsjclfd62ti" path="res://scenes/Component/BaseComponent.tscn" id="1_q0ueo"]
 [ext_resource type="PackedScene" uid="uid://cfkc3vjob3gm0" path="res://scenes/components/gears/BigGearComponent.tscn" id="2_8t02k"]
+[ext_resource type="Texture2D" uid="uid://d0x2uwwtw31co" path="res://assets/images/components/gear_hammer/tandwiel_hamer_1.png" id="4_cwx4q"]
 
 [node name="TijnTestScene" type="Node2D" unique_id=629146162]
 script = ExtResource("1_0u3jm")
@@ -22,5 +23,11 @@ position = Vector2(435, 99)
 [node name="OtherGear2" parent="." unique_id=367634123 instance=ExtResource("2_8t02k")]
 position = Vector2(404, 332)
 
-[node name="OtherGear3" parent="." unique_id=1045002907 instance=ExtResource("2_8t02k")]
-position = Vector2(404, 332)
+[node name="OtherGear3" parent="." unique_id=1045002907 node_paths=PackedStringArray("inventory_item") instance=ExtResource("2_8t02k")]
+position = Vector2(644, 468)
+inventory_item = NodePath("Sprite2D")
+inventory_item_end_angle = 4.71238898038469
+
+[node name="Sprite2D" type="Sprite2D" parent="OtherGear3" unique_id=1461553476]
+position = Vector2(-1, 1)
+texture = ExtResource("4_cwx4q")

@@ -17,6 +17,7 @@ input_pickable = true
 motion_mode = 1
 platform_on_leave = 2
 script = ExtResource("1_n3r65")
+gear_size = "BIG"
 output_type = 1
 input_type = 1
 output_direction = 4
