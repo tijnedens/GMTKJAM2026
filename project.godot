@@ -29,6 +29,11 @@ folder_colors={
 "res://assets/": "orange"
 }
 
+[global_group]
+
+GearConnectionArea=""
+Gear=""
+
 [input]
 
 ui_focus_next={

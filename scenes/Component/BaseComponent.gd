@@ -1,35 +1,110 @@
 @icon("res://scenes/Component/build_circle_blue.png")
 class_name BaseComponent
-extends Node2D
+extends CharacterBody2D
 
 @export var output_type : GlobalEnum.ComponentIOType
 @export var input_type : GlobalEnum.ComponentIOType
 
+# Nodes waarvan de posities worden gebruikt om te checken voor een connectie
+@export var input_anchor : Node2D 
+@export var output_anchor : Node2D
+
 @export var output_direction : GlobalEnum.ComponentIODirection
 @export var input_direction : GlobalEnum.ComponentIODirection
 
-var connected_output : BaseComponent
-var connected_input : BaseComponent
+var input_connection : ComponentConnection
+var output_connection : ComponentConnection
 
+var drag_speed : float = 25.0
 var is_hovered : bool = false
+var is_dragging : bool = false
 var is_left_mouse_down : bool = false
+var mouse_relative : Vector2 = Vector2.ZERO
+var pin_delta : Vector2 = Vector2.ZERO
+
+func _process(_delta):
+	# DEBUG
+	if output_connection or input_connection:
+		$HoverShape.debug_color = Color.GREEN
+	else:
+		$HoverShape.debug_color = Color.RED
+
+func _physics_process(delta):
+	if (is_dragging):
+		var target = (get_global_mouse_position() - global_position - pin_delta)
+		velocity = target.limit_length(drag_speed) / delta
+	else: 
+		velocity = Vector2.ZERO
+	mouse_relative = Vector2.ZERO
+	move_and_slide()
 
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			is_left_mouse_down = event.pressed && is_hovered
+			if event.pressed && is_hovered:
+				pin_delta = event.global_position - self.global_position
+			if is_dragging && !event.pressed:
+				on_drop()
+				is_dragging = false
 	
 	if event is InputEventMouseMotion:
-		if is_left_mouse_down:
-			self.global_position += event.relative
+		if is_left_mouse_down && (is_hovered || is_dragging):
+			mouse_relative = event.relative
+			is_dragging = true
+			try_connect()
 			get_viewport().set_input_as_handled()
 
+func try_connect() -> void:
+	ComponentConnector.find_connection(self)
+
+# Implementeren in child classes
+func start() -> void:
+	pass
+
+# Implementeren in child classes
+func reset() -> void:
+	pass
+
+# Implementeren in child classes
+func on_drop() -> void:
+	pass
+
+# Implementeren in child classes
+func on_pickup() -> void:
+	pass
+
+# Implementeren in child classes
+# Niet zelf callen!!
+# Dit wordt gebruikt door de ComponentConnector
+func _find_connection(anchor: Node2D, direction: GlobalEnum.ComponentIODirection) -> BaseComponent:
+	var space_state : PhysicsDirectSpaceState2D = get_world_2d().direct_space_state
+	var origin : Vector2 = anchor.global_position
+	var end : Vector2 = origin + ComponentConnector.io_direction_to_vector(direction) * 5000
+	var query : PhysicsRayQueryParameters2D = PhysicsRayQueryParameters2D.create(origin, end)
+	query.collide_with_areas = true
+	var result : Dictionary = space_state.intersect_ray(query)
+	if result:
+		if result.collider != self and result.collider is BaseComponent:
+			var found_component : BaseComponent = result.collider
+			if found_component.input_type == GlobalEnum.ComponentIOType.RANGED:
+				return found_component
+	return null
+
+func get_shape_by_index(idx: int) -> CollisionShape2D:
+	var i = 0
+	for child in get_children():
+		if child is CollisionShape2D:
+			if i == idx:
+				return child
+			i += 1
+	return null
 
 func _on_mouse_shape_entered(shape_idx):
-	if $HoverShape.get_index() == shape_idx:
+	if get_shape_by_index(shape_idx) == $HoverShape:
 		is_hovered = true
 
 
 func _on_mouse_shape_exited(shape_idx):
-	if $HoverShape.get_index() == shape_idx:
+	if get_shape_by_index(shape_idx) == $HoverShape:
 		is_hovered = false
