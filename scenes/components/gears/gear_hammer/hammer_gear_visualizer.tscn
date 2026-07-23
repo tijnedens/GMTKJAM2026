@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://deunkyt667kfd"]
+
+[ext_resource type="Script" uid="uid://cpydhdcwdr1w2" path="res://scenes/components/gears/GearVisualizer.gd" id="1_uae3b"]
+[ext_resource type="Texture2D" uid="uid://d0x2uwwtw31co" path="res://assets/images/components/gear_hammer/tandwiel_hamer_1.png" id="2_aj0aw"]
+[ext_resource type="Texture2D" uid="uid://da787jqf16bru" path="res://assets/images/components/gear_hammer/tandwiel_hamer_2.png" id="3_m3puh"]
+[ext_resource type="AnimationLibrary" uid="uid://c7fq7ajbw768l" path="res://scenes/components/gears/animations/GearAnimationLibrary.res" id="4_fcg4k"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3ochu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_aj0aw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_m3puh")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="hammer_gear_visualizer" type="Node2D" unique_id=1760790560 node_paths=PackedStringArray("anim_player")]
+script = ExtResource("1_uae3b")
+anim_player = NodePath("AnimationPlayer")
+metadata/_custom_type_script = "uid://cpydhdcwdr1w2"
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=418421328]
+sprite_frames = SubResource("SpriteFrames_3ochu")
+autoplay = "default"
+frame_progress = 0.63300335
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=608913170]
+libraries/GearAnimationLibrary = ExtResource("4_fcg4k")
