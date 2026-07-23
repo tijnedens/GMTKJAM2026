@@ -2,15 +2,23 @@ class_name GearComponent
 extends BaseComponent
 
 @export_enum("BIG", "MEDIUM", "SMALL") var gear_size = "MEDIUM"
+@export var inventory_item : Node
+## Met de klok mee
+@export_range(0, 360, 1.0, "radians_as_degrees")  var inventory_item_end_angle : float
 
-var is_checked : bool = false
+signal inventory_item_reached
+
+var is_checked : bool = false # used by GearChain class to check if this gear was already checked
 var rotation_speed : float = 1.0
 
-var is_part_of_jammed_chain : bool = false
 var next_gears : Array[GearComponent]
-var activating_gears: Array[GearComponent]
-@export var is_activated : bool = false
+var is_activated : bool = false
 var activation_pulse_stop : bool = false
+var inventory_pulse_stop : bool = false
+
+func _ready():
+	if inventory_item:
+		inventory_item.reparent($GearVisualizer/Sprite)
 
 func _process(_delta):
 	if next_gears.is_empty():
@@ -19,18 +27,22 @@ func _process(_delta):
 		$ConnectionArea/ConnectionShape.debug_color = Color.GREEN
 	
 	if is_activated && !activation_pulse_stop:
-		$BigGearVisualizer.visualize_start(40 * rotation_speed)
-		print("start")
+		$GearVisualizer.visualize_start(20 * rotation_speed)
 		activation_pulse_stop = true
+	
+	var current_animation_rotation : float = $GearVisualizer/Sprite.rotation
+	if inventory_item && !inventory_pulse_stop && (roundf(current_animation_rotation * 10) == roundf(inventory_item_end_angle * 10)):
+		inventory_item_reached.emit()
+		inventory_pulse_stop = true
 
 func show_jam():
-	$BigGearVisualizer.visualize_jam()
+	$GearVisualizer.visualize_jam()
 
 func start() -> void:
 	pass
 
 func reset() -> void:
-	$BigGearVisualizer.reset()
+	$GearVisualizer.reset()
 
 func on_drop() -> void:
 	pass
