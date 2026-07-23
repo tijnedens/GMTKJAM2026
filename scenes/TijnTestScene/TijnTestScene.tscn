@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dc4forukld8j8"]
+
+[ext_resource type="PackedScene" uid="uid://drcsjclfd62ti" path="res://scenes/Component/BaseComponent.tscn" id="1_q0ueo"]
+
+[node name="TijnTestScene" type="Node2D" unique_id=629146162]
+
+[node name="BaseComponent" parent="." unique_id=1752498274 instance=ExtResource("1_q0ueo")]
+
+[node name="BaseComponent2" parent="." unique_id=413747767 instance=ExtResource("1_q0ueo")]
