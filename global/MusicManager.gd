@@ -26,4 +26,3 @@ func play_music(new_stream: AudioStream) -> void:
 	await create_tween().tween_property(
 		player, "volume_linear", player.get_volume(), 1.0
 	).finished
-	print(player.volume_multiplier)
