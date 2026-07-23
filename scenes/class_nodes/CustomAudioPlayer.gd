@@ -13,7 +13,6 @@ func _ready() -> void:
 	SettingsManager.settings.volume_updated.connect(update_volume)
 
 func update_volume() -> void:
-	var settings: Settings = SettingsManager.settings
 	self.volume_linear = get_volume()
 
 func get_volume() -> float:

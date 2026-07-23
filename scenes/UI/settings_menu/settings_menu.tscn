@@ -2,7 +2,6 @@
 
 [ext_resource type="Theme" uid="uid://btposgr6y63dn" path="res://assets/images/ui/theme/default_theme.tres" id="1_brmjm"]
 [ext_resource type="Script" uid="uid://qu1k8nlb05tx" path="res://scenes/UI/settings_menu/settings_menu.gd" id="2_ah1ud"]
-[ext_resource type="Script" uid="uid://c7a35s4u6x2ly" path="res://scenes/class_nodes/CustomAudioPlayer.gd" id="3_mt0mx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3ochu"]
 font_size = 64
@@ -31,6 +30,7 @@ layout_mode = 2
 color = Color(0, 0, 0, 0.16078432)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=333199438]
+texture_filter = 1
 custom_minimum_size = Vector2(1152, 648)
 layout_mode = 2
 
@@ -54,6 +54,7 @@ text = "Sound Effects Volume"
 horizontal_alignment = 1
 
 [node name="SfxVolumeSlider" type="HSlider" parent="CenterContainer/VBoxContainer/HBoxContainer/SfxVolume" unique_id=2085271594]
+texture_filter = 1
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -70,6 +71,7 @@ text = "Music Volume"
 horizontal_alignment = 1
 
 [node name="MusicVolumeSlider" type="HSlider" parent="CenterContainer/VBoxContainer/HBoxContainer/MusicVolume" unique_id=1355884118]
+texture_filter = 1
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -77,10 +79,6 @@ max_value = 2.0
 step = 0.1
 value = 1.0
 tick_count = 1
-
-[node name="CustomAudioPlayer" type="AudioStreamPlayer" parent="." unique_id=1047858243]
-script = ExtResource("3_mt0mx")
-metadata/_custom_type_script = "uid://c7a35s4u6x2ly"
 
 [connection signal="value_changed" from="CenterContainer/VBoxContainer/HBoxContainer/SfxVolume/SfxVolumeSlider" to="." method="_on_sfx_volume_slider_value_changed"]
 [connection signal="value_changed" from="CenterContainer/VBoxContainer/HBoxContainer/MusicVolume/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]
