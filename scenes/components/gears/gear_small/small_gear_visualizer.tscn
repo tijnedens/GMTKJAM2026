@@ -6,7 +6,7 @@
 [ext_resource type="AnimationLibrary" uid="uid://c7fq7ajbw768l" path="res://scenes/components/gears/animations/GearAnimationLibrary.res" id="2_o5rci"]
 [ext_resource type="Texture2D" uid="uid://cxw0kewigdsbk" path="res://assets/images/components/gear_small/tandwiel_small_2.png" id="3_d81vc"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5d7qf"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d81vc"]
 shader = ExtResource("2_d81vc")
 shader_parameter/pixel_size = 1.0
 shader_parameter/mix_sampling = 0
@@ -32,7 +32,7 @@ metadata/_custom_type_script = "uid://cpydhdcwdr1w2"
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=319895081]
 texture_filter = 1
-material = SubResource("ShaderMaterial_5d7qf")
+material = SubResource("ShaderMaterial_d81vc")
 sprite_frames = SubResource("SpriteFrames_o5rci")
 autoplay = "default"
 frame_progress = 0.008090679
