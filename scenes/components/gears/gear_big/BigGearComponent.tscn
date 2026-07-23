@@ -23,7 +23,7 @@ input_type = 1
 output_direction = 4
 input_direction = 4
 
-[node name="BigGearVisualizer" parent="." unique_id=1371732645 instance=ExtResource("2_40bn8")]
+[node name="GearVisualizer" parent="." unique_id=1371732645 instance=ExtResource("2_40bn8")]
 
 [node name="HoverShape" type="CollisionShape2D" parent="." unique_id=1884063889]
 shape = SubResource("CircleShape2D_it5h2")

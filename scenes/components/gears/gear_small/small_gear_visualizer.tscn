@@ -8,7 +8,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d81vc"]
 shader = ExtResource("2_d81vc")
-shader_parameter/pixel_size = 1.0
+shader_parameter/pixel_size = 2.0
 shader_parameter/mix_sampling = 0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o5rci"]
@@ -25,9 +25,9 @@ animations = [{
 "speed": 6.0
 }]
 
-[node name="SmallGearVisualizer" type="Node2D" unique_id=210882234]
+[node name="SmallGearVisualizer" type="Node2D" unique_id=210882234 node_paths=PackedStringArray("anim_player")]
 script = ExtResource("1_6ajdx")
-rotation_speed_multiplier = 1.5
+anim_player = NodePath("AnimationPlayer")
 metadata/_custom_type_script = "uid://cpydhdcwdr1w2"
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=319895081]

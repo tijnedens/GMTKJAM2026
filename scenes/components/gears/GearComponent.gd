@@ -18,7 +18,7 @@ var inventory_pulse_stop : bool = false
 
 func _ready():
 	if inventory_item:
-		inventory_item.reparent($BigGearVisualizer/Sprite)
+		inventory_item.reparent($GearVisualizer/Sprite)
 
 func _process(_delta):
 	if next_gears.is_empty():
@@ -27,22 +27,22 @@ func _process(_delta):
 		$ConnectionArea/ConnectionShape.debug_color = Color.GREEN
 	
 	if is_activated && !activation_pulse_stop:
-		$BigGearVisualizer.visualize_start(40 * rotation_speed)
+		$GearVisualizer.visualize_start(20 * rotation_speed)
 		activation_pulse_stop = true
 	
-	var current_animation_rotation : float = $BigGearVisualizer/Sprite.rotation
+	var current_animation_rotation : float = $GearVisualizer/Sprite.rotation
 	if inventory_item && !inventory_pulse_stop && (roundf(current_animation_rotation * 10) == roundf(inventory_item_end_angle * 10)):
 		inventory_item_reached.emit()
 		inventory_pulse_stop = true
 
 func show_jam():
-	$BigGearVisualizer.visualize_jam()
+	$GearVisualizer.visualize_jam()
 
 func start() -> void:
 	pass
 
 func reset() -> void:
-	$BigGearVisualizer.reset()
+	$GearVisualizer.reset()
 
 func on_drop() -> void:
 	pass

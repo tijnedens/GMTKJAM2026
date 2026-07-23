@@ -8,7 +8,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_obvr5"]
 shader = ExtResource("2_ph5dx")
-shader_parameter/pixel_size = 1.0
+shader_parameter/pixel_size = 2.0
 shader_parameter/mix_sampling = 0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7aivy"]
@@ -28,7 +28,6 @@ animations = [{
 [node name="BigGearVisualizer" type="Node2D" unique_id=1371732645 node_paths=PackedStringArray("anim_player")]
 script = ExtResource("1_7aivy")
 anim_player = NodePath("AnimationPlayer")
-rotation_speed_multiplier = 0.666
 metadata/_custom_type_script = "uid://cpydhdcwdr1w2"
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=244691504]

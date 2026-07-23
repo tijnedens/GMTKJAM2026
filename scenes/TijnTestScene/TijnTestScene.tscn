@@ -1,27 +1,19 @@
 [gd_scene format=3 uid="uid://dc4forukld8j8"]
 
 [ext_resource type="Script" uid="uid://dp5hlhhq6c40e" path="res://scenes/TijnTestScene/tijn_test_scene.gd" id="1_0u3jm"]
-[ext_resource type="PackedScene" uid="uid://drcsjclfd62ti" path="res://scenes/Component/BaseComponent.tscn" id="1_q0ueo"]
-[ext_resource type="PackedScene" uid="uid://cfkc3vjob3gm0" path="res://scenes/components/gears/BigGearComponent.tscn" id="2_8t02k"]
+[ext_resource type="PackedScene" uid="uid://cfkc3vjob3gm0" path="res://scenes/components/gears/gear_big/BigGearComponent.tscn" id="2_8t02k"]
 [ext_resource type="Texture2D" uid="uid://d0x2uwwtw31co" path="res://assets/images/components/gear_hammer/tandwiel_hamer_1.png" id="4_cwx4q"]
+[ext_resource type="PackedScene" uid="uid://dbn6ymfsdljgu" path="res://scenes/components/gears/gear_medium/MediumGearComponent.tscn" id="5_4a4i2"]
+[ext_resource type="PackedScene" uid="uid://bjknbkgpoppmi" path="res://scenes/components/gears/gear_small/SmallGearComponent.tscn" id="6_qs7aa"]
 
 [node name="TijnTestScene" type="Node2D" unique_id=629146162]
 script = ExtResource("1_0u3jm")
-
-[node name="BaseComponent" parent="." unique_id=1752498274 instance=ExtResource("1_q0ueo")]
-position = Vector2(187, 181)
-
-[node name="BaseComponent2" parent="." unique_id=413747767 instance=ExtResource("1_q0ueo")]
-position = Vector2(565, 316)
 
 [node name="ActivatorGear" parent="." unique_id=1277665103 instance=ExtResource("2_8t02k")]
 position = Vector2(149, 361)
 
 [node name="OtherGear" parent="." unique_id=721174909 instance=ExtResource("2_8t02k")]
 position = Vector2(435, 99)
-
-[node name="OtherGear2" parent="." unique_id=367634123 instance=ExtResource("2_8t02k")]
-position = Vector2(404, 332)
 
 [node name="OtherGear3" parent="." unique_id=1045002907 node_paths=PackedStringArray("inventory_item") instance=ExtResource("2_8t02k")]
 position = Vector2(644, 468)
@@ -31,3 +23,12 @@ inventory_item_end_angle = 4.71238898038469
 [node name="Sprite2D" type="Sprite2D" parent="OtherGear3" unique_id=1461553476]
 position = Vector2(-1, 1)
 texture = ExtResource("4_cwx4q")
+
+[node name="MediumGearComponent" parent="." unique_id=784319239 instance=ExtResource("5_4a4i2")]
+position = Vector2(177, 74)
+
+[node name="SmallGearComponent" parent="." unique_id=798564841 instance=ExtResource("6_qs7aa")]
+position = Vector2(63, 185)
+
+[node name="SmallGearComponent2" parent="." unique_id=1776210097 instance=ExtResource("6_qs7aa")]
+position = Vector2(335, 259)
