@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GlobalEnum="*uid://br70ghs8b2p8u"
+SettingsManager="*uid://ccwl4tq7cy4ml"
 
 [display]
 
