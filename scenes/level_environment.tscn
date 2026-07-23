@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://41elba81uopc" path="res://level_environment.gd" id="1_1lgsu"]
 [ext_resource type="Texture2D" uid="uid://0tpeww0mbe17" path="res://assets/images/ui/start_button.png" id="2_8bsp0"]
+[ext_resource type="PackedScene" uid="uid://chp7xur0mmb01" path="res://scenes/shop.tscn" id="3_or4xh"]
 
 [node name="LevelEnvironment" type="Node2D" unique_id=1095694394]
 script = ExtResource("1_1lgsu")
@@ -18,3 +19,5 @@ offset_top = 568.0
 offset_right = 137.0
 offset_bottom = 648.0
 icon = ExtResource("2_8bsp0")
+
+[node name="Shop" parent="." unique_id=866003838 instance=ExtResource("3_or4xh")]
