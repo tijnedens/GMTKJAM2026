@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://drcsjclfd62ti"]
+
+[ext_resource type="Script" uid="uid://dw5mhc2smgffb" path="res://scenes/Component/BaseComponent.gd" id="1_w3u3r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_it5h2"]
+
+[node name="BaseComponent" type="Area2D" unique_id=1752498274]
+script = ExtResource("1_w3u3r")
+
+[node name="HoverShape" type="CollisionShape2D" parent="." unique_id=1884063889]
+shape = SubResource("CircleShape2D_it5h2")
+
+[connection signal="mouse_shape_entered" from="." to="." method="_on_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="." to="." method="_on_mouse_shape_exited"]
