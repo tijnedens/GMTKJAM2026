@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://c74ytmxypbflu"]
+
+[ext_resource type="Script" uid="uid://cpydhdcwdr1w2" path="res://scenes/components/gears/GearVisualizer.gd" id="1_7aivy"]
+[ext_resource type="Texture2D" uid="uid://b3ofqfya0y3cp" path="res://assets/images/components/gear_big/gear_big_1.png" id="2_cqo6y"]
+[ext_resource type="Shader" uid="uid://c6joaulresxfj" path="res://assets/shaders/pixel_shader.gdshader" id="2_ph5dx"]
+[ext_resource type="Texture2D" uid="uid://cgjn7jxv7wo38" path="res://assets/images/components/gear_big/gear_big_2.png" id="3_ph5dx"]
+[ext_resource type="AnimationLibrary" uid="uid://c7fq7ajbw768l" path="res://scenes/components/gears/animations/GearAnimationLibrary.res" id="5_obvr5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_obvr5"]
+shader = ExtResource("2_ph5dx")
+shader_parameter/pixel_size = 1.0
+shader_parameter/mix_sampling = 0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7aivy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cqo6y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ph5dx")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="BigGearVisualizer" type="Node2D" unique_id=1371732645 node_paths=PackedStringArray("anim_player")]
+script = ExtResource("1_7aivy")
+anim_player = NodePath("")
+rotation_speed_multiplier = 0.666
+metadata/_custom_type_script = "uid://cpydhdcwdr1w2"
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=244691504]
+modulate = Color(1, 0.38, 0.38, 1)
+texture_filter = 1
+material = SubResource("ShaderMaterial_obvr5")
+sprite_frames = SubResource("SpriteFrames_7aivy")
+autoplay = "default"
+frame_progress = 0.77188194
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=228538358]
+libraries/GearAnimationLibrary = ExtResource("5_obvr5")
