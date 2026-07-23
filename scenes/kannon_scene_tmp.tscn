@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://xmwhjl66yuh2"]
+
+[ext_resource type="Script" uid="uid://b8d37t1m1pr0" path="res://kannon_arch.gd" id="1_dpmaw"]
+[ext_resource type="Texture2D" uid="uid://bdq20stp8vmao" path="res://assets/images/components/Konnon/launcher_idle_temp.png" id="2_as5va"]
+[ext_resource type="Texture2D" uid="uid://c06qm7kstuhig" path="res://assets/images/gnomes/gnoom_2/gnoom_2a.png" id="3_as5va"]
+[ext_resource type="Script" uid="uid://dlmgxyqvpvqxy" path="res://scenes/node_2d.gd" id="3_c48qe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c48qe"]
+atlas = ExtResource("2_as5va")
+region = Rect2(0, 0, 300, 300)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vnjw7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c48qe")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vnjw7"]
+radius = 42.190044
+
+[node name="kannonSceneTmp" type="Node2D" unique_id=1979517593]
+
+[node name="konnon" type="Node2D" parent="." unique_id=400659383]
+position = Vector2(610, 319)
+script = ExtResource("1_dpmaw")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="konnon" unique_id=398548335]
+position = Vector2(-10, -46)
+sprite_frames = SubResource("SpriteFrames_vnjw7")
+
+[node name="kogel" type="RigidBody2D" parent="." unique_id=1048098138]
+position = Vector2(902, 189)
+angular_damp = 50.53
+script = ExtResource("3_c48qe")
+
+[node name="Sprite2D" type="Sprite2D" parent="kogel" unique_id=2108002674]
+z_index = -1
+position = Vector2(4.744385, -7.247406)
+texture = ExtResource("3_as5va")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="kogel" unique_id=111931754]
+position = Vector2(3.7443848, 0.7526245)
+shape = SubResource("CircleShape2D_vnjw7")

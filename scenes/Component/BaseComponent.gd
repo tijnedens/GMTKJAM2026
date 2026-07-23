@@ -15,7 +15,7 @@ extends CharacterBody2D
 var input_connection : ComponentConnection
 var output_connection : ComponentConnection
 
-var drag_speed : float = 25.0
+var drag_speed : float = 100.0
 var is_hovered : bool = false
 var is_dragging : bool = false
 var is_left_mouse_down : bool = false

@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://br5r705ueiobe"]
+
+[ext_resource type="Script" uid="uid://dlljkwk3fa321" path="res://scenes/components/kanon/kanon.gd" id="1_74enf"]
+[ext_resource type="Texture2D" uid="uid://jybv4k54d4dq" path="res://assets/images/components/kanon_tmp/kanon_barrel.png" id="2_ve2xe"]
+[ext_resource type="Texture2D" uid="uid://rmh3o8gmdhnw" path="res://assets/images/components/kanon_tmp/kanon_platform.png" id="3_4d6uc"]
+[ext_resource type="Script" uid="uid://bo8yr1snrxbgv" path="res://scenes/components/kanon/gnogel.gd" id="4_jgw0m"]
+[ext_resource type="Texture2D" uid="uid://bl8lqdoipxaiv" path="res://assets/images/gnomes/gnoom_projectile/gnome_projectile_1.png" id="4_ky2kf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4d6uc"]
+size = Vector2(215, 296)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ky2kf"]
+size = Vector2(106, 215)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vnjw7"]
+radius = 38.184586
+
+[node name="KanonComponent" type="CharacterBody2D" unique_id=29377478]
+input_pickable = true
+motion_mode = 1
+platform_on_leave = 2
+script = ExtResource("1_74enf")
+
+[node name="HoverShape" type="CollisionShape2D" parent="." unique_id=1884063889]
+position = Vector2(-2.5, 10)
+shape = SubResource("RectangleShape2D_4d6uc")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=1717350298]
+position = Vector2(3, -11.5)
+shape = SubResource("RectangleShape2D_ky2kf")
+
+[node name="Kanon_pivot" type="Node2D" parent="." unique_id=191154259]
+position = Vector2(6.64, 64.635)
+
+[node name="Kanon_sprite" type="Sprite2D" parent="Kanon_pivot" unique_id=1785131668]
+position = Vector2(-4.32, -63.685)
+texture = ExtResource("2_ve2xe")
+
+[node name="Kanon_base" type="Sprite2D" parent="." unique_id=1374433955]
+texture = ExtResource("3_4d6uc")
+
+[node name="Gnogel" type="RigidBody2D" parent="." unique_id=1598236087]
+position = Vector2(0, -125.39)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_jgw0m")
+
+[node name="Sprite2D" type="Sprite2D" parent="Gnogel" unique_id=1168300609]
+z_index = -1
+position = Vector2(0, -15.62)
+texture = ExtResource("4_ky2kf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gnogel" unique_id=1087954929]
+shape = SubResource("CircleShape2D_vnjw7")
+
+[connection signal="mouse_shape_entered" from="." to="." method="_on_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="." to="." method="_on_mouse_shape_exited"]
