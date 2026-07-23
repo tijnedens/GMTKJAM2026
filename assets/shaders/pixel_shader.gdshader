@@ -1,6 +1,6 @@
 shader_type canvas_item;
 
-uniform float pixel_size : hint_range(1.0, 16.0) = 4.0;
+uniform float pixel_size : hint_range(1.0, 16.0) = 1.0;
 uniform int mix_sampling : hint_range(0, 2) = 0;
 
 varying float theta;

@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://1fvhkvk1e76g"]
+
+[ext_resource type="Script" uid="uid://cpydhdcwdr1w2" path="res://scenes/components/gears/GearVisualizer.gd" id="1_6ajdx"]
+[ext_resource type="Texture2D" uid="uid://bsfnb3q78tnb8" path="res://assets/images/components/gear_small/tandwiel_small_1.png" id="2_d1ii3"]
+[ext_resource type="Shader" uid="uid://c6joaulresxfj" path="res://assets/shaders/pixel_shader.gdshader" id="2_d81vc"]
+[ext_resource type="AnimationLibrary" uid="uid://c7fq7ajbw768l" path="res://scenes/components/gears/animations/GearAnimationLibrary.res" id="2_o5rci"]
+[ext_resource type="Texture2D" uid="uid://cxw0kewigdsbk" path="res://assets/images/components/gear_small/tandwiel_small_2.png" id="3_d81vc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5d7qf"]
+shader = ExtResource("2_d81vc")
+shader_parameter/pixel_size = 1.0
+shader_parameter/mix_sampling = 0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o5rci"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_d1ii3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_d81vc")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="SmallGearVisualizer" type="Node2D" unique_id=210882234]
+script = ExtResource("1_6ajdx")
+rotation_speed_multiplier = 1.5
+metadata/_custom_type_script = "uid://cpydhdcwdr1w2"
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=319895081]
+texture_filter = 1
+material = SubResource("ShaderMaterial_5d7qf")
+sprite_frames = SubResource("SpriteFrames_o5rci")
+autoplay = "default"
+frame_progress = 0.008090679
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=168443024]
+libraries/GearAnimationLibrary = ExtResource("2_o5rci")
