@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://jcg584idjljk"]
+
+[ext_resource type="Script" uid="uid://41elba81uopc" path="res://level_environment.gd" id="1_1lgsu"]
+[ext_resource type="Texture2D" uid="uid://0tpeww0mbe17" path="res://assets/images/ui/start_button.png" id="2_8bsp0"]
+
+[node name="LevelEnvironment" type="Node2D" unique_id=1095694394]
+script = ExtResource("1_1lgsu")
+
+[node name="Label" type="Label" parent="." unique_id=454304588]
+offset_right = 1154.0
+offset_bottom = 39.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="startButton" type="Button" parent="." unique_id=1178931379]
+offset_left = 1.0
+offset_top = 568.0
+offset_right = 137.0
+offset_bottom = 648.0
+icon = ExtResource("2_8bsp0")
