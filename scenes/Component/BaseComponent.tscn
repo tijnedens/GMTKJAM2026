@@ -5,7 +5,16 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_it5h2"]
 radius = 33.01515
 
-[node name="BaseComponent" type="Area2D" unique_id=1752498274 node_paths=PackedStringArray("input_anchor", "output_anchor")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_r8k8w"]
+radius = 33.01515
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_it5h2"]
+size = Vector2(20, 57)
+
+[node name="BaseComponent" type="CharacterBody2D" unique_id=29377478 node_paths=PackedStringArray("input_anchor", "output_anchor")]
+input_pickable = true
+motion_mode = 1
+platform_on_leave = 2
 script = ExtResource("1_w3u3r")
 input_anchor = NodePath("InputAnchor")
 output_anchor = NodePath("OutputAnchor")
@@ -14,11 +23,20 @@ output_direction = 1
 [node name="HoverShape" type="CollisionShape2D" parent="." unique_id=1884063889]
 shape = SubResource("CircleShape2D_it5h2")
 
-[node name="InputAnchor" type="Node2D" parent="." unique_id=1002725311]
-position = Vector2(-60, 0)
+[node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=1717350298]
+shape = SubResource("CircleShape2D_r8k8w")
 
-[node name="OutputAnchor" type="Node2D" parent="." unique_id=411187484]
-position = Vector2(60, 0)
+[node name="InputAnchor" type="Area2D" parent="." unique_id=20023819]
+position = Vector2(-25, 0)
+
+[node name="InputShape" type="CollisionShape2D" parent="InputAnchor" unique_id=1260633521]
+shape = SubResource("RectangleShape2D_it5h2")
+
+[node name="OutputAnchor" type="Area2D" parent="." unique_id=2124519322]
+position = Vector2(25, 0)
+
+[node name="InputShape" type="CollisionShape2D" parent="OutputAnchor" unique_id=596514907]
+shape = SubResource("RectangleShape2D_it5h2")
 
 [connection signal="mouse_shape_entered" from="." to="." method="_on_mouse_shape_entered"]
 [connection signal="mouse_shape_exited" from="." to="." method="_on_mouse_shape_exited"]

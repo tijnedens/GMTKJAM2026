@@ -27,7 +27,7 @@ animations = [{
 
 [node name="BigGearVisualizer" type="Node2D" unique_id=1371732645 node_paths=PackedStringArray("anim_player")]
 script = ExtResource("1_7aivy")
-anim_player = NodePath("")
+anim_player = NodePath("AnimationPlayer")
 rotation_speed_multiplier = 0.666
 metadata/_custom_type_script = "uid://cpydhdcwdr1w2"
 

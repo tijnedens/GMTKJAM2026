@@ -6,7 +6,7 @@ var to_component : BaseComponent
 
 var connection_type : GlobalEnum.ComponentIOType
 
-func _init(from : BaseComponent, to : BaseComponent, connection_type : GlobalEnum.ComponentIOType):
+func _init(from : BaseComponent, to : BaseComponent, type : GlobalEnum.ComponentIOType):
 	self.from_component = from
 	self.to_component = to
-	self.connection_type = connection_type
+	self.connection_type = type
