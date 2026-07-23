@@ -3,12 +3,22 @@
 [ext_resource type="Script" uid="uid://dw5mhc2smgffb" path="res://scenes/Component/BaseComponent.gd" id="1_w3u3r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_it5h2"]
+radius = 33.01515
 
-[node name="BaseComponent" type="Area2D" unique_id=1752498274]
+[node name="BaseComponent" type="Area2D" unique_id=1752498274 node_paths=PackedStringArray("input_anchor", "output_anchor")]
 script = ExtResource("1_w3u3r")
+input_anchor = NodePath("InputAnchor")
+output_anchor = NodePath("OutputAnchor")
+output_direction = 1
 
 [node name="HoverShape" type="CollisionShape2D" parent="." unique_id=1884063889]
 shape = SubResource("CircleShape2D_it5h2")
+
+[node name="InputAnchor" type="Node2D" parent="." unique_id=1002725311]
+position = Vector2(-60, 0)
+
+[node name="OutputAnchor" type="Node2D" parent="." unique_id=411187484]
+position = Vector2(60, 0)
 
 [connection signal="mouse_shape_entered" from="." to="." method="_on_mouse_shape_entered"]
 [connection signal="mouse_shape_exited" from="." to="." method="_on_mouse_shape_exited"]
