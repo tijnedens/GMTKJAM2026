@@ -2,7 +2,37 @@
 
 [ext_resource type="StyleBox" uid="uid://br1yyhga4r20" path="res://assets/images/ui/theme/theme_components/style_box_texture.tres" id="1_4h1es"]
 [ext_resource type="FontFile" uid="uid://csfbtlgnblx46" path="res://assets/images/ui/theme/theme_components/Comic-Sans.ttf" id="1_u1i8t"]
-[ext_resource type="Texture2D" uid="uid://c06qm7kstuhig" path="res://assets/images/gnomes/gnoom_2/gnoom_2a.png" id="3_cp4gh"]
+[ext_resource type="Texture2D" uid="uid://b31njc8n87nf7" path="res://assets/images/ui/theme/theme_components/balletje.png" id="3_cp4gh"]
+[ext_resource type="Texture2D" uid="uid://bc528jcia0o48" path="res://assets/images/ui/theme/theme_square.png" id="4_krt8j"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jnoe4"]
+texture = ExtResource("4_krt8j")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 9.0
+texture_margin_bottom = 9.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+modulate_color = Color(0, 0.7023334, 0.98, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mw5sc"]
+texture = ExtResource("4_krt8j")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 9.0
+texture_margin_bottom = 9.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+modulate_color = Color(0, 0.7023334, 0.98, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_krt8j"]
+texture = ExtResource("4_krt8j")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 9.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 
 [resource]
 Button/colors/font_color = Color(0, 0, 0, 1)
@@ -17,6 +47,9 @@ Button/styles/normal = ExtResource("1_4h1es")
 Button/styles/pressed = ExtResource("1_4h1es")
 HSlider/icons/grabber = ExtResource("3_cp4gh")
 HSlider/icons/grabber_highlight = ExtResource("3_cp4gh")
+HSlider/styles/grabber_area = SubResource("StyleBoxTexture_jnoe4")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_mw5sc")
+HSlider/styles/slider = SubResource("StyleBoxTexture_krt8j")
 Label/font_sizes/font_size = 32
 Label/fonts/font = ExtResource("1_u1i8t")
 Panel/styles/panel = ExtResource("1_4h1es")
