@@ -75,7 +75,6 @@ func start() -> void:
 
 # Implementeren in child classes
 func reset() -> void:
-	print("we reset ", name, " to ", default_disable_drag_drop)
 	disable_drag_drop = default_disable_drag_drop
 
 # Implementeren in child classes
