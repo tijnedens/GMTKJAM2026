@@ -140,7 +140,7 @@ func _input(event):
 			current_stack_base_contender = null
 	
 	if event is InputEventMouseButton:
-		if stacked_gear and event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
+		if is_hovered and stacked_gear and event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
 			stacked_gear.set_stacked(false)
 	
 	if !base_gear:
