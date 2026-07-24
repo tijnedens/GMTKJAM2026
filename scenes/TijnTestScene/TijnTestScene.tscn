@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://d0x2uwwtw31co" path="res://assets/images/components/gear_hammer/tandwiel_hamer_1.png" id="4_cwx4q"]
 [ext_resource type="PackedScene" uid="uid://dbn6ymfsdljgu" path="res://scenes/components/gears/gear_medium/MediumGearComponent.tscn" id="5_4a4i2"]
 [ext_resource type="PackedScene" uid="uid://bjknbkgpoppmi" path="res://scenes/components/gears/gear_small/SmallGearComponent.tscn" id="6_qs7aa"]
+[ext_resource type="PackedScene" uid="uid://br5r705ueiobe" path="res://scenes/components/kanon/kanon.tscn" id="6_upqaj"]
 
 [node name="TijnTestScene" type="Node2D" unique_id=629146162]
 script = ExtResource("1_0u3jm")
@@ -32,3 +33,6 @@ position = Vector2(63, 185)
 
 [node name="SmallGearComponent2" parent="." unique_id=1776210097 instance=ExtResource("6_qs7aa")]
 position = Vector2(335, 259)
+
+[node name="KanonComponent" parent="." unique_id=29377478 instance=ExtResource("6_upqaj")]
+position = Vector2(922, 224)

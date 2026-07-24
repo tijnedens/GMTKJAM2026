@@ -11,6 +11,7 @@ extends CharacterBody2D
 
 @export var output_direction : GlobalEnum.ComponentIODirection
 @export var input_direction : GlobalEnum.ComponentIODirection
+@export var no_collision : bool
 
 var input_connection : ComponentConnection
 var output_connection : ComponentConnection
@@ -21,6 +22,12 @@ var is_dragging : bool = false
 var is_left_mouse_down : bool = false
 var mouse_relative : Vector2 = Vector2.ZERO
 var pin_delta : Vector2 = Vector2.ZERO
+
+func _ready():
+	
+	if no_collision:
+		$CollisionShape.disabled = true
+
 
 func _process(_delta):
 	# DEBUG
