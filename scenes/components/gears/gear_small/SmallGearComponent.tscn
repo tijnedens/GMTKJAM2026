@@ -13,6 +13,7 @@ radius = 21.095022
 radius = 37.01351
 
 [node name="SmallGearComponent" type="CharacterBody2D" unique_id=721174909 groups=["Gear"]]
+z_index = 3
 input_pickable = true
 motion_mode = 1
 platform_on_leave = 2
@@ -25,7 +26,9 @@ input_direction = 4
 
 [node name="GearVisualizer" parent="." unique_id=210882234 instance=ExtResource("2_qays5")]
 
-[node name="HoverShape" type="CollisionShape2D" parent="." unique_id=1884063889]
+[node name="HoverArea" type="Area2D" parent="." unique_id=2061384315]
+
+[node name="HoverShape" type="CollisionShape2D" parent="HoverArea" unique_id=1884063889]
 shape = SubResource("CircleShape2D_it5h2")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=1396307320]
@@ -39,7 +42,7 @@ input_pickable = false
 [node name="ConnectionShape" type="CollisionShape2D" parent="ConnectionArea" unique_id=948050527]
 shape = SubResource("CircleShape2D_r8k8w")
 
-[connection signal="mouse_shape_entered" from="." to="." method="_on_mouse_shape_entered"]
-[connection signal="mouse_shape_exited" from="." to="." method="_on_mouse_shape_exited"]
+[connection signal="mouse_entered" from="HoverArea" to="." method="_on_mouse_shape_entered"]
+[connection signal="mouse_exited" from="HoverArea" to="." method="_on_mouse_shape_exited"]
 [connection signal="area_shape_entered" from="ConnectionArea" to="." method="_on_connection_area_area_shape_entered"]
 [connection signal="area_shape_exited" from="ConnectionArea" to="." method="_on_connection_area_area_shape_exited"]

@@ -2,10 +2,15 @@
 
 [ext_resource type="Script" uid="uid://dp5hlhhq6c40e" path="res://scenes/TijnTestScene/tijn_test_scene.gd" id="1_0u3jm"]
 [ext_resource type="PackedScene" uid="uid://cfkc3vjob3gm0" path="res://scenes/components/gears/gear_big/BigGearComponent.tscn" id="2_8t02k"]
+[ext_resource type="Shader" uid="uid://c6joaulresxfj" path="res://assets/shaders/pixel_shader.gdshader" id="3_qs7aa"]
 [ext_resource type="Texture2D" uid="uid://d0x2uwwtw31co" path="res://assets/images/components/gear_hammer/tandwiel_hamer_1.png" id="4_cwx4q"]
 [ext_resource type="PackedScene" uid="uid://dbn6ymfsdljgu" path="res://scenes/components/gears/gear_medium/MediumGearComponent.tscn" id="5_4a4i2"]
 [ext_resource type="PackedScene" uid="uid://bjknbkgpoppmi" path="res://scenes/components/gears/gear_small/SmallGearComponent.tscn" id="6_qs7aa"]
 [ext_resource type="PackedScene" uid="uid://br5r705ueiobe" path="res://scenes/components/kanon/kanon.tscn" id="6_upqaj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_upqaj"]
+shader = ExtResource("3_qs7aa")
+shader_parameter/mix_sampling = 0
 
 [node name="TijnTestScene" type="Node2D" unique_id=629146162]
 script = ExtResource("1_0u3jm")
@@ -22,7 +27,8 @@ inventory_item = NodePath("Sprite2D")
 inventory_item_end_angle = 4.71238898038469
 
 [node name="Sprite2D" type="Sprite2D" parent="OtherGear3" unique_id=1461553476]
-position = Vector2(-1, 1)
+material = SubResource("ShaderMaterial_upqaj")
+position = Vector2(2, -71)
 texture = ExtResource("4_cwx4q")
 
 [node name="MediumGearComponent" parent="." unique_id=784319239 instance=ExtResource("5_4a4i2")]

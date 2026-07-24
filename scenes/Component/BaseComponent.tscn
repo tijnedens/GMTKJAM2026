@@ -16,15 +16,13 @@ input_pickable = true
 motion_mode = 1
 platform_on_leave = 2
 script = ExtResource("1_w3u3r")
-output_type = null
-input_type = null
 input_anchor = NodePath("InputAnchor")
 output_anchor = NodePath("OutputAnchor")
 output_direction = 1
-input_direction = null
-no_collision = null
 
-[node name="HoverShape" type="CollisionShape2D" parent="." unique_id=1884063889]
+[node name="HoverArea" type="Area2D" parent="." unique_id=303066835]
+
+[node name="HoverShape" type="CollisionShape2D" parent="HoverArea" unique_id=1884063889]
 shape = SubResource("CircleShape2D_it5h2")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=1717350298]
@@ -42,5 +40,5 @@ position = Vector2(25, 0)
 [node name="InputShape" type="CollisionShape2D" parent="OutputAnchor" unique_id=596514907]
 shape = SubResource("RectangleShape2D_it5h2")
 
-[connection signal="mouse_shape_entered" from="." to="." method="_on_mouse_shape_entered"]
-[connection signal="mouse_shape_exited" from="." to="." method="_on_mouse_shape_exited"]
+[connection signal="mouse_entered" from="HoverArea" to="." method="_on_mouse_shape_entered"]
+[connection signal="mouse_exited" from="HoverArea" to="." method="_on_mouse_shape_exited"]
