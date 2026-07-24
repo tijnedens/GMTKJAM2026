@@ -7,8 +7,18 @@ var shoot_str = 1000
 
 @onready var kanon_pivot: Node2D = $Kanon_pivot
 @onready var gnogel: RigidBody2D = $Gnogel
+@onready var kanon_sprite: AnimatedSprite2D = $Kanon_pivot/Kanon_sprite
+@onready var kanon_boom: AnimatedSprite2D = $Kanon_pivot/kanon_boom
 
-
+func _ready():
+	super()
+	kanon_sprite.connect("animation_finished", _stop_lont)
+	
+func _stop_lont():
+	print("stoplont")
+	kanon_sprite.stop()
+	kanon_boom.play("default")
+	
 func _find_connection(anchor: Node2D, direction: GlobalEnum.ComponentIODirection) -> BaseComponent:
 	return null
 
@@ -24,14 +34,13 @@ func _process(_delta):
 	
 	kanon_pivot.rotation = shoot_angle	
 	shoot_dir = Vector2.UP.rotated(shoot_angle)
+
 	
 	if gnogel.freeze:
-		var kogel_pos = kanon_pivot.global_position +Vector2(-10,0) + shoot_dir*180
+		var kogel_pos = kanon_pivot.global_position +Vector2(10,0) + shoot_dir*160
 		gnogel.global_position = kogel_pos
 		gnogel.rotation = shoot_angle
 
-	if Input.is_action_just_pressed("open_menu"):
-		get_tree().reload_current_scene()
 
 func _on_vlam():
 	var timer = Timer.new()
@@ -41,12 +50,14 @@ func _on_vlam():
 	timer.autostart = true
 	timer.timeout.connect(_on_vlam_timer_timeout)
 	timer.start()
+	kanon_sprite.play("default")
 	
 	
 func _on_vlam_timer_timeout():
 	gnogel.freeze = false
 	gnogel.gravity_scale = 1.0
 	gnogel.apply_impulse(shoot_dir * shoot_str)
+	
 	
 
 
