@@ -21,13 +21,17 @@ static var current_dragged : GearComponent
 static var current_stack_base_contender : GearComponent
 var ghost_gear_sprite : CanvasItem = null
 var stacked_gear : GearComponent = null
+var base_gear : GearComponent = null
 var is_stacked : bool = false
+
+var default_z_index : int
 
 func _ready():
 	super()
 	if inventory_item:
 		inventory_item.reparent($GearVisualizer/Sprite)
 		inventory_item.rotation = inventory_item_start_angle
+	default_z_index = z_index
 		
 
 func _current_anim_rot_to_true_rotation():
@@ -67,10 +71,34 @@ func on_drop() -> void:
 			ghost.queue_free()
 			current_stack_base_contender.ghost_gear_sprite = null
 			self.set_stacked(true, current_stack_base_contender)
+	
+	if stacked_gear && !no_collision:
+		stacked_gear.set_move_collision(true)
 	current_dragged = null
 
 func on_pickup() -> void:
 	current_dragged = self
+	if stacked_gear:
+		stacked_gear.set_move_collision(false)
+
+func _physics_process(_delta):
+	if base_gear:
+		if base_gear.is_dragging:
+			set_move_collision(false)
+		elif !no_collision:
+			set_move_collision(true)
+		return
+	
+	if (is_dragging):
+		var target = (get_global_mouse_position() - global_position - pin_delta)
+		velocity = target.limit_length(drag_speed)
+		set_move_collision(false)
+	else: 
+		velocity = Vector2.ZERO
+		if !no_collision:
+			set_move_collision(true)
+	mouse_relative = Vector2.ZERO
+	move_and_collide(velocity)
 
 func _input(event):
 	if disable_drag_drop || is_stacked:
@@ -90,25 +118,27 @@ func _input(event):
 			ghost_gear_sprite = null
 			current_stack_base_contender = null
 	
-	if event is InputEventMouseButton:
-		if get_parent() is GearComponent and event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
-			set_stacked(false)
-	
 	if !is_stacked:
 		super(event)
 
 func set_stacked(stacked : bool, parent_gear : GearComponent = null ):
-	collision_layer = 4 if stacked else 1
-	collision_mask = 4 if stacked else 1
-	set_move_collision(!stacked)
+	collision_layer = 1 << (8 - 1) if stacked else 1
+	collision_mask = 0 if stacked else 1
+	
 	if stacked:
-		parent_gear.stacked_gear = self
 		global_position = parent_gear.global_position
 		reparent(parent_gear)
+		base_gear = parent_gear
 	else:
-		parent_gear = get_parent()
-		parent_gear.stacked_gear = null
-		reparent(parent_gear.get_parent())
+		parent_gear = base_gear
+		reparent(get_parent().get_parent())
+	
+	parent_gear.stacked_gear = self if stacked else null
+	parent_gear.collision_layer = 1 << (2 - 1) if stacked else 1
+	parent_gear.collision_mask = 1 << (1 - 1) | 1 << (2 - 1) if stacked else 1
+	
+	disable_drag_drop = true
+	set_move_collision(true)
 	current_stack_base_contender = null
 
 func _on_connection_area_area_shape_entered(_area_rid, area, _area_shape_index, _local_shape_index):
@@ -116,13 +146,22 @@ func _on_connection_area_area_shape_entered(_area_rid, area, _area_shape_index, 
 		var gear_component : GearComponent = (area as Area2D).get_parent()
 		if !next_gears.has(gear_component):
 			next_gears.append(gear_component)
-		for g in next_gears:
-			if g.stacked_gear == gear_component:
-				next_gears.erase(g)
+		if is_dragging:
+			if gear_component.base_gear:
+				next_gears.erase(gear_component.base_gear)
+				collision_layer = 1 << (9 - 1)
+				collision_mask = 1 << (9 - 1) | 1 << (8 - 1) | 1
+				z_index = gear_component.z_index
+				gear_component.base_gear.next_gears.erase(self)
 
 
 func _on_connection_area_area_shape_exited(_area_rid, area, _area_shape_index, _local_shape_index):
 	if area is Area2D and area.is_in_group("GearConnectionArea"):
 		var gear_component : GearComponent = (area as Area2D).get_parent()
+		if is_dragging and gear_component.base_gear:
+			next_gears.append(gear_component.base_gear)
+			collision_layer = 1
+			collision_mask = 1 << (2 - 1) | 1
+			z_index = default_z_index
 		next_gears.erase(gear_component)
 		gear_component.next_gears.erase(self)

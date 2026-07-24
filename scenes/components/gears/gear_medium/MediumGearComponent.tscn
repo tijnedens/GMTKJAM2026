@@ -4,16 +4,17 @@
 [ext_resource type="PackedScene" uid="uid://cvy5j7hx1vobk" path="res://scenes/components/gears/gear_medium/medium_gear_visualizer.tscn" id="2_gogt2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_it5h2"]
-radius = 48.373547
+radius = 37.12142
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_04fln"]
-radius = 34.132095
+radius = 38.209946
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r8k8w"]
-radius = 53.338543
+radius = 45.01111
 
 [node name="MediumGearComponent" type="CharacterBody2D" unique_id=721174909 groups=["Gear"]]
 z_index = 2
+collision_mask = 3
 input_pickable = true
 motion_mode = 1
 platform_on_leave = 2
