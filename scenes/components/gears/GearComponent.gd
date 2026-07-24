@@ -62,7 +62,7 @@ func _process(_delta):
 		activation_pulse_stop = true
 	
 	var current_animation_rotation : float = fmod(($GearVisualizer/Sprite.rotation + inventory_item_start_angle),2*PI)
-	if inventory_item && !inventory_pulse_stop && has_passed_rotation_trigger(current_animation_rotation):
+	if inventory_item && !inventory_pulse_stop && is_activated && has_passed_rotation_trigger(current_animation_rotation):
 
 		inventory_item_reached.emit()
 		inventory_pulse_stop = true
@@ -73,11 +73,11 @@ func show_jam():
 	$GearVisualizer.visualize_jam()
 
 func start() -> void:
-	pass
+	super()
 
 func reset() -> void:
+	super()
 	$GearVisualizer.reset()
-	disable_drag_drop = false
 	is_activated = false
 	is_checked = false
 	activation_pulse_stop = false

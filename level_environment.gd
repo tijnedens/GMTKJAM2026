@@ -38,7 +38,6 @@ func reset_timer() -> void:
 func start_timer() -> void:
 	time_passed = 0
 	timer_running = true
-	GearChain.start_chain(first_gear)
 	
 func stop_timer() -> void:
 	timer_running = false
@@ -63,6 +62,8 @@ func stop_timer() -> void:
 func _on_start_button_pressed():
 	if !timer_running:
 		start_timer()
+		GearChain.start_chain(first_gear)
+		ResetManager.start_components()
 
 func _process(delta: float) -> void:
 	first_gear.position = first_gear_pos
