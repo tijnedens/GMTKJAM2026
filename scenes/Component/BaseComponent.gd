@@ -50,6 +50,7 @@ func _input(event):
 			is_left_mouse_down = event.pressed && is_hovered
 			if event.pressed && is_hovered:
 				pin_delta = event.global_position - self.global_position
+				get_viewport().set_input_as_handled()
 			if is_dragging && !event.pressed:
 				on_drop()
 				is_dragging = false
