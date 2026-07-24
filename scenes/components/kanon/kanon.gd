@@ -47,6 +47,7 @@ func _process(_delta):
 
 
 func reset() -> void:
+	super()
 	gnogel.position = gnogel_start_position
 	gnogel.disable()
 	kanon_sprite.stop()
