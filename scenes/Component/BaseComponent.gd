@@ -13,6 +13,7 @@ extends CharacterBody2D
 @export var input_direction : GlobalEnum.ComponentIODirection
 @export var no_collision : bool
 @export var disable_drag_drop : bool 
+var default_disable_drag_drop : bool
 
 var input_connection : ComponentConnection
 var output_connection : ComponentConnection
@@ -27,6 +28,7 @@ var pin_delta : Vector2 = Vector2.ZERO
 func _ready():
 	ResetManager.register_component(self)
 	set_move_collision(!no_collision)
+	default_disable_drag_drop = disable_drag_drop
 
 func _physics_process(_delta):
 	if (is_dragging):
@@ -69,11 +71,11 @@ func try_connect() -> void:
 
 # Implementeren in child classes
 func start() -> void:
-	pass
+	disable_drag_drop = true
 
 # Implementeren in child classes
 func reset() -> void:
-	pass
+	disable_drag_drop = default_disable_drag_drop
 
 # Implementeren in child classes
 func on_drop() -> void:
