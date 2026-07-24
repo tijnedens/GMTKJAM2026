@@ -35,6 +35,8 @@ folder_colors={
 
 GearConnectionArea=""
 Gear=""
+bell_activators=""
+THEBELL=""
 
 [input]
 

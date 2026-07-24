@@ -2,16 +2,31 @@
 
 [ext_resource type="Script" uid="uid://41elba81uopc" path="res://level_environment.gd" id="1_1lgsu"]
 [ext_resource type="Texture2D" uid="uid://0tpeww0mbe17" path="res://assets/images/ui/start_button.png" id="2_8bsp0"]
+[ext_resource type="Texture2D" uid="uid://dno4dpinqfttk" path="res://assets/images/ui/reset_level.png" id="2_kdbxj"]
 [ext_resource type="PackedScene" uid="uid://chp7xur0mmb01" path="res://scenes/shop.tscn" id="3_or4xh"]
+[ext_resource type="PackedScene" uid="uid://dbn6ymfsdljgu" path="res://scenes/components/gears/gear_medium/MediumGearComponent.tscn" id="4_1mrva"]
+[ext_resource type="PackedScene" uid="uid://dxrwvnvrb4wrt" path="res://scenes/components/BigBell/BigBell.tscn" id="6_iu71f"]
+[ext_resource type="PackedScene" uid="uid://br5r705ueiobe" path="res://scenes/components/kanon/kanon.tscn" id="7_jcouq"]
 
-[node name="LevelEnvironment" type="Node2D" unique_id=1095694394]
+[node name="LevelEnvironment" type="Node2D" unique_id=1095694394 node_paths=PackedStringArray("first_gear", "end_bell")]
 script = ExtResource("1_1lgsu")
+first_gear = NodePath("MediumGearComponent")
+end_bell = NodePath("BigBell")
+gnollars = 500
 
 [node name="Label" type="Label" parent="." unique_id=454304588]
 offset_right = 1154.0
 offset_bottom = 39.0
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ResetButton" type="Button" parent="." unique_id=740313125]
+offset_left = 1080.0
+offset_top = 1.0
+offset_right = 1152.0
+offset_bottom = 73.0
+icon = ExtResource("2_kdbxj")
+flat = true
 
 [node name="startButton" type="Button" parent="." unique_id=1178931379]
 offset_left = 1.0
@@ -21,3 +36,18 @@ offset_bottom = 648.0
 icon = ExtResource("2_8bsp0")
 
 [node name="Shop" parent="." unique_id=866003838 instance=ExtResource("3_or4xh")]
+visible = false
+z_index = 10
+
+[node name="MediumGearComponent" parent="." unique_id=721174909 instance=ExtResource("4_1mrva")]
+position = Vector2(262, 318)
+
+[node name="GnollarIndicator" type="Label" parent="." unique_id=934259654]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="BigBell" parent="." unique_id=29377478 instance=ExtResource("6_iu71f")]
+position = Vector2(972, 277)
+
+[node name="KanonComponent" parent="." unique_id=1691060266 instance=ExtResource("7_jcouq")]
+position = Vector2(561, 212)

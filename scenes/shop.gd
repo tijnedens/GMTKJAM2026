@@ -1,25 +1,41 @@
 extends CenterContainer
 
-@onready var button_big_gear: Button = $container/ScrollContainer/MarginContainer/GridContainer/button_big_gear
-@onready var button_mid_gear: Button = $container/ScrollContainer/MarginContainer/GridContainer/button_mid_gear
-@onready var button_small_gear: Button = $container/ScrollContainer/MarginContainer/GridContainer/button_small_gear
+@onready var button_big_gear: Button = $container/ScrollContainer/MarginContainer/GridContainer/ButtonBigGear
+@onready var button_mid_gear: Button = $container/ScrollContainer/MarginContainer/GridContainer/ButtonMidGear
+@onready var button_small_gear: Button = $container/ScrollContainer/MarginContainer/GridContainer/ButtonSmallGear
+
+const BIG_GEAR_COMPONENT = preload("uid://cfkc3vjob3gm0")
+const MEDIUM_GEAR_COMPONENT = preload("uid://dbn6ymfsdljgu")
+const SMALL_GEAR_COMPONENT = preload("uid://bjknbkgpoppmi")
+
 
 func _ready():
+	
 	button_big_gear.pressed.connect(_on_big_gear_buy)
 	button_mid_gear.pressed.connect(_on_mid_gear_buy)
 	button_small_gear.pressed.connect(_on_small_gear_buy)
 
 func _on_big_gear_buy():
-	#TODO instantiate big gear 
-	pass
+	if get_parent().gnollars >= 100:
+		get_parent().gnollars -= 100
+		var inst = BIG_GEAR_COMPONENT.instantiate()
+		inst.position = get_global_mouse_position()
+		get_parent().add_child(inst)
+	
 	
 func _on_mid_gear_buy():
-	#TODO instantiate mid gear
-	pass
+	if get_parent().gnollars >= 100:
+		get_parent().gnollars -= 100
+		var inst = MEDIUM_GEAR_COMPONENT.instantiate()
+		inst.position = get_global_mouse_position()
+		get_parent().add_child(inst)
 	
 func _on_small_gear_buy():
-	#TODO instantiate small gear
-	pass
+	if get_parent().gnollars >= 100:
+		get_parent().gnollars -= 100
+		var inst = SMALL_GEAR_COMPONENT.instantiate()
+		inst.position = get_global_mouse_position()
+		get_parent().add_child(inst)
 
 func _process(delta: float) -> void:
 	#open menu when pressing tab

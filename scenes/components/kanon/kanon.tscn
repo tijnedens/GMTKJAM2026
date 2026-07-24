@@ -42,7 +42,7 @@ texture = ExtResource("2_ve2xe")
 [node name="Kanon_base" type="Sprite2D" parent="." unique_id=1374433955]
 texture = ExtResource("3_4d6uc")
 
-[node name="Gnogel" type="RigidBody2D" parent="." unique_id=1598236087]
+[node name="Gnogel" type="RigidBody2D" parent="." unique_id=1598236087 groups=["bell_activators"]]
 position = Vector2(0, -125.39)
 collision_layer = 2
 collision_mask = 2
