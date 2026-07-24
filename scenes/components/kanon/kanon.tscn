@@ -10,10 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dcf1m2fgcyeur" path="res://assets/images/components/Konnon/burner.png" id="7_1u8be"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4d6uc"]
-size = Vector2(215, 296)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ky2kf"]
-size = Vector2(106, 215)
+size = Vector2(140, 89)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1u8be"]
 atlas = ExtResource("2_rciy6")
@@ -214,8 +211,7 @@ animations = [{
 }]
 
 [node name="KanonComponent" type="CharacterBody2D" unique_id=29377478]
-collision_layer = 4
-collision_mask = 4
+collision_mask = 3
 input_pickable = true
 motion_mode = 1
 platform_on_leave = 2
@@ -224,12 +220,12 @@ script = ExtResource("1_74enf")
 [node name="HoverArea" type="Area2D" parent="." unique_id=233242852]
 
 [node name="HoverShape" type="CollisionShape2D" parent="HoverArea" unique_id=1884063889]
-position = Vector2(-2.5, 10)
+position = Vector2(4, 84.5)
 shape = SubResource("RectangleShape2D_4d6uc")
 
-[node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=1717350298]
-position = Vector2(3, -11.5)
-shape = SubResource("RectangleShape2D_ky2kf")
+[node name="CollisionShape" type="CollisionPolygon2D" parent="." unique_id=982915990]
+position = Vector2(10, 13)
+polygon = PackedVector2Array(68, 83, 26, 28, -29, 23, -58, 61, -65, 121, 9, 116)
 
 [node name="Kanon_pivot" type="Node2D" parent="." unique_id=191154259]
 unique_name_in_owner = true
@@ -255,8 +251,8 @@ texture = ExtResource("3_rciy6")
 [node name="Gnogel" type="RigidBody2D" parent="." unique_id=1598236087 groups=["bell_activators"]]
 unique_name_in_owner = true
 position = Vector2(0, -125.39)
-collision_layer = 2
-collision_mask = 2
+collision_layer = 16
+collision_mask = 401
 script = ExtResource("4_jgw0m")
 
 [node name="Sprite2D" type="Sprite2D" parent="Gnogel" unique_id=1168300609]
@@ -272,6 +268,7 @@ position = Vector2(-112, 128)
 inventory_item = NodePath("vlam_item_pivot")
 inventory_item_start_angle = 2.3736477827122884
 no_collision = true
+disable_drag_drop = true
 
 [node name="vlam_item_pivot" type="Node2D" parent="MediumGearComponent" unique_id=2029045885]
 

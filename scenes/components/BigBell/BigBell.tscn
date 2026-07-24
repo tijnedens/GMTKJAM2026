@@ -30,8 +30,8 @@ shape = SubResource("CircleShape2D_r8k8w")
 [node name="BigBellVisualizer" parent="." unique_id=1492191923 instance=ExtResource("2_kio7o")]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1787880201 groups=["THEBELL"]]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 16
+collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=354082299]
 position = Vector2(2, 12)
