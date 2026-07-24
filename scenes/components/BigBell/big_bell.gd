@@ -10,3 +10,4 @@ func _process(_delta):
 
 func _on_hit():
 	big_bell_visualizer.visualize_start()
+	get_parent().stop_timer()

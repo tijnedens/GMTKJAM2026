@@ -3,7 +3,8 @@ extends Node2D
 var timer_running: bool = false
 var time_passed: float
 var time_left: float
-var time_target: float = 10
+var time_target: float = 8
+var time_end: float
 
 @onready var label: Label = $Label
 @onready var start_button: Button = $startButton
@@ -12,6 +13,7 @@ var time_target: float = 10
 @export var gnollars: int
 @onready var gnollar_indicator: Label = $GnollarIndicator
 @onready var reset_button: Button = $ResetButton
+const STARS = preload("uid://dcfbync3s3iuw")
 
 var first_gear_pos
 var bell_pos
@@ -31,6 +33,26 @@ func start_timer() -> void:
 	time_passed = 0
 	timer_running = true
 	GearChain.start_chain(first_gear)
+	
+func stop_timer() -> void:
+	timer_running = false
+	time_end = time_passed
+	print("difference in time: " + str(abs(time_end-time_target)))
+	
+	var stars = 0
+	if abs(time_end-time_target) >= 2:
+		stars = 0
+	elif abs(time_end-time_target) >= 1:
+		stars = 1
+	elif abs(time_end-time_target) >= 0.5:
+		stars = 2
+	else:
+		stars = 3
+		
+	var star_inst = STARS.instantiate()
+	star_inst.stars = stars
+	star_inst.position = get_viewport_rect().size/2
+	add_child(star_inst)
 
 func _on_start_button_pressed():
 	if !timer_running:

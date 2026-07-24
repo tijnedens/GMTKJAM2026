@@ -50,4 +50,7 @@ offset_bottom = 23.0
 position = Vector2(972, 277)
 
 [node name="KanonComponent" parent="." unique_id=1691060266 instance=ExtResource("7_jcouq")]
-position = Vector2(561, 212)
+position = Vector2(576, 262)
+
+[connection signal="mouse_shape_entered" from="KanonComponent" to="KanonComponent" method="_on_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="KanonComponent" to="KanonComponent" method="_on_mouse_shape_exited"]
