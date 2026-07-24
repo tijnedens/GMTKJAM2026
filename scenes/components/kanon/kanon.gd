@@ -19,8 +19,8 @@ func _process(_delta):
 	else:
 		$HoverShape.debug_color = Color.RED
 		
-	if Input.is_action_just_pressed("ui_accept"):
-		_on_vlam()
+	#if Input.is_action_just_pressed("ui_accept"):
+		#_on_vlam()
 
 	if is_hovered and Input.is_action_just_pressed("right_click"):
 		if Input.is_action_pressed("shift"):
@@ -54,3 +54,9 @@ func _on_vlam_timer_timeout():
 	gnogel.gravity_scale = 1.0
 	gnogel.apply_impulse(shoot_dir * shoot_str)
 	
+
+
+
+func _on_medium_gear_component_inventory_item_reached() -> void:
+	_on_vlam()
+	print("vlam aan")

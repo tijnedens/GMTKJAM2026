@@ -5,6 +5,7 @@ extends BaseComponent
 @export var inventory_item : Node
 ## Met de klok mee
 @export_range(0, 360, 1.0, "radians_as_degrees")  var inventory_item_end_angle : float
+@export_range(0, 360, 1.0, "radians_as_degrees")  var inventory_item_start_angle : float
 
 signal inventory_item_reached
 
@@ -17,8 +18,14 @@ var activation_pulse_stop : bool = false
 var inventory_pulse_stop : bool = false
 
 func _ready():
+	super()
 	if inventory_item:
 		inventory_item.reparent($GearVisualizer/Sprite)
+		inventory_item.rotation = inventory_item_start_angle
+		
+
+func _current_anim_rot_to_true_rotation():
+	pass
 
 func _process(_delta):
 	if next_gears.is_empty():
@@ -30,7 +37,8 @@ func _process(_delta):
 		$GearVisualizer.visualize_start(20 * rotation_speed)
 		activation_pulse_stop = true
 	
-	var current_animation_rotation : float = $GearVisualizer/Sprite.rotation
+	var current_animation_rotation : float = fmod(($GearVisualizer/Sprite.rotation + inventory_item_start_angle),2*PI)
+
 	if inventory_item && !inventory_pulse_stop && (roundf(current_animation_rotation * 10) == roundf(inventory_item_end_angle * 10)):
 		inventory_item_reached.emit()
 		inventory_pulse_stop = true
