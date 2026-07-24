@@ -25,6 +25,7 @@ var base_gear : GearComponent = null
 var is_stacked : bool = false
 
 var default_z_index : int
+var prev_frame_rot : float = inventory_item_start_angle
 
 func _ready():
 	super()
@@ -34,8 +35,19 @@ func _ready():
 	default_z_index = z_index
 		
 
-func _current_anim_rot_to_true_rotation():
-	pass
+func has_passed_rotation_trigger(curr_rot):
+	if rotation_speed > 0:
+		if curr_rot > inventory_item_end_angle and prev_frame_rot < inventory_item_end_angle:
+			return true
+		if prev_frame_rot < inventory_item_end_angle and curr_rot < prev_frame_rot: #hass passed 0 point
+			return true
+	if rotation_speed < 0:
+		if curr_rot < inventory_item_end_angle  and prev_frame_rot > inventory_item_end_angle:
+			return true
+		if prev_frame_rot > inventory_item_end_angle and curr_rot > prev_frame_rot: #hass passed 0 point
+			return true
+	return false
+	
 
 func _process(_delta):
 	if next_gears.is_empty():
@@ -49,9 +61,12 @@ func _process(_delta):
 	
 	var current_animation_rotation : float = fmod(($GearVisualizer/Sprite.rotation + inventory_item_start_angle),2*PI)
 
-	if inventory_item && !inventory_pulse_stop && (roundf(current_animation_rotation * 10) == roundf(inventory_item_end_angle * 10)):
+	if inventory_item && !inventory_pulse_stop && has_passed_rotation_trigger(current_animation_rotation):
+
 		inventory_item_reached.emit()
 		inventory_pulse_stop = true
+		
+	prev_frame_rot = current_animation_rotation
 
 func show_jam():
 	$GearVisualizer.visualize_jam()
