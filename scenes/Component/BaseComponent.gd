@@ -58,9 +58,10 @@ func _input(event):
 	if event is InputEventMouseMotion:
 		if is_left_mouse_down && (is_hovered || is_dragging):
 			mouse_relative = event.relative
+			if !is_dragging:
+				on_pickup()
 			is_dragging = true
 			try_connect()
-			get_viewport().set_input_as_handled()
 
 func try_connect() -> void:
 	ComponentConnector.find_connection(self)

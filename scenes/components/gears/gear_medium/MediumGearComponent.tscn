@@ -13,6 +13,7 @@ radius = 34.132095
 radius = 53.338543
 
 [node name="MediumGearComponent" type="CharacterBody2D" unique_id=721174909 groups=["Gear"]]
+z_index = 2
 input_pickable = true
 motion_mode = 1
 platform_on_leave = 2
