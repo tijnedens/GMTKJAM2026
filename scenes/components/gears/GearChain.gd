@@ -15,8 +15,7 @@ static var gear_ratios = {
 
 static func check_chain(gear : GearComponent) -> bool:
 	gear.is_checked = true
-	if gear.next_gears.is_empty():
-		return true
+	print("check gear: ", gear.name)
 	var is_legal = true
 	for g in gear.next_gears:
 		# Case: g is stacked on top of or under gear
@@ -29,11 +28,13 @@ static func check_chain(gear : GearComponent) -> bool:
 		elif gear.is_activated && g.is_activated:
 			if gear.rotation_speed * g.rotation_speed > 0:
 				is_legal = false
+				gear.is_activated = false
 				gear.show_jam()
 				break
 		if !g.is_checked:
 			if !check_chain(g):
 				gear.show_jam()
+				gear.is_activated = false
 				is_legal = false
 				break
 	return is_legal
@@ -41,7 +42,6 @@ static func check_chain(gear : GearComponent) -> bool:
 static func start_chain(gear : GearComponent):
 	gear.is_activated = true
 	var is_legal = check_chain(gear)
-	if !is_legal:
-		for g in gear.get_tree().get_nodes_in_group("Gear"):
-			g.is_activated = false
-			g.is_checked = false
+	for g in gear.get_tree().get_nodes_in_group("Gear"):
+		g.disable_drag_drop = true
+		g.is_checked = false
