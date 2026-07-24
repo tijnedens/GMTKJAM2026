@@ -34,19 +34,20 @@ func _ready():
 	default_z_index = z_index
 		
 
-func has_passed_rotation_trigger(curr_rot):
-	if rotation_speed > 0:
-		if curr_rot > inventory_item_end_angle and prev_frame_rot < inventory_item_end_angle:
-			return true
-		if prev_frame_rot < inventory_item_end_angle and curr_rot < prev_frame_rot: #hass passed 0 point
-			return true
-	if rotation_speed < 0:
-		if curr_rot < inventory_item_end_angle  and prev_frame_rot > inventory_item_end_angle:
-			return true
-		if prev_frame_rot > inventory_item_end_angle and curr_rot > prev_frame_rot: #hass passed 0 point
-			return true
-	return false
+func has_passed_rotation_trigger(current_angle: float) -> bool:
+	var travelled: float
+	var target: float
 	
+	if rotation_speed > 0:
+		# Clockwise
+		travelled = fposmod(current_angle - inventory_item_start_angle, TAU)
+		target = fposmod(inventory_item_end_angle- inventory_item_start_angle, TAU)
+	else:
+		# Counter-clockwise
+		travelled = fposmod(inventory_item_start_angle - current_angle, TAU)
+		target = fposmod(inventory_item_start_angle - inventory_item_end_angle, TAU)
+	
+	return travelled >= target
 
 func _process(_delta):
 	if next_gears.is_empty():
@@ -59,7 +60,6 @@ func _process(_delta):
 		activation_pulse_stop = true
 	
 	var current_animation_rotation : float = fmod(($GearVisualizer/Sprite.rotation + inventory_item_start_angle),2*PI)
-
 	if inventory_item && !inventory_pulse_stop && has_passed_rotation_trigger(current_animation_rotation):
 
 		inventory_item_reached.emit()
