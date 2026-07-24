@@ -16,14 +16,13 @@ static var gear_ratios = {
 static func check_chain(gear : GearComponent) -> bool:
 	gear.is_checked = true
 	if gear.next_gears.is_empty():
-		gear.is_activated = false
+		return true
 	var is_legal = true
 	for g in gear.next_gears:
-		if g == gear.stacked_gear:
+		# Case: g is stacked on top of or under gear
+		if g == gear.stacked_gear or g == gear.base_gear:
 			g.rotation_speed = gear.rotation_speed
 			g.is_activated = true
-			is_legal = true
-			continue
 		elif gear.is_activated && !g.is_activated:
 			g.is_activated = true
 			g.rotation_speed = -gear.rotation_speed * gear_ratios[gear.gear_size + "to" + g.gear_size]

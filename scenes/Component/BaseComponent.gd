@@ -27,15 +27,15 @@ var pin_delta : Vector2 = Vector2.ZERO
 func _ready():
 	set_move_collision(!no_collision)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if (is_dragging):
 		var target = (get_global_mouse_position() - global_position - pin_delta)
 		velocity = target.limit_length(drag_speed)
-		$CollisionShape.disabled = true
+		set_move_collision(false)
 	else: 
 		velocity = Vector2.ZERO
 		if !no_collision:
-			$CollisionShape.disabled = false
+			set_move_collision(true)
 	mouse_relative = Vector2.ZERO
 	move_and_collide(velocity)
 
