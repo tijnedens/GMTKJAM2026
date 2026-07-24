@@ -1,4 +1,4 @@
-class_name kanonComponent
+#class_name kanonComponent
 extends BaseComponent
 
 var shoot_angle = 0

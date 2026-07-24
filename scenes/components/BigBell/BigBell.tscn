@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dxrwvnvrb4wrt"]
+
+[ext_resource type="Script" uid="uid://b03dj0bt55met" path="res://scenes/components/BigBell/big_bell.gd" id="1_xums4"]
+[ext_resource type="PackedScene" uid="uid://bpoveoh41xnhm" path="res://scenes/components/big_bell_vis/big_bell_visualizer.tscn" id="2_kio7o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_it5h2"]
+radius = 33.01515
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r8k8w"]
+radius = 33.01515
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5ein8"]
+radius = 68.007355
+
+[node name="BigBell" type="CharacterBody2D" unique_id=29377478 groups=["THEBELL"]]
+collision_layer = 2
+collision_mask = 2
+input_pickable = true
+motion_mode = 1
+platform_on_leave = 2
+script = ExtResource("1_xums4")
+
+[node name="HoverShape" type="CollisionShape2D" parent="." unique_id=1884063889]
+shape = SubResource("CircleShape2D_it5h2")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=1717350298]
+shape = SubResource("CircleShape2D_r8k8w")
+
+[node name="BigBellVisualizer" parent="." unique_id=1492191923 instance=ExtResource("2_kio7o")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1787880201]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=354082299]
+position = Vector2(2, 12)
+shape = SubResource("CircleShape2D_5ein8")
+
+[connection signal="mouse_shape_entered" from="." to="." method="_on_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="." to="." method="_on_mouse_shape_exited"]
