@@ -25,6 +25,7 @@ var mouse_relative : Vector2 = Vector2.ZERO
 var pin_delta : Vector2 = Vector2.ZERO
 
 func _ready():
+	ResetManager.register_component(self)
 	set_move_collision(!no_collision)
 
 func _physics_process(_delta):

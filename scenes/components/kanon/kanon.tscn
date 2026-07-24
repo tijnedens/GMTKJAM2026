@@ -232,14 +232,17 @@ position = Vector2(3, -11.5)
 shape = SubResource("RectangleShape2D_ky2kf")
 
 [node name="Kanon_pivot" type="Node2D" parent="." unique_id=191154259]
+unique_name_in_owner = true
 position = Vector2(6.64, 64.635)
 
 [node name="Kanon_sprite" type="AnimatedSprite2D" parent="Kanon_pivot" unique_id=831331448]
+unique_name_in_owner = true
 position = Vector2(-4.32, -63.685)
 rotation = -0.8115781
 sprite_frames = SubResource("SpriteFrames_5ein8")
 
 [node name="kanon_boom" type="AnimatedSprite2D" parent="Kanon_pivot" unique_id=1913077054]
+unique_name_in_owner = true
 z_index = -1
 position = Vector2(0, -129.75)
 rotation = -0.8115781
@@ -250,6 +253,7 @@ position = Vector2(6.36, 52.865)
 texture = ExtResource("3_rciy6")
 
 [node name="Gnogel" type="RigidBody2D" parent="." unique_id=1598236087 groups=["bell_activators"]]
+unique_name_in_owner = true
 position = Vector2(0, -125.39)
 collision_layer = 2
 collision_mask = 2
@@ -276,6 +280,11 @@ position = Vector2(0, -58.73)
 scale = Vector2(0.095, 0.095)
 sprite_frames = SubResource("SpriteFrames_vnjw7")
 frame_progress = 0.13683502
+
+[node name="VlamTimer" type="Timer" parent="." unique_id=394426629]
+unique_name_in_owner = true
+wait_time = 2.0
+one_shot = true
 
 [connection signal="mouse_entered" from="HoverArea" to="." method="_on_mouse_shape_entered"]
 [connection signal="mouse_exited" from="HoverArea" to="." method="_on_mouse_shape_exited"]

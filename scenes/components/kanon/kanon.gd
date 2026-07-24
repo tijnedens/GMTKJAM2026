@@ -5,14 +5,18 @@ var shoot_angle = 0
 var shoot_dir = Vector2.ZERO
 var shoot_str = 1000
 
-@onready var kanon_pivot: Node2D = $Kanon_pivot
-@onready var gnogel: RigidBody2D = $Gnogel
-@onready var kanon_sprite: AnimatedSprite2D = $Kanon_pivot/Kanon_sprite
-@onready var kanon_boom: AnimatedSprite2D = $Kanon_pivot/kanon_boom
+@onready var kanon_pivot: Node2D = %Kanon_pivot
+@onready var gnogel: GnogelProjectile = %Gnogel
+@onready var kanon_sprite: AnimatedSprite2D = %Kanon_sprite
+@onready var kanon_boom: AnimatedSprite2D = %kanon_boom
+@onready var vlam_timer: Timer = %VlamTimer
+
+@onready var gnogel_start_position: Vector2 = %Gnogel.position
 
 func _ready():
 	super()
 	kanon_sprite.connect("animation_finished", _stop_lont)
+	vlam_timer.timeout.connect(_on_vlam_timer_timeout)
 	
 func _stop_lont():
 	print("stoplont")
@@ -42,24 +46,21 @@ func _process(_delta):
 		gnogel.rotation = shoot_angle
 
 
+func reset() -> void:
+	gnogel.position = gnogel_start_position
+	gnogel.disable()
+	kanon_sprite.stop()
+	kanon_boom.stop()
+	vlam_timer.stop()
+
+
 func _on_vlam():
-	var timer = Timer.new()
-	add_child(timer)
-	timer.one_shot = true
-	timer.wait_time = 2.0
-	timer.autostart = true
-	timer.timeout.connect(_on_vlam_timer_timeout)
-	timer.start()
 	kanon_sprite.play("default")
+	vlam_timer.start()
 	
 	
 func _on_vlam_timer_timeout():
-	gnogel.freeze = false
-	gnogel.gravity_scale = 1.0
-	gnogel.apply_impulse(shoot_dir * shoot_str)
-	
-	
-
+	gnogel.shoot(shoot_dir * shoot_str)
 
 
 func _on_medium_gear_component_inventory_item_reached() -> void:

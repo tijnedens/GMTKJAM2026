@@ -22,12 +22,18 @@ func _ready() -> void:
 	time_left = time_target-time_passed
 	start_button.pressed.connect(_on_start_button_pressed)
 	reset_button.pressed.connect(_on_reset_pressed)
+	ResetManager.register_function(reset_timer)
 	label.text = get_converted_time(time_left)
 	first_gear_pos = first_gear.position
 	bell_pos = end_bell.position
 
 func _on_reset_pressed():
-	get_tree().reload_current_scene()
+	ResetManager.reset_components()
+
+func reset_timer() -> void:
+	time_passed = 0
+	timer_running = false
+	update_timer()
 
 func start_timer() -> void:
 	time_passed = 0
@@ -63,6 +69,9 @@ func _process(delta: float) -> void:
 	end_bell.position = bell_pos
 	gnollar_indicator.text = "Gnollars: " + str(gnollars)
 	if timer_running:
+		update_timer(delta)
+
+func update_timer(delta: float = 0) -> void:
 		time_left = time_target-time_passed
 		time_passed += delta
 		
@@ -71,7 +80,6 @@ func _process(delta: float) -> void:
 		else:
 			label.text = get_converted_time(time_passed-time_target)
 			label.add_theme_color_override("font_color", Color(1.0, 0.0, 0.0, 1.0))
-			
 
 func get_converted_time(time) -> String:
 	var minutes: int = floor(time / 60.0)

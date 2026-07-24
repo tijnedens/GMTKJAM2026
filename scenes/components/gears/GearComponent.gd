@@ -14,7 +14,9 @@ var rotation_speed : float = 1.0
 
 var next_gears : Array[GearComponent]
 var is_activated : bool = false
+## If set to true, the gear ignores future calls to activate it
 var activation_pulse_stop : bool = false
+## If set to true, the gear will not emit inventory_item_reached anymore
 var inventory_pulse_stop : bool = false
 
 static var current_dragged : GearComponent
@@ -75,6 +77,11 @@ func start() -> void:
 
 func reset() -> void:
 	$GearVisualizer.reset()
+	disable_drag_drop = false
+	is_activated = false
+	is_checked = false
+	activation_pulse_stop = false
+	inventory_pulse_stop = false
 
 func on_drop() -> void:
 	#print("dragged: ", current_dragged)

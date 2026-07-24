@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 GlobalEnum="*uid://br70ghs8b2p8u"
 SettingsManager="*uid://ccwl4tq7cy4ml"
 MusicManager="*uid://dlq02ksc0unrs"
+ResetManager="*uid://bwd1ty5fuwvrl"
 
 [display]
 

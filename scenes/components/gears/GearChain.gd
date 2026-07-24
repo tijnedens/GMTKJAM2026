@@ -1,5 +1,4 @@
 class_name GearChain
-extends Node
 
 static var gear_ratios = {
 	"SMALLtoBIG": 0.455,
@@ -15,7 +14,6 @@ static var gear_ratios = {
 
 static func check_chain(gear : GearComponent) -> bool:
 	gear.is_checked = true
-	print("check gear: ", gear.name)
 	var is_legal = true
 	for g in gear.next_gears:
 		# Case: g is stacked on top of or under gear
@@ -37,6 +35,7 @@ static func check_chain(gear : GearComponent) -> bool:
 				gear.is_activated = false
 				is_legal = false
 				break
+	print("check gear: ", gear.name, ", legal: ", is_legal)
 	return is_legal
 
 static func start_chain(gear : GearComponent):
