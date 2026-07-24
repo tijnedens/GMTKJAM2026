@@ -13,12 +13,6 @@ func _find_connection(anchor: Node2D, direction: GlobalEnum.ComponentIODirection
 	return null
 
 func _process(_delta):
-	# DEBUG
-	if output_connection or input_connection:
-		$HoverShape.debug_color = Color.GREEN
-	else:
-		$HoverShape.debug_color = Color.RED
-		
 	#if Input.is_action_just_pressed("ui_accept"):
 		#_on_vlam()
 

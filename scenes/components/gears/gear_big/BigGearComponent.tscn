@@ -26,7 +26,9 @@ input_direction = 4
 
 [node name="GearVisualizer" parent="." unique_id=1371732645 instance=ExtResource("2_40bn8")]
 
-[node name="HoverShape" type="CollisionShape2D" parent="." unique_id=1884063889]
+[node name="HoverArea" type="Area2D" parent="." unique_id=836164175]
+
+[node name="HoverShape" type="CollisionShape2D" parent="HoverArea" unique_id=1884063889]
 shape = SubResource("CircleShape2D_it5h2")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=1396307320]
@@ -40,7 +42,7 @@ input_pickable = false
 [node name="ConnectionShape" type="CollisionShape2D" parent="ConnectionArea" unique_id=948050527]
 shape = SubResource("CircleShape2D_r8k8w")
 
-[connection signal="mouse_shape_entered" from="." to="." method="_on_mouse_shape_entered"]
-[connection signal="mouse_shape_exited" from="." to="." method="_on_mouse_shape_exited"]
+[connection signal="mouse_entered" from="HoverArea" to="." method="_on_mouse_shape_entered"]
+[connection signal="mouse_exited" from="HoverArea" to="." method="_on_mouse_shape_exited"]
 [connection signal="area_shape_entered" from="ConnectionArea" to="." method="_on_connection_area_area_shape_entered"]
 [connection signal="area_shape_exited" from="ConnectionArea" to="." method="_on_connection_area_area_shape_exited"]
