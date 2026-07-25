@@ -34,21 +34,33 @@ func create_background() -> void:
 	t_rect.stretch_mode = TextureRect.STRETCH_TILE
 	t_rect.size = Vector2(9999, 9999)
 	cv_layer.add_child(t_rect)
+	
+	var overlay: TextureRect = TextureRect.new()
+	overlay.texture = load("res://assets/images/ui/theme/ScreenEdgeGradient.tres")
+	overlay.size = Vector2(1600, 900)
+	cv_layer.add_child(overlay)
 
-func fade_to_black() -> void:
-	do_transition(
-		transition_rect.color, Color.BLACK
+
+func fade_to_black(t_time: float = 0.35) -> void:
+	await do_transition(
+		transition_rect.color, Color.BLACK, t_time
 	)
 
-func fade_to_clear() -> void:
-	do_transition(
-		transition_rect.color, TRANSPARENT_BLACK
+func fade_to_clear(t_time: float = 0.35) -> void:
+	await do_transition(
+		transition_rect.color, TRANSPARENT_BLACK, t_time
 	)
 
 func do_transition(
-	start_clr: Color, end_clr: Color, trans_time: float = 0.2
+	start_clr: Color, end_clr: Color, trans_time: float = 0.35
 ) -> void:
 	transition_rect.color = start_clr
-	create_tween().tween_property(
+	await create_tween().tween_property(
 		transition_rect, "color", end_clr, trans_time
-	)
+	).finished
+
+
+func transition_scene(pck: PackedScene) -> void:
+	await fade_to_black()
+	get_tree().change_scene_to_packed(pck)
+	fade_to_clear()
