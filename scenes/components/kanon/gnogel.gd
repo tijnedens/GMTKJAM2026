@@ -19,7 +19,8 @@ func shoot(impulse: Vector2) -> void:
 	apply_impulse(impulse)
 
 func _physics_process(delta: float) -> void:
-	var collision_info = move_and_collide(velocity * delta)
+	var collision_info: KinematicCollision2D = move_and_collide(velocity * delta)
 	if collision_info:
-		if collision_info.get_collider().is_in_group("THEBELL"):
-			collision_info.get_collider().get_parent()._on_hit()
+		var collider: CollisionObject2D = collision_info.get_collider()
+		if collider is ProjectileCatcher:
+			collider.on_hit()
