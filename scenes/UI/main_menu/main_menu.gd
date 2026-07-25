@@ -3,6 +3,12 @@ extends Control
 
 func _ready() -> void:
 	%SettingsMenu.visible = false
+	if randf() < 0.01:
+		%Levels.text = "GNEVELS"
+	if randf() < 0.01:
+		%Settings.text = "GNETTINGS"
+	if randf() < 0.01:
+		%Quit.text = "GNUIT"
 
 
 func _on_levels_pressed() -> void:

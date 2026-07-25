@@ -31,12 +31,14 @@ func create_background() -> void:
 	var t_rect: TextureRect = TextureRect.new()
 	## assets/.../environment/background/wood_tile.png
 	t_rect.texture = load("uid://cjf2tdpqv4wqn")
+	t_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	t_rect.stretch_mode = TextureRect.STRETCH_TILE
 	t_rect.size = Vector2(9999, 9999)
 	cv_layer.add_child(t_rect)
 	
 	var overlay: TextureRect = TextureRect.new()
 	overlay.texture = load("res://assets/images/ui/theme/ScreenEdgeGradient.tres")
+	overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	overlay.size = Vector2(1600, 900)
 	cv_layer.add_child(overlay)
 

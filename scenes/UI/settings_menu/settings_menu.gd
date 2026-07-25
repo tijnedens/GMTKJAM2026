@@ -7,6 +7,8 @@ extends Control
 func _ready() -> void:
 	if hide_on_ready:
 		hide()
+	%SfxVolumeSlider.value = SettingsManager.settings.sfx_volume
+	%MusicVolumeSlider.value = SettingsManager.settings.music_volume
 
 func _on_sfx_volume_slider_value_changed(value: float) -> void:
 	SettingsManager.settings.sfx_volume = value
