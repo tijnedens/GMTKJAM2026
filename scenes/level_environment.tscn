@@ -53,7 +53,7 @@ offset_bottom = 23.0
 position = Vector2(1045, 501)
 
 [node name="KanonComponent" parent="." unique_id=447764332 instance=ExtResource("7_jcouq")]
-position = Vector2(588, 282)
+position = Vector2(498, 291)
 
 [node name="CustomCamera" type="Camera2D" parent="." unique_id=246551887]
 anchor_mode = 0

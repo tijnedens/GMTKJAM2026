@@ -27,13 +27,15 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Baseball" type="RigidBody2D" unique_id=1656956353 groups=["baseball"]]
-mass = 0.1
+[node name="Baseball" type="CharacterBody2D" unique_id=1528140147 groups=["baseball", "bell_activators"]]
 script = ExtResource("1_w4ktf")
+metadata/_custom_type_script = "uid://dw5mhc2smgffb"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1491221974]
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=572003864 groups=["baseball", "bell_activators"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=1491221974]
 shape = SubResource("CircleShape2D_vnjw7")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=917807347]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D" unique_id=917807347]
 sprite_frames = SubResource("SpriteFrames_vnjw7")
 autoplay = "default"
