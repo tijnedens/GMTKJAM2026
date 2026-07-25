@@ -3,12 +3,22 @@ extends BaseComponent
 @onready var timer: Timer = $Timer
 @onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
 @onready var area_2d: Area2D = $Area2D
+var is_activated : bool = false
 
 func _ready():
 	timer.timeout.connect(_on_timer_timeout)
+	ResetManager.register_component(self)
 
 func _on_timer_timeout():
 	sprite_2d.play("default")
+
+func start():
+	timer.start()
+	
+func reset():
+	timer.stop()
+	sprite_2d.stop()
+	sprite_2d.frame = 0
 
 func _physics_process(_delta):
 	if sprite_2d.frame == 3:
@@ -20,6 +30,7 @@ func _physics_process(_delta):
 		print(area_2d.get_overlapping_bodies())
 		for item in area_2d.get_overlapping_bodies():
 			if item.is_in_group("baseball"):
-				if !item.impulse_applied:
-					item.apply_impulse(Vector2(10,-10)*10)
-					item.impulse_applied = true
+				print("het is een bal")
+				if !item.get_parent().impulse_applied:
+					item.apply_impulse(Vector2(10,-10)*100)
+					item.get_parent().impulse_applied = true

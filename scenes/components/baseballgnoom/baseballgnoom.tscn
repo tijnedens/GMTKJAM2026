@@ -81,7 +81,6 @@ shape = SubResource("CircleShape2D_r8k8w")
 sprite_frames = SubResource("SpriteFrames_vnjw7")
 
 [node name="Timer" type="Timer" parent="." unique_id=1999425976]
-autostart = true
 
 [node name="Area2D" type="Area2D" parent="." unique_id=825019255]
 

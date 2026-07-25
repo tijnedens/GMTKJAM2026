@@ -43,7 +43,8 @@ func _physics_process(_delta):
 	move_and_collide(velocity)
 
 func set_move_collision(enabled : bool):
-	$CollisionShape.disabled = !enabled
+	if $CollisionShape:
+		$CollisionShape.disabled = !enabled
 
 func _input(event):
 	if disable_drag_drop:
