@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://chp7xur0mmb01"]
 
 [ext_resource type="Script" uid="uid://c2ud1g4xhy3lu" path="res://scenes/shop.gd" id="1_8r1wq"]
+[ext_resource type="Texture2D" uid="uid://tb3evuerntt8" path="res://assets/images/ui/icons/component_icons3.png" id="2_8r1wq"]
 [ext_resource type="Texture2D" uid="uid://cfndbno1t3cio" path="res://assets/images/ui/temporaryShopMenuItems/button.png" id="2_xfvoa"]
+[ext_resource type="Texture2D" uid="uid://dl8tsh2e6nrjh" path="res://assets/images/ui/icons/component_icons5.png" id="3_ajxib"]
+[ext_resource type="Texture2D" uid="uid://dgctt1p7y10sa" path="res://assets/images/ui/icons/component_icons7.png" id="4_y6sft"]
+[ext_resource type="Texture2D" uid="uid://bohmvwfwlwtxs" path="res://assets/images/ui/icons/component_icons15.png" id="5_m4ofw"]
 
 [node name="Shop" type="CenterContainer" unique_id=866003838]
 offset_right = 1153.0
@@ -37,28 +41,28 @@ layout_mode = 2
 text = "Big
 Cost:
 100"
-icon = ExtResource("2_xfvoa")
+icon = ExtResource("2_8r1wq")
 
 [node name="ButtonMidGear" type="Button" parent="container/ScrollContainer/MarginContainer/GridContainer" unique_id=516563606]
 layout_mode = 2
 text = "Mid
 Cost:
 100"
-icon = ExtResource("2_xfvoa")
+icon = ExtResource("3_ajxib")
 
 [node name="ButtonSmallGear" type="Button" parent="container/ScrollContainer/MarginContainer/GridContainer" unique_id=381193742]
 layout_mode = 2
 text = "smal
 Cost:
 100"
-icon = ExtResource("2_xfvoa")
+icon = ExtResource("4_y6sft")
 
 [node name="ButtonKannon" type="Button" parent="container/ScrollContainer/MarginContainer/GridContainer" unique_id=76640107]
 layout_mode = 2
 text = "kan
 Cost:
 100"
-icon = ExtResource("2_xfvoa")
+icon = ExtResource("5_m4ofw")
 
 [node name="Button8" type="Button" parent="container/ScrollContainer/MarginContainer/GridContainer" unique_id=710721918]
 layout_mode = 2
