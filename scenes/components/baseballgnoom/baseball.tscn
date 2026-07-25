@@ -32,6 +32,8 @@ script = ExtResource("1_w4ktf")
 metadata/_custom_type_script = "uid://dw5mhc2smgffb"
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=572003864 groups=["baseball", "bell_activators"]]
+collision_layer = 16
+collision_mask = 401
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=1491221974]
 shape = SubResource("CircleShape2D_vnjw7")
