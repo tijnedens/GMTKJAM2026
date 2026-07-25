@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dxrwvnvrb4wrt" path="res://scenes/components/BigBell/BigBell.tscn" id="6_iu71f"]
 [ext_resource type="PackedScene" uid="uid://br5r705ueiobe" path="res://scenes/components/kanon/kanon.tscn" id="7_jcouq"]
 [ext_resource type="Script" uid="uid://dvc78o67f1y2f" path="res://scenes/class_nodes/CustomCamera.gd" id="8_48rh5"]
+[ext_resource type="PackedScene" uid="uid://r8e1ywow0l6p" path="res://scenes/components/Zandloper/zandloper.tscn" id="9_2s4e4"]
 
 [node name="LevelEnvironment" type="Node2D" unique_id=1095694394 node_paths=PackedStringArray("first_gear", "end_bell")]
 script = ExtResource("1_1lgsu")
@@ -49,7 +50,7 @@ offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="BigBell" parent="." unique_id=29377478 instance=ExtResource("6_iu71f")]
-position = Vector2(972, 277)
+position = Vector2(1045, 501)
 
 [node name="KanonComponent" parent="." unique_id=447764332 instance=ExtResource("7_jcouq")]
 position = Vector2(588, 282)
@@ -58,3 +59,6 @@ position = Vector2(588, 282)
 anchor_mode = 0
 script = ExtResource("8_48rh5")
 metadata/_custom_type_script = "uid://dvc78o67f1y2f"
+
+[node name="Zandloper" parent="." unique_id=1477182681 instance=ExtResource("9_2s4e4")]
+position = Vector2(810, 98)
