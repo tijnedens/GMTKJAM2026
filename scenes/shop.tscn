@@ -34,25 +34,29 @@ columns = 4
 
 [node name="ButtonBigGear" type="Button" parent="container/ScrollContainer/MarginContainer/GridContainer" unique_id=1645258506]
 layout_mode = 2
-text = "Cost:
+text = "Big
+Cost:
 100"
 icon = ExtResource("2_xfvoa")
 
 [node name="ButtonMidGear" type="Button" parent="container/ScrollContainer/MarginContainer/GridContainer" unique_id=516563606]
 layout_mode = 2
-text = "Cost:
+text = "Mid
+Cost:
 100"
 icon = ExtResource("2_xfvoa")
 
 [node name="ButtonSmallGear" type="Button" parent="container/ScrollContainer/MarginContainer/GridContainer" unique_id=381193742]
 layout_mode = 2
-text = "Cost:
+text = "smal
+Cost:
 100"
 icon = ExtResource("2_xfvoa")
 
-[node name="Button7" type="Button" parent="container/ScrollContainer/MarginContainer/GridContainer" unique_id=76640107]
+[node name="ButtonKannon" type="Button" parent="container/ScrollContainer/MarginContainer/GridContainer" unique_id=76640107]
 layout_mode = 2
-text = "Cost:
+text = "kan
+Cost:
 100"
 icon = ExtResource("2_xfvoa")
 

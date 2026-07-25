@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cvps25sxy06pj"]
+
+[ext_resource type="Texture2D" uid="uid://do8ash2yfw6qr" path="res://assets/images/environment/paltforms/hourglass_support.png" id="1_nrbfj"]
+[ext_resource type="Script" uid="uid://btap0m7d5w2ov" path="res://scenes/Environment/patform_groot.gd" id="1_oerjg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ein8"]
+size = Vector2(358, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oerjg"]
+atlas = ExtResource("1_nrbfj")
+region = Rect2(0, 0, 400, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsaqr"]
+atlas = ExtResource("1_nrbfj")
+region = Rect2(400, 0, 400, 75)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vnjw7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oerjg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qsaqr")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="PatformGroot" type="Node2D" unique_id=1790468290]
+script = ExtResource("1_oerjg")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1598160628]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=433504796]
+position = Vector2(3, 4.5)
+shape = SubResource("RectangleShape2D_5ein8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=586574600]
+sprite_frames = SubResource("SpriteFrames_vnjw7")
