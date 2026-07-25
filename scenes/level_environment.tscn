@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dbn6ymfsdljgu" path="res://scenes/components/gears/gear_medium/MediumGearComponent.tscn" id="4_1mrva"]
 [ext_resource type="PackedScene" uid="uid://dxrwvnvrb4wrt" path="res://scenes/components/BigBell/BigBell.tscn" id="6_iu71f"]
 [ext_resource type="PackedScene" uid="uid://br5r705ueiobe" path="res://scenes/components/kanon/kanon.tscn" id="7_jcouq"]
+[ext_resource type="Script" uid="uid://dvc78o67f1y2f" path="res://scenes/class_nodes/CustomCamera.gd" id="8_48rh5"]
 
 [node name="LevelEnvironment" type="Node2D" unique_id=1095694394 node_paths=PackedStringArray("first_gear", "end_bell")]
 script = ExtResource("1_1lgsu")
@@ -52,3 +53,8 @@ position = Vector2(972, 277)
 
 [node name="KanonComponent" parent="." unique_id=447764332 instance=ExtResource("7_jcouq")]
 position = Vector2(588, 282)
+
+[node name="CustomCamera" type="Camera2D" parent="." unique_id=246551887]
+anchor_mode = 0
+script = ExtResource("8_48rh5")
+metadata/_custom_type_script = "uid://dvc78o67f1y2f"
