@@ -21,6 +21,11 @@ SettingsManager="*uid://ccwl4tq7cy4ml"
 MusicManager="*uid://dlq02ksc0unrs"
 ResetManager="*uid://bwd1ty5fuwvrl"
 
+[display]
+
+window/size/viewport_width=1600
+window/size/viewport_height=900
+
 [file_customization]
 
 folder_colors={
