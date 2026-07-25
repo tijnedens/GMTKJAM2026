@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://dwtxmplcg47ok"]
+
+[ext_resource type="Texture2D" uid="uid://d2ll3irbddxc4" path="res://assets/images/gnomes/wielgnoom/gnoom_hamsterwheel.png" id="1_n1g6v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_it5h2"]
+radius = 33.01515
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r8k8w"]
+radius = 33.01515
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdeck"]
+atlas = ExtResource("1_n1g6v")
+region = Rect2(0, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqwm6"]
+atlas = ExtResource("1_n1g6v")
+region = Rect2(400, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nykcr"]
+atlas = ExtResource("1_n1g6v")
+region = Rect2(800, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qeyf"]
+atlas = ExtResource("1_n1g6v")
+region = Rect2(1200, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hg4gx"]
+atlas = ExtResource("1_n1g6v")
+region = Rect2(1600, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rglw7"]
+atlas = ExtResource("1_n1g6v")
+region = Rect2(2000, 0, 400, 400)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3qn6p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdeck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xqwm6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nykcr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4qeyf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hg4gx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rglw7")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BaseComponent" type="CharacterBody2D" unique_id=29377478]
+collision_mask = 3
+input_pickable = true
+motion_mode = 1
+platform_on_leave = 2
+
+[node name="HoverArea" type="Area2D" parent="." unique_id=303066835]
+
+[node name="HoverShape" type="CollisionShape2D" parent="HoverArea" unique_id=1884063889]
+shape = SubResource("CircleShape2D_it5h2")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=1717350298]
+shape = SubResource("CircleShape2D_r8k8w")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=75120109]
+sprite_frames = SubResource("SpriteFrames_3qn6p")
+
+[connection signal="mouse_entered" from="HoverArea" to="." method="_on_mouse_shape_entered"]
+[connection signal="mouse_exited" from="HoverArea" to="." method="_on_mouse_shape_exited"]

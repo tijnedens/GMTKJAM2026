@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://1w0c5unnqm7c"]
+
+[ext_resource type="Script" uid="uid://dl1bb4p4al1jw" path="res://scenes/components/baseballgnoom/baseball.gd" id="1_w4ktf"]
+[ext_resource type="Texture2D" uid="uid://y06noiqyerrc" path="res://assets/images/gnomes/baseballgnoom/baseball_projectile.png" id="1_y1yld"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vnjw7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4ktf"]
+atlas = ExtResource("1_y1yld")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74586"]
+atlas = ExtResource("1_y1yld")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vnjw7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4ktf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74586")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Baseball" type="RigidBody2D" unique_id=1656956353 groups=["baseball"]]
+mass = 0.1
+script = ExtResource("1_w4ktf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1491221974]
+shape = SubResource("CircleShape2D_vnjw7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=917807347]
+sprite_frames = SubResource("SpriteFrames_vnjw7")
+autoplay = "default"

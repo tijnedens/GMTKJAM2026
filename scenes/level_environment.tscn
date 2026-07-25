@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://chp7xur0mmb01" path="res://scenes/shop.tscn" id="3_or4xh"]
 [ext_resource type="PackedScene" uid="uid://dbn6ymfsdljgu" path="res://scenes/components/gears/gear_medium/MediumGearComponent.tscn" id="4_1mrva"]
 [ext_resource type="PackedScene" uid="uid://dxrwvnvrb4wrt" path="res://scenes/components/BigBell/BigBell.tscn" id="6_iu71f"]
-[ext_resource type="PackedScene" uid="uid://br5r705ueiobe" path="res://scenes/components/kanon/kanon.tscn" id="7_jcouq"]
+[ext_resource type="PackedScene" uid="uid://bwb1j0152lrel" path="res://scenes/Environment/platform_klein.tscn" id="7_48rh5"]
+[ext_resource type="PackedScene" uid="uid://bdqtpr5mcdntf" path="res://scenes/components/baseballgnoom/baseballgnoom.tscn" id="8_2s4e4"]
+[ext_resource type="PackedScene" uid="uid://1w0c5unnqm7c" path="res://scenes/components/baseballgnoom/baseball.tscn" id="9_2s4e4"]
 
 [node name="LevelEnvironment" type="Node2D" unique_id=1095694394 node_paths=PackedStringArray("first_gear", "end_bell")]
 script = ExtResource("1_1lgsu")
@@ -40,7 +42,7 @@ visible = false
 z_index = 10
 
 [node name="MediumGearComponent" parent="." unique_id=721174909 instance=ExtResource("4_1mrva")]
-position = Vector2(262, 318)
+position = Vector2(246, 332)
 disable_drag_drop = true
 
 [node name="GnollarIndicator" type="Label" parent="." unique_id=934259654]
@@ -50,5 +52,15 @@ offset_bottom = 23.0
 [node name="BigBell" parent="." unique_id=29377478 instance=ExtResource("6_iu71f")]
 position = Vector2(972, 277)
 
-[node name="KanonComponent" parent="." unique_id=447764332 instance=ExtResource("7_jcouq")]
-position = Vector2(588, 282)
+[node name="PlatformKlein" parent="." unique_id=1961614126 instance=ExtResource("7_48rh5")]
+position = Vector2(414, 457)
+
+[node name="BaseComponent" parent="." unique_id=573861648 instance=ExtResource("8_2s4e4")]
+position = Vector2(399, 400)
+
+[node name="Baseball" parent="." unique_id=1656956353 instance=ExtResource("9_2s4e4")]
+position = Vector2(328, 57)
+
+[node name="PlatformKlein2" parent="." unique_id=1821872484 instance=ExtResource("7_48rh5")]
+position = Vector2(334.80502, 113)
+rotation = 0.34382987
