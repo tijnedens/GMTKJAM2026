@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bwb1j0152lrel" path="res://scenes/Environment/platform_klein.tscn" id="7_48rh5"]
 [ext_resource type="PackedScene" uid="uid://bdqtpr5mcdntf" path="res://scenes/components/baseballgnoom/baseballgnoom.tscn" id="8_2s4e4"]
 [ext_resource type="PackedScene" uid="uid://1w0c5unnqm7c" path="res://scenes/components/baseballgnoom/baseball.tscn" id="9_2s4e4"]
+[ext_resource type="PackedScene" uid="uid://qs4f1oosmr1y" path="res://scenes/Environment/platform_klein_bounce.tscn" id="10_vfcof"]
 
 [node name="LevelEnvironment" type="Node2D" unique_id=1095694394 node_paths=PackedStringArray("first_gear", "end_bell")]
 script = ExtResource("1_1lgsu")
@@ -64,3 +65,7 @@ position = Vector2(328, 57)
 [node name="PlatformKlein2" parent="." unique_id=1821872484 instance=ExtResource("7_48rh5")]
 position = Vector2(334.80502, 113)
 rotation = 0.34382987
+
+[node name="PlatformKlein3" parent="." unique_id=1846521912 instance=ExtResource("10_vfcof")]
+position = Vector2(789, 348)
+rotation = -0.86044735
