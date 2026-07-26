@@ -1,6 +1,8 @@
 class_name GearComponent
 extends BaseComponent
 
+@export var is_gold: bool = false
+
 @export_enum("BIG", "MEDIUM", "SMALL") var gear_size = "MEDIUM"
 @export var inventory_item : Node
 ## Met de klok mee
@@ -30,6 +32,8 @@ var prev_frame_rot : float = inventory_item_start_angle
 
 func _ready():
 	super()
+	if is_gold:
+		%GearVisualizer.make_gold()
 	if inventory_item:
 		inventory_item.reparent($GearVisualizer/Sprite)
 		inventory_item.rotation = inventory_item_start_angle
