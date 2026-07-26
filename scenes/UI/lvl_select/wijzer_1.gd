@@ -13,7 +13,7 @@ func _process(delta: float) -> void:
 	var target_rot: float = rotation
 	rotation = lerp_angle(true_rot, target_rot, 0.03)
 	
-	wijzer2.rotation = rotation / 12
+	wijzer2.rotation = rotation / 12 + 0.5*PI
 
 	#print(wijzer2.rotation_degrees)
 	if not music_changed and wijzer2.rotation_degrees > 360 * 2:

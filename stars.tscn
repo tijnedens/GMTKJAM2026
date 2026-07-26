@@ -40,6 +40,7 @@ animations = [{
 }]
 
 [node name="Stars" type="Node2D" unique_id=301321938]
+z_index = 300
 script = ExtResource("1_opvdl")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=461554982]

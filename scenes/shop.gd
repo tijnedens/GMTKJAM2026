@@ -32,6 +32,7 @@ const ZANDLOPER = preload("uid://r8e1ywow0l6p")
 @export var button_water_wheel_disabled : bool
 @export var button_zandloper_disabled : bool
 
+var rng = RandomNumberGenerator.new()
 func _ready():
 	
 	button_big_gear.pressed.connect(_on_big_gear_buy)
@@ -76,21 +77,21 @@ func _on_hammer_buy():
 	if get_parent().gnollars >= 100 and !button_gear_hammer_mid_disabled:
 		get_parent().gnollars -= 100
 		var inst = HAMMER_GEAR.instantiate()
-		inst.position = get_global_mouse_position()
+		inst.position = get_global_mouse_position() + Vector2(rng.randf_range(-10.0, 10.0),rng.randf_range(-10.0, 10.0))
 		get_parent().add_child(inst)
 
 func _on_bounce_buy():
 	if get_parent().gnollars >= 100 and !button_bounce_pad_disabled:
 		get_parent().gnollars -= 100
 		var inst = PLATFORM_KLEIN_BOUNCE.instantiate()
-		inst.position = get_global_mouse_position()
+		inst.position = get_global_mouse_position() + Vector2(rng.randf_range(-10.0, 10.0),rng.randf_range(-10.0, 10.0))
 		get_parent().add_child(inst)
 
 func _on_big_gear_buy() :
 	if get_parent().gnollars >= 100 and !button_big_gear_disabled:
 		get_parent().gnollars -= 100
 		var inst = BIG_GEAR_COMPONENT.instantiate()
-		inst.position = get_global_mouse_position()
+		inst.position = get_global_mouse_position() + Vector2(rng.randf_range(-10.0, 10.0),rng.randf_range(-10.0, 10.0))
 		get_parent().add_child(inst)
 	
 	
@@ -98,42 +99,42 @@ func _on_mid_gear_buy() :
 	if get_parent().gnollars >= 100 and !button_mid_gear_disabled:
 		get_parent().gnollars -= 100
 		var inst = MEDIUM_GEAR_COMPONENT.instantiate()
-		inst.position = get_global_mouse_position()
+		inst.position = get_global_mouse_position() + Vector2(rng.randf_range(-10.0, 10.0),rng.randf_range(-10.0, 10.0))
 		get_parent().add_child(inst)
 	
 func _on_small_gear_buy():
 	if get_parent().gnollars >= 100 and !button_small_gear_disabled:
 		get_parent().gnollars -= 100
 		var inst = SMALL_GEAR_COMPONENT.instantiate()
-		inst.position = get_global_mouse_position()
+		inst.position = get_global_mouse_position() + Vector2(rng.randf_range(-10.0, 10.0),rng.randf_range(-10.0, 10.0))
 		get_parent().add_child(inst)
 
 func _on_kanon_gear_buy():
 	if get_parent().gnollars >= 100 and !button_kannon_disabled:
 		get_parent().gnollars -= 100
 		var inst = KANON.instantiate()
-		inst.position = get_global_mouse_position()
+		inst.position = get_global_mouse_position() + Vector2(rng.randf_range(-10.0, 10.0),rng.randf_range(-10.0, 10.0))
 		get_parent().add_child(inst)
 
 func _on_kraan_buy():
 	if get_parent().gnollars >= 100 and !button_kraan_disabled:
 		get_parent().gnollars -= 100
 		var inst = KRAAN_COMPONENT.instantiate()
-		inst.position = get_global_mouse_position()
+		inst.position = get_global_mouse_position() + Vector2(rng.randf_range(-10.0, 10.0),rng.randf_range(-10.0, 10.0))
 		get_parent().add_child(inst)
 
 func _on_water_wheel_buy():
 	if get_parent().gnollars >= 100 and !button_water_wheel_disabled:
 		get_parent().gnollars -= 100
 		var inst = WATER_WHEEL_COMPONENT.instantiate()
-		inst.position = get_global_mouse_position()
+		inst.position = get_global_mouse_position() + Vector2(rng.randf_range(-10.0, 10.0),rng.randf_range(-10.0, 10.0))
 		get_parent().add_child(inst)
 
 func _on_zandloper_buy():
 	if get_parent().gnollars >= 100 and !button_zandloper_disabled:
 		get_parent().gnollars -= 100
 		var inst = ZANDLOPER.instantiate()
-		inst.position = get_global_mouse_position()
+		inst.position = get_global_mouse_position() + Vector2(rng.randf_range(-10.0, 10.0),rng.randf_range(-10.0, 10.0))
 		get_parent().add_child(inst)
 
 

@@ -10,12 +10,13 @@
 [ext_resource type="PackedScene" uid="uid://myofggoemfp2" path="res://prullenbak.tscn" id="8_4di63"]
 [ext_resource type="PackedScene" uid="uid://cvps25sxy06pj" path="res://scenes/Environment/patform_groot.tscn" id="9_f4jue"]
 [ext_resource type="PackedScene" uid="uid://br5r705ueiobe" path="res://scenes/components/kanon/kanon.tscn" id="10_14s11"]
+[ext_resource type="PackedScene" uid="uid://h2rkiu0jhett" path="res://scenes/UI/input_help_overlay.tscn" id="11_14s11"]
 
 [node name="LevelEnvironment3" type="Node2D" unique_id=1095694394 node_paths=PackedStringArray("first_gear", "end_bell")]
 script = ExtResource("1_mo8r6")
-gnollars = 600
 first_gear = NodePath("MediumGearComponent")
 end_bell = NodePath("BigBell")
+gnollars = 600
 
 [node name="Label" type="Label" parent="." unique_id=454304588]
 offset_right = 1154.0
@@ -69,3 +70,5 @@ rotation = 1.5707964
 [node name="KanonComponent" parent="." unique_id=1826207354 instance=ExtResource("10_14s11")]
 position = Vector2(470, 596)
 disable_drag_drop = true
+
+[node name="InputHelpOverlay" parent="." unique_id=161556737 instance=ExtResource("11_14s11")]

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://41elba81uopc" path="res://level_environment.gd" id="1_1lgsu"]
 [ext_resource type="Texture2D" uid="uid://0tpeww0mbe17" path="res://assets/images/ui/start_button.png" id="2_8bsp0"]
 [ext_resource type="Texture2D" uid="uid://dno4dpinqfttk" path="res://assets/images/ui/reset_level.png" id="2_kdbxj"]
+[ext_resource type="PackedScene" uid="uid://h2rkiu0jhett" path="res://scenes/UI/input_help_overlay.tscn" id="2_vfcof"]
 [ext_resource type="PackedScene" uid="uid://chp7xur0mmb01" path="res://scenes/shop.tscn" id="3_or4xh"]
 [ext_resource type="PackedScene" uid="uid://dbn6ymfsdljgu" path="res://scenes/components/gears/gear_medium/MediumGearComponent.tscn" id="4_1mrva"]
 [ext_resource type="PackedScene" uid="uid://dxrwvnvrb4wrt" path="res://scenes/components/BigBell/BigBell.tscn" id="6_iu71f"]
@@ -15,6 +16,8 @@ script = ExtResource("1_1lgsu")
 first_gear = NodePath("MediumGearComponent")
 end_bell = NodePath("BigBell")
 gnollars = 600
+
+[node name="InputHelpOverlay" parent="." unique_id=161556737 instance=ExtResource("2_vfcof")]
 
 [node name="Label" type="Label" parent="." unique_id=454304588]
 offset_right = 1154.0
