@@ -61,4 +61,4 @@ script = ExtResource("8_48rh5")
 metadata/_custom_type_script = "uid://dvc78o67f1y2f"
 
 [node name="Zandloper" parent="." unique_id=1477182681 instance=ExtResource("9_2s4e4")]
-position = Vector2(835, 150)
+position = Vector2(810, 98)
