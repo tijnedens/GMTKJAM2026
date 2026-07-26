@@ -32,7 +32,6 @@ func play_music(new_stream: AudioStream) -> void:
 		player.volume_linear = 0.0
 	player.stop()
 	player.stream = new_stream
-	player.volume_linear = player.get_volume()
 	player.play()
 	await create_tween().tween_property(
 		player, "volume_linear", player.get_volume(), 1.0

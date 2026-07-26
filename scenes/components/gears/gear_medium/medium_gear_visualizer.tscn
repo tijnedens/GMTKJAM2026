@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://c6t4rd3uq3rbw" path="res://assets/images/components/gear_medium/gear_medium_a1.png" id="3_nim2r"]
 [ext_resource type="Texture2D" uid="uid://iexsse4bwkbq" path="res://assets/images/components/gear_medium/gear_medium_a2.png" id="4_8bbpy"]
 [ext_resource type="AnimationLibrary" uid="uid://c7fq7ajbw768l" path="res://scenes/components/gears/animations/GearAnimationLibrary.res" id="5_8bbpy"]
+[ext_resource type="Texture2D" uid="uid://gl7y0bbgn6n5" path="res://assets/images/components/gear_medium/gear_medium_gold_1.png" id="5_rid5s"]
+[ext_resource type="Texture2D" uid="uid://ce24dqc40nh7s" path="res://assets/images/components/gear_medium/gear_medium_gold_2.png" id="6_tb47k"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8bbpy"]
 shader = ExtResource("2_nim2r")
@@ -22,6 +24,17 @@ animations = [{
 "loop": 1,
 "name": &"default",
 "speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_rid5s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_tb47k")
+}],
+"loop": 1,
+"name": &"gold",
+"speed": 6.0
 }]
 
 [node name="MediumGearVisualizer" type="Node2D" unique_id=1701683493 node_paths=PackedStringArray("anim_player")]
@@ -30,11 +43,11 @@ anim_player = NodePath("AnimationPlayer")
 metadata/_custom_type_script = "uid://cpydhdcwdr1w2"
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=413009400]
+unique_name_in_owner = true
 texture_filter = 1
 material = SubResource("ShaderMaterial_8bbpy")
 sprite_frames = SubResource("SpriteFrames_3ochu")
 autoplay = "default"
-frame_progress = 0.7359751
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=512604398]
 unique_name_in_owner = true
