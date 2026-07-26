@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://bwb1j0152lrel"]
 
-[ext_resource type="Script" uid="uid://bxmq6100mkb70" path="res://scenes/Environment/platform_klein.gd" id="1_3toys"]
 [ext_resource type="Texture2D" uid="uid://b6dyxeohb28jf" path="res://assets/images/environment/paltforms/hourglass_observer_supportbeam.png" id="1_nk4c1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vnjw7"]
@@ -25,11 +24,10 @@ animations = [{
 }],
 "loop": 1,
 "name": &"default",
-"speed": 5.0
+"speed": 6.0
 }]
 
 [node name="PlatformKlein" type="Node2D" unique_id=1961614126]
-script = ExtResource("1_3toys")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1991521417]
 
@@ -39,3 +37,4 @@ shape = SubResource("RectangleShape2D_vnjw7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1654412379]
 sprite_frames = SubResource("SpriteFrames_vnjw7")
+autoplay = "default"

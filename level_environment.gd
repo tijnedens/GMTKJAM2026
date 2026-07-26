@@ -24,7 +24,8 @@ func _ready() -> void:
 	reset_button.pressed.connect(_on_reset_pressed)
 	ResetManager.register_function(reset_timer)
 	label.text = get_converted_time(time_left)
-	first_gear_pos = first_gear.position
+	if first_gear:
+		first_gear_pos = first_gear.position
 	bell_pos = end_bell.position
 
 func _on_reset_pressed():
@@ -66,7 +67,8 @@ func _on_start_button_pressed():
 		ResetManager.start_components()
 
 func _process(delta: float) -> void:
-	first_gear.position = first_gear_pos
+	if first_gear:
+		first_gear.position = first_gear_pos
 	end_bell.position = bell_pos
 	gnollar_indicator.text = "Gnollars: " + str(gnollars)
 	if timer_running:
