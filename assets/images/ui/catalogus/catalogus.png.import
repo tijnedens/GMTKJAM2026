@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bryphfgsqk0i1"
-path="res://.godot/imported/tab.png-b13ba7da8e1338d48d6ccc6629501645.ctex"
+uid="uid://crg6o3ecqxa1l"
+path="res://.godot/imported/catalogus.png-30e2c7e857c8bef917ccd9bd6d4c76f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/ui/keyboard/tab.png"
-dest_files=["res://.godot/imported/tab.png-b13ba7da8e1338d48d6ccc6629501645.ctex"]
+source_file="res://assets/images/ui/catalogus/catalogus.png"
+dest_files=["res://.godot/imported/catalogus.png-30e2c7e857c8bef917ccd9bd6d4c76f9.ctex"]
 
 [params]
 
