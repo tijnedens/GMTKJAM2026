@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dgctt1p7y10sa" path="res://assets/images/ui/icons/component_icons7.png" id="4_y6sft"]
 [ext_resource type="Texture2D" uid="uid://bohmvwfwlwtxs" path="res://assets/images/ui/icons/component_icons15.png" id="5_m4ofw"]
 [ext_resource type="Texture2D" uid="uid://rbusyrwugvk8" path="res://assets/images/ui/icons/component_icons23.png" id="6_ajxib"]
+[ext_resource type="Texture2D" uid="uid://cseum1mll6a5g" path="res://assets/images/ui/icons/component_icons11.png" id="8_y6sft"]
 
 [node name="Shop" type="CenterContainer" unique_id=866003838]
 offset_right = 1599.0
@@ -77,11 +78,11 @@ text = "Cost:
 100"
 icon = ExtResource("2_xfvoa")
 
-[node name="Button10" type="Button" parent="container/ScrollContainer/MarginContainer/GridContainer" unique_id=1900064727]
+[node name="ButtonHammerMedium" type="Button" parent="container/ScrollContainer/MarginContainer/GridContainer" unique_id=1900064727]
 layout_mode = 2
 text = "Cost:
 100"
-icon = ExtResource("2_xfvoa")
+icon = ExtResource("8_y6sft")
 
 [node name="Button11" type="Button" parent="container/ScrollContainer/MarginContainer/GridContainer" unique_id=594393126]
 layout_mode = 2

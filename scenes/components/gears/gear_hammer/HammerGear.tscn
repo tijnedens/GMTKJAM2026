@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://bk3703qewpvr7"]
+
+[ext_resource type="Script" uid="uid://dayjkq8nc2pde" path="res://scenes/components/gears/gear_hammer/hammer_gear.gd" id="1_028m8"]
+[ext_resource type="PackedScene" uid="uid://cvy5j7hx1vobk" path="res://scenes/components/gears/gear_medium/medium_gear_visualizer.tscn" id="2_jt766"]
+[ext_resource type="PackedScene" uid="uid://deunkyt667kfd" path="res://scenes/components/gears/gear_hammer/hammer_gear_visualizer.tscn" id="3_rjndd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_it5h2"]
+radius = 37.12142
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_04fln"]
+radius = 38.209946
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r8k8w"]
+radius = 45.01111
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vnjw7"]
+size = Vector2(35, 72)
+
+[node name="MediumGearComponent" type="CharacterBody2D" unique_id=721174909 node_paths=PackedStringArray("inventory_item") groups=["Gear"]]
+z_index = 2
+collision_mask = 3
+input_pickable = true
+motion_mode = 1
+platform_on_leave = 2
+script = ExtResource("1_028m8")
+inventory_item = NodePath("Hammer_Gear_pivot")
+
+[node name="GearVisualizer" parent="." unique_id=1701683493 instance=ExtResource("2_jt766")]
+
+[node name="HoverArea" type="Area2D" parent="." unique_id=957272817]
+
+[node name="HoverShape" type="CollisionShape2D" parent="HoverArea" unique_id=1884063889]
+shape = SubResource("CircleShape2D_it5h2")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=1396307320]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_04fln")
+
+[node name="ConnectionArea" type="Area2D" parent="." unique_id=756091421 groups=["GearConnectionArea"]]
+collision_layer = 16
+collision_mask = 16
+input_pickable = false
+
+[node name="ConnectionShape" type="CollisionShape2D" parent="ConnectionArea" unique_id=948050527]
+shape = SubResource("CircleShape2D_r8k8w")
+
+[node name="Hammer_Gear_pivot" type="Node2D" parent="." unique_id=2084165067]
+
+[node name="hammer_gear_visualizer" parent="Hammer_Gear_pivot" unique_id=1760790560 instance=ExtResource("3_rjndd")]
+position = Vector2(0, -68.395)
+
+[node name="Area2D" type="Area2D" parent="Hammer_Gear_pivot" unique_id=694349786]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hammer_Gear_pivot/Area2D" unique_id=1130073431 groups=["bell_activators"]]
+position = Vector2(-0.5, -69)
+shape = SubResource("RectangleShape2D_vnjw7")
+
+[connection signal="mouse_entered" from="HoverArea" to="." method="_on_mouse_shape_entered"]
+[connection signal="mouse_exited" from="HoverArea" to="." method="_on_mouse_shape_exited"]
+[connection signal="area_shape_entered" from="ConnectionArea" to="." method="_on_connection_area_area_shape_entered"]
+[connection signal="area_shape_exited" from="ConnectionArea" to="." method="_on_connection_area_area_shape_exited"]
