@@ -28,6 +28,7 @@ var base_gear : GearComponent = null
 var default_z_index : int
 var prev_frame_rot : float = inventory_item_start_angle
 
+
 func _ready():
 	super()
 	if inventory_item:
@@ -121,6 +122,10 @@ func _physics_process(_delta):
 			set_move_collision(true)
 	mouse_relative = Vector2.ZERO
 	move_and_collide(velocity)
+	
+	if always_disable_drag_drop:
+		global_position = non_move_start_pos
+
 
 func _input(event):
 	if disable_drag_drop || base_gear:

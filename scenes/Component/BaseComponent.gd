@@ -13,6 +13,7 @@ extends CharacterBody2D
 @export var input_direction : GlobalEnum.ComponentIODirection
 @export var no_collision : bool
 @export var disable_drag_drop : bool 
+@export var always_disable_drag_drop : bool 
 @export var cost = 100
 var default_disable_drag_drop : bool
 
@@ -25,11 +26,13 @@ var is_dragging : bool = false
 var is_left_mouse_down : bool = false
 var mouse_relative : Vector2 = Vector2.ZERO
 var pin_delta : Vector2 = Vector2.ZERO
+var non_move_start_pos = global_position
 
 
 @onready var hover_area: Area2D = $HoverArea
 
 func _ready():
+	non_move_start_pos = global_position
 	ResetManager.register_component(self)
 	set_move_collision(!no_collision)
 	default_disable_drag_drop = disable_drag_drop
@@ -45,6 +48,9 @@ func _physics_process(_delta):
 			set_move_collision(true)
 	mouse_relative = Vector2.ZERO
 	move_and_collide(velocity)
+	
+	if always_disable_drag_drop:
+		global_position = non_move_start_pos
 
 func set_move_collision(enabled : bool):
 	if %CollisionShape:

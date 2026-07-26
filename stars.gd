@@ -5,3 +5,7 @@ var stars = 0
 
 func  _ready():
 	sprite_2d.frame = stars
+
+func reset():
+	stars = 0
+	visible = false
