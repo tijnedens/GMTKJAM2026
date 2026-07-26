@@ -6,15 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://chp7xur0mmb01" path="res://scenes/shop.tscn" id="3_or4xh"]
 [ext_resource type="PackedScene" uid="uid://dbn6ymfsdljgu" path="res://scenes/components/gears/gear_medium/MediumGearComponent.tscn" id="4_1mrva"]
 [ext_resource type="PackedScene" uid="uid://dxrwvnvrb4wrt" path="res://scenes/components/BigBell/BigBell.tscn" id="6_iu71f"]
-[ext_resource type="PackedScene" uid="uid://br5r705ueiobe" path="res://scenes/components/kanon/kanon.tscn" id="7_jcouq"]
+[ext_resource type="PackedScene" uid="uid://myofggoemfp2" path="res://prullenbak.tscn" id="8_2s4e4"]
 [ext_resource type="Script" uid="uid://dvc78o67f1y2f" path="res://scenes/class_nodes/CustomCamera.gd" id="8_48rh5"]
-[ext_resource type="PackedScene" uid="uid://r8e1ywow0l6p" path="res://scenes/components/Zandloper/zandloper.tscn" id="9_2s4e4"]
 
 [node name="LevelEnvironment" type="Node2D" unique_id=1095694394 node_paths=PackedStringArray("first_gear", "end_bell")]
 script = ExtResource("1_1lgsu")
 first_gear = NodePath("MediumGearComponent")
 end_bell = NodePath("BigBell")
-gnollars = 500
+gnollars = 600
 
 [node name="Label" type="Label" parent="." unique_id=454304588]
 offset_right = 1154.0
@@ -42,7 +41,7 @@ visible = false
 z_index = 10
 
 [node name="MediumGearComponent" parent="." unique_id=721174909 instance=ExtResource("4_1mrva")]
-position = Vector2(246, 332)
+position = Vector2(581, 475)
 disable_drag_drop = true
 
 [node name="GnollarIndicator" type="Label" parent="." unique_id=934259654]
@@ -50,15 +49,12 @@ offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="BigBell" parent="." unique_id=29377478 instance=ExtResource("6_iu71f")]
-position = Vector2(1045, 501)
-
-[node name="KanonComponent" parent="." unique_id=447764332 instance=ExtResource("7_jcouq")]
-position = Vector2(498, 291)
+position = Vector2(979, 463)
 
 [node name="CustomCamera" type="Camera2D" parent="." unique_id=246551887]
 anchor_mode = 0
 script = ExtResource("8_48rh5")
 metadata/_custom_type_script = "uid://dvc78o67f1y2f"
 
-[node name="Zandloper" parent="." unique_id=1477182681 instance=ExtResource("9_2s4e4")]
-position = Vector2(835, 150)
+[node name="Prullenbak" parent="." unique_id=910685487 instance=ExtResource("8_2s4e4")]
+position = Vector2(1517, 789)

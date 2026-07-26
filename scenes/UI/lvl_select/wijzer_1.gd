@@ -12,4 +12,4 @@ func _process(delta: float) -> void:
 	var target_rot: float = rotation
 	rotation = lerp_angle(true_rot, target_rot, 0.03)
 	
-	wijzer2.rotation = rotation / 60
+	wijzer2.rotation = rotation / 60 + 0.5*PI

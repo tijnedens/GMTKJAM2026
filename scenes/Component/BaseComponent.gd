@@ -13,6 +13,7 @@ extends CharacterBody2D
 @export var input_direction : GlobalEnum.ComponentIODirection
 @export var no_collision : bool
 @export var disable_drag_drop : bool 
+@export var cost = 100
 var default_disable_drag_drop : bool
 
 var input_connection : ComponentConnection
@@ -24,6 +25,9 @@ var is_dragging : bool = false
 var is_left_mouse_down : bool = false
 var mouse_relative : Vector2 = Vector2.ZERO
 var pin_delta : Vector2 = Vector2.ZERO
+
+
+@onready var hover_area: Area2D = $HoverArea
 
 func _ready():
 	ResetManager.register_component(self)
@@ -80,7 +84,16 @@ func reset() -> void:
 
 # Implementeren in child classes
 func on_drop() -> void:
-	pass
+	
+	if hover_area.get_overlapping_areas():
+		for body in hover_area.get_overlapping_areas():
+			
+			if body.get_parent().is_in_group("prullenbak"):
+				print(body)
+				get_parent().gnollars += cost
+				queue_free()
+				
+	
 
 # Implementeren in child classes
 func on_pickup() -> void:

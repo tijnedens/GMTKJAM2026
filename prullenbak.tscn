@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://myofggoemfp2"]
+
+[ext_resource type="Script" uid="uid://b8pahrjswcvy7" path="res://prullenbak.gd" id="1_40afx"]
+[ext_resource type="Texture2D" uid="uid://dstbux5x3nt13" path="res://assets/images/ui/trashcan_open.png" id="2_5n6jr"]
+[ext_resource type="Texture2D" uid="uid://0jrcx4s8ycos" path="res://assets/images/ui/trashcan_closed.png" id="2_m23nq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5ein8"]
+radius = 64.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eyw44"]
+atlas = ExtResource("2_5n6jr")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_asrco"]
+atlas = ExtResource("2_5n6jr")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5n6jr"]
+atlas = ExtResource("2_m23nq")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mih4"]
+atlas = ExtResource("2_m23nq")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vnjw7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eyw44")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_asrco")
+}],
+"loop": 1,
+"name": &"Open",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5n6jr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mih4")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Prullenbak" type="Node2D" unique_id=910685487 groups=["prullenbak"]]
+script = ExtResource("1_40afx")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1462340117]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1102806671]
+shape = SubResource("CircleShape2D_5ein8")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=668730967]
+sprite_frames = SubResource("SpriteFrames_vnjw7")
+animation = &"Open"
+autoplay = "default"

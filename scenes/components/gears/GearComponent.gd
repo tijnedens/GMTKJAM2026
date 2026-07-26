@@ -84,6 +84,7 @@ func reset() -> void:
 	inventory_pulse_stop = false
 
 func on_drop() -> void:
+	super()
 	#print("dragged: ", current_dragged)
 	#print("contender: ", current_stack_base_contender)
 	if self == current_dragged && current_stack_base_contender:
