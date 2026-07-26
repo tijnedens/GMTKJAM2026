@@ -13,7 +13,6 @@ var player: CustomAudioPlayer = CustomAudioPlayer.new()
 func _ready() -> void:
 	player.type = CustomAudioPlayer.Type.MUSIC
 	add_child(player)
-	play_music(KASTEEL_DEUR)
 
 func play_music(new_stream: AudioStream) -> void:
 	if player.stream:

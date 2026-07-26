@@ -25,7 +25,6 @@ ResetManager="*uid://bwd1ty5fuwvrl"
 
 window/size/viewport_width=1600
 window/size/viewport_height=900
-window/stretch/mode="viewport"
 
 [file_customization]
 
