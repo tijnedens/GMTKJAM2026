@@ -7,13 +7,16 @@ var GAYB_GEMEEN: AudioStream = load(
 var KASTEEL_DEUR: AudioStream = load(
 	"res://assets/audio/music/PLACEHOLDER/kasteel_deur_boss_theme_0-1.wav"
 )
+var GNOOM_SONG: AudioStream = load(
+	"res://assets/audio/music/gnoomsong.mp3"
+)
 
 var player: CustomAudioPlayer = CustomAudioPlayer.new()
 
 func _ready() -> void:
 	player.type = CustomAudioPlayer.Type.MUSIC
 	add_child(player)
-	play_music(KASTEEL_DEUR)
+	play_music(GNOOM_SONG)
 
 func play_music(new_stream: AudioStream) -> void:
 	if player.stream:

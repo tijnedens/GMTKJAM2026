@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bi1mirmf8lwc4" path="res://scenes/class_nodes/AudioButton.gd" id="3_mt0mx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3ochu"]
-font_size = 64
+font_size = 128
 
 [node name="SettingsMenu" type="Control" unique_id=1097210671]
 custom_minimum_size = Vector2(1600, 900)
@@ -29,12 +29,13 @@ offset_bottom = 648.0
 [node name="ColorRect" type="ColorRect" parent="CenterContainer" unique_id=1221836674]
 custom_minimum_size = Vector2(1600, 900)
 layout_mode = 2
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0.77254903)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=333199438]
 texture_filter = 1
 custom_minimum_size = Vector2(1152, 648)
 layout_mode = 2
+theme_override_constants/separation = 24
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=931253318]
 layout_mode = 2
@@ -52,6 +53,7 @@ layout_mode = 2
 
 [node name="SfxVolumeLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/SfxVolume" unique_id=1006961875]
 layout_mode = 2
+theme_override_font_sizes/font_size = 48
 text = "Sound Effects Volume"
 horizontal_alignment = 1
 
@@ -70,6 +72,7 @@ layout_mode = 2
 
 [node name="MusicVolumeLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/MusicVolume" unique_id=1702878051]
 layout_mode = 2
+theme_override_font_sizes/font_size = 48
 text = "Music Volume"
 horizontal_alignment = 1
 
@@ -79,21 +82,30 @@ texture_filter = 1
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-max_value = 6.0
-step = 0.25
-value = 1.0
+max_value = 2.5
+step = 0.05
 tick_count = 1
 
 [node name="Spacer" type="Control" parent="CenterContainer/VBoxContainer" unique_id=311101873]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="CenterContainer/VBoxContainer" unique_id=497884039]
+[node name="MainMenuButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=808287769]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "Return To Main Menu"
+script = ExtResource("3_mt0mx")
+metadata/_custom_type_script = "uid://bi1mirmf8lwc4"
+
+[node name="ExitSettingsButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=497884039]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
 text = "Exit Settings"
 script = ExtResource("3_mt0mx")
 metadata/_custom_type_script = "uid://bi1mirmf8lwc4"
 
 [connection signal="value_changed" from="CenterContainer/VBoxContainer/HBoxContainer/SfxVolume/SfxVolumeSlider" to="." method="_on_sfx_volume_slider_value_changed"]
 [connection signal="value_changed" from="CenterContainer/VBoxContainer/HBoxContainer/MusicVolume/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ExitSettingsButton" to="." method="_on_button_pressed"]
