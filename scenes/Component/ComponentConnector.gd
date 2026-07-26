@@ -23,8 +23,10 @@ static func find_connection(searching_component : BaseComponent) -> void:
 	var to : BaseComponent = null
 	match searching_component.output_type:
 		GlobalEnum.ComponentIOType.RANGED:
-			from = searching_component._find_connection(searching_component.input_anchor, searching_component.input_direction)
-			to = searching_component._find_connection(searching_component.output_anchor, searching_component.output_direction)
+			if searching_component.input_anchor:
+				from = searching_component._find_connection(searching_component.input_anchor, searching_component.input_direction)
+			if searching_component.output_anchor:
+				to = searching_component._find_connection(searching_component.output_anchor, searching_component.output_direction)
 		_:
 			pass
 	if from:

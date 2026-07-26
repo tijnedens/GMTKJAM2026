@@ -269,6 +269,7 @@ shape = SubResource("CircleShape2D_vnjw7")
 position = Vector2(-112, 128)
 inventory_item = NodePath("vlam_item_pivot")
 inventory_item_start_angle = 2.3736477827122884
+inventory_item_trigger_type = "COUNTER"
 no_collision = true
 disable_drag_drop = true
 

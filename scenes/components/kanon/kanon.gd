@@ -64,6 +64,6 @@ func _on_vlam_timer_timeout():
 	gnogel.shoot(shoot_dir * shoot_str)
 
 
-func _on_medium_gear_component_inventory_item_reached() -> void:
+func _on_medium_gear_component_inventory_item_reached(_count) -> void:
 	_on_vlam()
 	print("vlam aan")

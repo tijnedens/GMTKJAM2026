@@ -8,8 +8,10 @@ extends BaseComponent
 ## Met de klok mee
 @export_range(0, 360, 1.0, "radians_as_degrees")  var inventory_item_end_angle : float
 @export_range(0, 360, 1.0, "radians_as_degrees")  var inventory_item_start_angle : float
+@export_enum("ONE_TIME", "COUNTER") var inventory_item_trigger_type = "ONE_TIME"
+@export var is_only_activator : bool = false
 
-signal inventory_item_reached
+signal inventory_item_reached(count: int)
 
 var is_checked : bool = false # used by GearChain class to check if this gear was already checked
 var rotation_speed : float = 1.0
@@ -20,6 +22,7 @@ var is_activated : bool = false
 var activation_pulse_stop : bool = false
 ## If set to true, the gear will not emit inventory_item_reached anymore
 var inventory_pulse_stop : bool = false
+var inventory_trigger_count : int = 0
 
 static var current_dragged : GearComponent
 static var current_stack_base_contender : GearComponent
@@ -67,10 +70,14 @@ func _process(_delta):
 		activation_pulse_stop = true
 	
 	var current_animation_rotation : float = fmod(($GearVisualizer/Sprite.rotation + inventory_item_start_angle),2*PI)
-	if inventory_item && !inventory_pulse_stop && is_activated && has_passed_rotation_trigger(current_animation_rotation):
-
-		inventory_item_reached.emit()
+	var has_passed = has_passed_rotation_trigger(current_animation_rotation)
+	if inventory_item && !inventory_pulse_stop && is_activated && has_passed:
+		inventory_trigger_count += 1
+		inventory_item_reached.emit(inventory_trigger_count)
 		inventory_pulse_stop = true
+	
+	if inventory_item && inventory_pulse_stop && is_activated && !has_passed && inventory_item_trigger_type == "COUNTER":
+		inventory_pulse_stop = false
 		
 	prev_frame_rot = current_animation_rotation
 
@@ -87,6 +94,7 @@ func reset() -> void:
 	is_checked = false
 	activation_pulse_stop = false
 	inventory_pulse_stop = false
+	inventory_trigger_count = 0
 
 func on_drop() -> void:
 	super()
