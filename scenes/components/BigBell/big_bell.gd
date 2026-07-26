@@ -1,4 +1,4 @@
-class_name kanonComponent
+
 extends BaseComponent
 
 @onready var big_bell_visualizer: BigBellVisualizer = $BigBellVisualizer
