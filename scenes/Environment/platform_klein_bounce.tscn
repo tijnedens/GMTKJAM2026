@@ -38,10 +38,11 @@ size = Vector2(140, 89)
 script = ExtResource("1_klue8")
 metadata/_custom_type_script = "uid://dw5mhc2smgffb"
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1991521417]
+[node name="CollisionArea" type="StaticBody2D" parent="." unique_id=1991521417]
 physics_material_override = SubResource("PhysicsMaterial_nu7uj")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1517049127]
+[node name="CollisionShape" type="CollisionShape2D" parent="CollisionArea" unique_id=1517049127]
+unique_name_in_owner = true
 position = Vector2(0.5, 17.5)
 shape = SubResource("RectangleShape2D_vnjw7")
 

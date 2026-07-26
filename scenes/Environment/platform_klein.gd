@@ -1,5 +1,4 @@
 extends BaseComponent
-@onready var static_body_2d: StaticBody2D = $StaticBody2D
 
 func _find_connection(anchor: Node2D, direction: GlobalEnum.ComponentIODirection) -> BaseComponent:
 	return null
