@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://db2l5c8kes7q4"]
+
+[ext_resource type="Script" uid="uid://bwatektjdd7a5" path="res://scenes/components/kraan/kraan_component.gd" id="1_8381b"]
+[ext_resource type="Texture2D" uid="uid://32t5u22xmypc" path="res://assets/images/components/kraan/waterwheel_droplet.png" id="2_4pqmy"]
+[ext_resource type="Shader" uid="uid://c6joaulresxfj" path="res://assets/shaders/pixel_shader.gdshader" id="2_bgqu1"]
+[ext_resource type="Texture2D" uid="uid://c3kun3x87y3ho" path="res://assets/images/components/kraan/kraan.png" id="2_p78e1"]
+[ext_resource type="PackedScene" uid="uid://bjknbkgpoppmi" path="res://scenes/components/gears/gear_small/SmallGearComponent.tscn" id="4_1bx8y"]
+[ext_resource type="Texture2D" uid="uid://du2pm0av3c1ve" path="res://assets/images/components/kraan/kraan_valve.png" id="5_1bx8y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_04fln"]
+radius = 28.01785
+
+[sub_resource type="Curve" id="Curve_4pqmy"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7916666, 0.99082565), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_y6ev7"]
+curve = SubResource("Curve_4pqmy")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4pqmy"]
+particle_flag_disable_z = true
+angle_min = -4.9999895
+angle_max = 5.000011
+gravity = Vector3(0, 500, 0)
+scale_min = 0.7
+scale_max = 0.9
+scale_curve = SubResource("CurveTexture_y6ev7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4pqmy"]
+shader = ExtResource("2_bgqu1")
+shader_parameter/mix_sampling = 0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxdbw"]
+atlas = ExtResource("2_p78e1")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgqu1"]
+atlas = ExtResource("2_p78e1")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_it5h2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxdbw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bgqu1")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4pqmy"]
+atlas = ExtResource("5_1bx8y")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6ev7"]
+atlas = ExtResource("5_1bx8y")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r8k8w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4pqmy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6ev7")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_it5h2"]
+size = Vector2(80, 57)
+
+[node name="KraanComponent" type="CharacterBody2D" unique_id=29377478 node_paths=PackedStringArray("output_anchor")]
+collision_mask = 3
+input_pickable = true
+motion_mode = 1
+platform_on_leave = 2
+script = ExtResource("1_8381b")
+output_anchor = NodePath("OutputAnchor")
+output_direction = 3
+
+[node name="HoverArea" type="Area2D" parent="." unique_id=303066835]
+
+[node name="HoverShape" type="CollisionPolygon2D" parent="HoverArea" unique_id=1444439621]
+position = Vector2(6, -2)
+polygon = PackedVector2Array(-57, -51, -1, -45, 65, 15, 62, 47, 22, 47, 22, 29, -30, 25, -61, 5)
+
+[node name="CollisionShape" type="CollisionPolygon2D" parent="." unique_id=1031856587]
+unique_name_in_owner = true
+position = Vector2(6, -2)
+polygon = PackedVector2Array(-20, -26, -1, -27, 65, 15, 62, 47, 22, 47, 22, 29, -30, 25, -31, 12)
+
+[node name="CollisionShape2" type="CollisionShape2D" parent="." unique_id=1110129627]
+position = Vector2(8, -51)
+shape = SubResource("CircleShape2D_04fln")
+
+[node name="ParticleSystem" type="GPUParticles2D" parent="." unique_id=1640741973]
+unique_name_in_owner = true
+position = Vector2(48, 40)
+emitting = false
+amount = 16
+texture = ExtResource("2_4pqmy")
+lifetime = 1.5
+randomness = 0.5
+visibility_rect = Rect2(-100, -100, 200, 500)
+process_material = SubResource("ParticleProcessMaterial_4pqmy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1872648739]
+material = SubResource("ShaderMaterial_4pqmy")
+position = Vector2(-2, 9)
+sprite_frames = SubResource("SpriteFrames_it5h2")
+autoplay = "default"
+frame_progress = 0.89414847
+
+[node name="SmallGearComponent" parent="." unique_id=721174909 node_paths=PackedStringArray("inventory_item") instance=ExtResource("4_1bx8y")]
+position = Vector2(8, -50)
+inventory_item = NodePath("AnimatedSprite2D2")
+inventory_item_end_angle = 3.141592653589793
+inventory_item_trigger_type = "COUNTER"
+no_collision = true
+disable_drag_drop = true
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="SmallGearComponent" unique_id=193511042]
+sprite_frames = SubResource("SpriteFrames_r8k8w")
+
+[node name="OutputAnchor" type="Area2D" parent="." unique_id=2124519322 groups=["WaterEmitter"]]
+position = Vector2(50, 39)
+
+[node name="InputShape" type="CollisionShape2D" parent="OutputAnchor" unique_id=596514907]
+position = Vector2(-3, -4)
+shape = SubResource("RectangleShape2D_it5h2")
+
+[connection signal="mouse_entered" from="HoverArea" to="." method="_on_mouse_shape_entered"]
+[connection signal="mouse_exited" from="HoverArea" to="." method="_on_mouse_shape_exited"]
+[connection signal="inventory_item_reached" from="SmallGearComponent" to="." method="_on_small_gear_component_inventory_item_reached"]

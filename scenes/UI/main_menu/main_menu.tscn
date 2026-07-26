@@ -28,8 +28,8 @@ layout_mode = 1
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1902793707]
 layout_mode = 0
-offset_right = 1597.0
-offset_bottom = 899.0
+offset_right = 1600.0
+offset_bottom = 900.0
 texture = ExtResource("2_6l5je")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1327645686]

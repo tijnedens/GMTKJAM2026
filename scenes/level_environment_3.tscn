@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://b2l6j4ywe2hop"]
+
+[ext_resource type="Script" uid="uid://41elba81uopc" path="res://level_environment.gd" id="1_mo8r6"]
+[ext_resource type="Texture2D" uid="uid://dno4dpinqfttk" path="res://assets/images/ui/reset_level.png" id="2_mauug"]
+[ext_resource type="Texture2D" uid="uid://0tpeww0mbe17" path="res://assets/images/ui/start_button.png" id="3_f4jue"]
+[ext_resource type="PackedScene" uid="uid://chp7xur0mmb01" path="res://scenes/shop.tscn" id="4_14s11"]
+[ext_resource type="PackedScene" uid="uid://dbn6ymfsdljgu" path="res://scenes/components/gears/gear_medium/MediumGearComponent.tscn" id="5_ipmio"]
+[ext_resource type="PackedScene" uid="uid://dxrwvnvrb4wrt" path="res://scenes/components/BigBell/BigBell.tscn" id="6_kaem5"]
+[ext_resource type="Script" uid="uid://dvc78o67f1y2f" path="res://scenes/class_nodes/CustomCamera.gd" id="7_ylm2h"]
+[ext_resource type="PackedScene" uid="uid://myofggoemfp2" path="res://prullenbak.tscn" id="8_4di63"]
+[ext_resource type="PackedScene" uid="uid://cvps25sxy06pj" path="res://scenes/Environment/patform_groot.tscn" id="9_f4jue"]
+[ext_resource type="PackedScene" uid="uid://br5r705ueiobe" path="res://scenes/components/kanon/kanon.tscn" id="10_14s11"]
+
+[node name="LevelEnvironment" type="Node2D" unique_id=1095694394 node_paths=PackedStringArray("first_gear", "end_bell")]
+script = ExtResource("1_mo8r6")
+first_gear = NodePath("MediumGearComponent")
+end_bell = NodePath("BigBell")
+gnollars = 600
+
+[node name="Label" type="Label" parent="." unique_id=454304588]
+offset_right = 1154.0
+offset_bottom = 39.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResetButton" type="Button" parent="." unique_id=740313125]
+offset_left = 1531.0
+offset_top = 2.0
+offset_right = 1603.0
+offset_bottom = 74.0
+icon = ExtResource("2_mauug")
+flat = true
+
+[node name="startButton" type="Button" parent="." unique_id=1178931379]
+offset_left = 3.0
+offset_top = 815.0
+offset_right = 139.0
+offset_bottom = 895.0
+icon = ExtResource("3_f4jue")
+
+[node name="Shop" parent="." unique_id=866003838 instance=ExtResource("4_14s11")]
+visible = false
+z_index = 10
+
+[node name="MediumGearComponent" parent="." unique_id=721174909 instance=ExtResource("5_ipmio")]
+position = Vector2(81, 705)
+disable_drag_drop = true
+
+[node name="GnollarIndicator" type="Label" parent="." unique_id=934259654]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="BigBell" parent="." unique_id=29377478 instance=ExtResource("6_kaem5")]
+position = Vector2(1420, 498)
+
+[node name="CustomCamera" type="Camera2D" parent="." unique_id=246551887]
+anchor_mode = 0
+script = ExtResource("7_ylm2h")
+metadata/_custom_type_script = "uid://dvc78o67f1y2f"
+
+[node name="Prullenbak" parent="." unique_id=910685487 instance=ExtResource("8_4di63")]
+position = Vector2(1517, 789)
+
+[node name="PatformGroot" parent="." unique_id=1790468290 instance=ExtResource("9_f4jue")]
+position = Vector2(788, 569)
+rotation = 1.5707964
+
+[node name="KanonComponent" parent="." unique_id=1826207354 instance=ExtResource("10_14s11")]
+position = Vector2(470, 596)
+disable_drag_drop = true

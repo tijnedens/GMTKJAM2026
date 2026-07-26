@@ -1,13 +1,17 @@
 class_name GearComponent
 extends BaseComponent
 
+@export var is_gold: bool = false
+
 @export_enum("BIG", "MEDIUM", "SMALL") var gear_size = "MEDIUM"
 @export var inventory_item : Node
 ## Met de klok mee
 @export_range(0, 360, 1.0, "radians_as_degrees")  var inventory_item_end_angle : float
 @export_range(0, 360, 1.0, "radians_as_degrees")  var inventory_item_start_angle : float
+@export_enum("ONE_TIME", "COUNTER") var inventory_item_trigger_type = "ONE_TIME"
+@export var is_only_activator : bool = false
 
-signal inventory_item_reached
+signal inventory_item_reached(count: int)
 
 var is_checked : bool = false # used by GearChain class to check if this gear was already checked
 var rotation_speed : float = 1.0
@@ -18,6 +22,7 @@ var is_activated : bool = false
 var activation_pulse_stop : bool = false
 ## If set to true, the gear will not emit inventory_item_reached anymore
 var inventory_pulse_stop : bool = false
+var inventory_trigger_count : int = 0
 
 static var current_dragged : GearComponent
 static var current_stack_base_contender : GearComponent
@@ -28,8 +33,11 @@ var base_gear : GearComponent = null
 var default_z_index : int
 var prev_frame_rot : float = inventory_item_start_angle
 
+
 func _ready():
 	super()
+	if is_gold:
+		%GearVisualizer.make_gold()
 	if inventory_item:
 		inventory_item.reparent($GearVisualizer/Sprite)
 		inventory_item.rotation = inventory_item_start_angle
@@ -62,10 +70,14 @@ func _process(_delta):
 		activation_pulse_stop = true
 	
 	var current_animation_rotation : float = fmod(($GearVisualizer/Sprite.rotation + inventory_item_start_angle),2*PI)
-	if inventory_item && !inventory_pulse_stop && is_activated && has_passed_rotation_trigger(current_animation_rotation):
-
-		inventory_item_reached.emit()
+	var has_passed = has_passed_rotation_trigger(current_animation_rotation)
+	if inventory_item && !inventory_pulse_stop && is_activated && has_passed:
+		inventory_trigger_count += 1
+		inventory_item_reached.emit(inventory_trigger_count)
 		inventory_pulse_stop = true
+	
+	if inventory_item && inventory_pulse_stop && is_activated && !has_passed && inventory_item_trigger_type == "COUNTER":
+		inventory_pulse_stop = false
 		
 	prev_frame_rot = current_animation_rotation
 
@@ -82,6 +94,7 @@ func reset() -> void:
 	is_checked = false
 	activation_pulse_stop = false
 	inventory_pulse_stop = false
+	inventory_trigger_count = 0
 
 func on_drop() -> void:
 	super()
@@ -121,6 +134,10 @@ func _physics_process(_delta):
 			set_move_collision(true)
 	mouse_relative = Vector2.ZERO
 	move_and_collide(velocity)
+	
+	if always_disable_drag_drop:
+		global_position = non_move_start_pos
+
 
 func _input(event):
 	if disable_drag_drop || base_gear:

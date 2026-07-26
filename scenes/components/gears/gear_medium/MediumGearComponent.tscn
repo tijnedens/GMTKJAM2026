@@ -25,6 +25,7 @@ output_direction = 4
 input_direction = 4
 
 [node name="GearVisualizer" parent="." unique_id=1701683493 instance=ExtResource("2_gogt2")]
+unique_name_in_owner = true
 
 [node name="HoverArea" type="Area2D" parent="." unique_id=957272817]
 

@@ -9,9 +9,7 @@ func _physics_process(delta: float) -> void:
 	var bodies = area_2d.get_overlapping_bodies()
 	
 	if bodies:
-		print("tink")
 		for body in bodies:
 
 			if body.is_in_group("THEBELL"):
-				print("bell")
 				body.get_parent()._on_hit()

@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dp5hlhhq6c40e" path="res://scenes/TijnTestScene/tijn_test_scene.gd" id="1_0u3jm"]
 [ext_resource type="PackedScene" uid="uid://cfkc3vjob3gm0" path="res://scenes/components/gears/gear_big/BigGearComponent.tscn" id="2_8t02k"]
-[ext_resource type="PackedScene" uid="uid://dbn6ymfsdljgu" path="res://scenes/components/gears/gear_medium/MediumGearComponent.tscn" id="5_4a4i2"]
+[ext_resource type="PackedScene" uid="uid://db2l5c8kes7q4" path="res://scenes/components/kraan/KraanComponent.tscn" id="3_cwx4q"]
+[ext_resource type="PackedScene" uid="uid://ctr7slwhew02r" path="res://scenes/components/waterwheel/WaterWheelComponent.tscn" id="4_4a4i2"]
 [ext_resource type="PackedScene" uid="uid://bjknbkgpoppmi" path="res://scenes/components/gears/gear_small/SmallGearComponent.tscn" id="6_qs7aa"]
-[ext_resource type="PackedScene" uid="uid://br5r705ueiobe" path="res://scenes/components/kanon/kanon.tscn" id="6_upqaj"]
 
 [node name="TijnTestScene" type="Node2D" unique_id=629146162]
 script = ExtResource("1_0u3jm")
@@ -12,17 +12,14 @@ script = ExtResource("1_0u3jm")
 [node name="ActivatorGear" parent="." unique_id=1277665103 instance=ExtResource("2_8t02k")]
 position = Vector2(149, 361)
 
-[node name="OtherGear" parent="." unique_id=721174909 instance=ExtResource("2_8t02k")]
-position = Vector2(435, 99)
+[node name="ActivatorGear2" parent="." unique_id=721174909 instance=ExtResource("2_8t02k")]
+position = Vector2(621, 243)
 
-[node name="MediumGearComponent" parent="." unique_id=784319239 instance=ExtResource("5_4a4i2")]
-position = Vector2(177, 74)
+[node name="KraanComponent" parent="." unique_id=29377478 instance=ExtResource("3_cwx4q")]
+position = Vector2(460, 347)
 
-[node name="SmallGearComponent" parent="." unique_id=798564841 instance=ExtResource("6_qs7aa")]
-position = Vector2(63, 185)
+[node name="WaterWheelComponent" parent="." unique_id=978611811 instance=ExtResource("4_4a4i2")]
+position = Vector2(823, 567)
 
-[node name="SmallGearComponent2" parent="." unique_id=1776210097 instance=ExtResource("6_qs7aa")]
-position = Vector2(335, 259)
-
-[node name="KanonComponent" parent="." unique_id=29377478 instance=ExtResource("6_upqaj")]
-position = Vector2(922, 224)
+[node name="SmallGearComponent2" parent="." unique_id=851915833 instance=ExtResource("6_qs7aa")]
+position = Vector2(868, 328)
