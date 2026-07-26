@@ -5,14 +5,26 @@ var kraan_openheid : float = 0.0
 var aantal_ticks_nodig : int = 4
 @onready var ps = %ParticleSystem
 
+func lifetime_for_fall_distance(distance: float, initial_velocity: float, gravity: float = 500.0) -> float:
+	var discriminant = initial_velocity * initial_velocity + 2.0 * gravity * distance
+	if discriminant < 0.0:
+		return 0.0
+
+	return (-initial_velocity + sqrt(discriminant)) / gravity
+
 func _find_connection(anchor: Node2D, direction: GlobalEnum.ComponentIODirection) -> BaseComponent:
 	var space_state : PhysicsDirectSpaceState2D = get_world_2d().direct_space_state
 	var origin : Vector2 = anchor.global_position
 	var end : Vector2 = origin + ComponentConnector.io_direction_to_vector(direction) * 500
 	var query : PhysicsRayQueryParameters2D = PhysicsRayQueryParameters2D.create(origin, end)
 	query.collide_with_areas = true
+	query.collision_mask = 1
 	var result : Dictionary = space_state.intersect_ray(query)
 	if result:
+		if result.collider != self:
+			var ydiff = result.position.y - anchor.global_position.y
+			if ydiff > 0:
+				%ParticleSystem.lifetime = lifetime_for_fall_distance(ydiff, 0.0)
 		if result.collider != self and result.collider.is_in_group("WaterSink"):
 			var found_component : WaterWheelComponent = result.collider.get_parent()
 			if anchor.global_position.x < found_component.global_position.x:
@@ -20,6 +32,8 @@ func _find_connection(anchor: Node2D, direction: GlobalEnum.ComponentIODirection
 			else:
 				found_component.rotation_speed = 0.5
 			return found_component
+	else:
+		%ParticleSystem.visibility_rect.size.y = 500
 	return null
 
 func on_pickup() -> void:

@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dwv342eipjwg1"]
+
+[ext_resource type="Texture2D" uid="uid://deh7i0ki6bou3" path="res://assets/images/environment/paltforms/supportbeam_small.png" id="1_50jx2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vnjw7"]
+size = Vector2(200, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_opl68"]
+atlas = ExtResource("1_50jx2")
+region = Rect2(0, 0, 250, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2afo"]
+atlas = ExtResource("1_50jx2")
+region = Rect2(250, 0, 250, 75)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vnjw7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_opl68")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2afo")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="PlatformKlein" type="Node2D" unique_id=1961614126]
+
+[node name="CollisionArea" type="StaticBody2D" parent="." unique_id=1991521417]
+
+[node name="CollisionShape" type="CollisionShape2D" parent="CollisionArea" unique_id=1517049127]
+unique_name_in_owner = true
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_vnjw7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1654412379]
+sprite_frames = SubResource("SpriteFrames_vnjw7")
+autoplay = "default"
+frame_progress = 0.3719582
