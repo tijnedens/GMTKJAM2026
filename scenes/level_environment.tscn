@@ -10,11 +10,11 @@
 [ext_resource type="Script" uid="uid://dvc78o67f1y2f" path="res://scenes/class_nodes/CustomCamera.gd" id="8_48rh5"]
 [ext_resource type="PackedScene" uid="uid://bk3703qewpvr7" path="res://scenes/components/gears/gear_hammer/HammerGear.tscn" id="9_2s4e4"]
 
-[node name="LevelEnvironment" type="Node2D" unique_id=1095694394 node_paths=PackedStringArray("first_gear", "end_bell")]
+[node name="LevelEnvironment2" type="Node2D" unique_id=1095694394 node_paths=PackedStringArray("first_gear", "end_bell")]
 script = ExtResource("1_1lgsu")
+gnollars = 600
 first_gear = NodePath("MediumGearComponent")
 end_bell = NodePath("BigBell")
-gnollars = 600
 
 [node name="Label" type="Label" parent="." unique_id=454304588]
 offset_right = 1154.0

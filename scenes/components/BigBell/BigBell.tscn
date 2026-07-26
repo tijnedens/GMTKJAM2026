@@ -18,7 +18,13 @@ input_pickable = true
 motion_mode = 1
 platform_on_leave = 2
 script = ExtResource("1_xums4")
+output_type = null
+input_type = null
+output_direction = null
+input_direction = null
+no_collision = null
 disable_drag_drop = true
+cost = null
 
 [node name="HoverArea" type="Area2D" parent="." unique_id=898076736]
 

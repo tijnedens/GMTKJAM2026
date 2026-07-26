@@ -31,9 +31,6 @@ var non_move_start_pos = global_position
 
 @onready var hover_area: Area2D = $HoverArea
 
-
-@onready var hover_area: Area2D = $HoverArea
-
 func _ready():
 	non_move_start_pos = global_position
 	ResetManager.register_component(self)
