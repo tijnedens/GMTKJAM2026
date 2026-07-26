@@ -29,3 +29,7 @@ func _on_prev_page_pressed() -> void:
 
 func _on_next_page_pressed() -> void:
 	next_page()
+
+
+func _on_remove_book_pressed() -> void:
+	self.queue_free()

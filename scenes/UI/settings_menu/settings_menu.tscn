@@ -53,6 +53,7 @@ layout_mode = 2
 
 [node name="SfxVolumeLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/SfxVolume" unique_id=1006961875]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 48
 text = "Sound Effects Volume"
 horizontal_alignment = 1
@@ -63,8 +64,8 @@ texture_filter = 1
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-max_value = 6.0
-step = 0.25
+max_value = 2.5
+step = 0.05
 value = 1.0
 
 [node name="MusicVolume" type="VBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=882280040]
@@ -72,6 +73,7 @@ layout_mode = 2
 
 [node name="MusicVolumeLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/MusicVolume" unique_id=1702878051]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 48
 text = "Music Volume"
 horizontal_alignment = 1
@@ -88,6 +90,14 @@ tick_count = 1
 
 [node name="Spacer" type="Control" parent="CenterContainer/VBoxContainer" unique_id=311101873]
 layout_mode = 2
+
+[node name="BookButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1424539999]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "Open Help Book"
+script = ExtResource("3_mt0mx")
+metadata/_custom_type_script = "uid://bi1mirmf8lwc4"
 
 [node name="MainMenuButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=808287769]
 layout_mode = 2
@@ -107,5 +117,6 @@ metadata/_custom_type_script = "uid://bi1mirmf8lwc4"
 
 [connection signal="value_changed" from="CenterContainer/VBoxContainer/HBoxContainer/SfxVolume/SfxVolumeSlider" to="." method="_on_sfx_volume_slider_value_changed"]
 [connection signal="value_changed" from="CenterContainer/VBoxContainer/HBoxContainer/MusicVolume/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/BookButton" to="." method="_on_book_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ExitSettingsButton" to="." method="_on_button_pressed"]

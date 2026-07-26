@@ -39,6 +39,10 @@
 [ext_resource type="Texture2D" uid="uid://y06noiqyerrc" path="res://assets/images/gnomes/baseballgnoom/baseball_projectile.png" id="36_fxp23"]
 [ext_resource type="Texture2D" uid="uid://c3x13r6fc1kdq" path="res://assets/images/gnomes/baseballgnoom/gnoom_baseball_hit.png" id="37_shomo"]
 [ext_resource type="PackedScene" uid="uid://bpoveoh41xnhm" path="res://scenes/components/big_bell_vis/big_bell_visualizer.tscn" id="38_1l3tc"]
+[ext_resource type="Texture2D" uid="uid://crxx5nx0u6hs" path="res://assets/images/components/waterwheel/waterwheel.png" id="39_idiw6"]
+[ext_resource type="Texture2D" uid="uid://c3kun3x87y3ho" path="res://assets/images/components/kraan/kraan.png" id="40_oqeew"]
+[ext_resource type="Texture2D" uid="uid://du2pm0av3c1ve" path="res://assets/images/components/kraan/kraan_valve.png" id="41_x7xwy"]
+[ext_resource type="AudioStream" uid="uid://dtv22n0clhyxb" path="res://assets/audio/sfx/ui/pagina_flip.mp3" id="43_x7xwy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xal0q"]
 atlas = ExtResource("32_tpo73")
@@ -258,7 +262,75 @@ animations = [{
 "speed": 6.0
 }]
 
-[node name="Catalogus" type="Control" unique_id=723655281 node_paths=PackedStringArray("pages")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_oo1ec"]
+atlas = ExtResource("39_idiw6")
+region = Rect2(0, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oehao"]
+atlas = ExtResource("39_idiw6")
+region = Rect2(400, 0, 400, 400)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cb18o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oo1ec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oehao")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ey727"]
+atlas = ExtResource("40_oqeew")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eam82"]
+atlas = ExtResource("40_oqeew")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e8g6n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ey727")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eam82")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vl4al"]
+atlas = ExtResource("41_x7xwy")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11wtb"]
+atlas = ExtResource("41_x7xwy")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ym5tq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vl4al")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11wtb")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=743596626]
+
+[node name="Catalogus" type="Control" parent="." unique_id=723655281 node_paths=PackedStringArray("pages")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -269,35 +341,34 @@ theme = ExtResource("1_2c647")
 script = ExtResource("2_kvob0")
 pages = [NodePath("TextureRect/Page1"), NodePath("TextureRect/Page2"), NodePath("TextureRect/Page3"), NodePath("TextureRect/Page4")]
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=892767430]
+[node name="TextureRect" type="TextureRect" parent="Catalogus" unique_id=892767430]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_xbqxv")
 
-[node name="Page1" type="Control" parent="TextureRect" unique_id=863196622]
-visible = false
+[node name="Page1" type="Control" parent="Catalogus/TextureRect" unique_id=863196622]
 anchors_preset = 0
 offset_left = 142.0
 offset_top = 97.0
 offset_right = 1459.0
 offset_bottom = 672.0
 
-[node name="Gears" type="Control" parent="TextureRect/Page1" unique_id=468311989]
+[node name="Gears" type="Control" parent="Catalogus/TextureRect/Page1" unique_id=468311989]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="SmallGearVisualizer" parent="TextureRect/Page1/Gears" unique_id=210882234 instance=ExtResource("3_ph0ub")]
+[node name="SmallGearVisualizer" parent="Catalogus/TextureRect/Page1/Gears" unique_id=210882234 instance=ExtResource("3_ph0ub")]
 position = Vector2(87, 105)
 
-[node name="MediumGearVisualizer" parent="TextureRect/Page1/Gears" unique_id=1701683493 instance=ExtResource("4_kvob0")]
+[node name="MediumGearVisualizer" parent="Catalogus/TextureRect/Page1/Gears" unique_id=1701683493 instance=ExtResource("4_kvob0")]
 position = Vector2(276, 36)
 
-[node name="BigGearVisualizer" parent="TextureRect/Page1/Gears" unique_id=1371732645 instance=ExtResource("5_eyl0k")]
+[node name="BigGearVisualizer" parent="Catalogus/TextureRect/Page1/Gears" unique_id=1371732645 instance=ExtResource("5_eyl0k")]
 position = Vector2(513, 100)
 
-[node name="Label" type="Label" parent="TextureRect/Page1/Gears" unique_id=613988683]
+[node name="Label" type="Label" parent="Catalogus/TextureRect/Page1/Gears" unique_id=613988683]
 layout_mode = 0
 offset_left = 13.0
 offset_top = 194.0
@@ -314,20 +385,21 @@ smaller gear of the large one.
  
 "
 
-[node name="GoldGears" type="Control" parent="TextureRect/Page1" unique_id=1695901337]
+[node name="GoldGears" type="Control" parent="Catalogus/TextureRect/Page1" unique_id=1695901337]
 anchors_preset = 0
 offset_left = 772.0
 offset_top = 43.0
 offset_right = 812.0
 offset_bottom = 83.0
 
-[node name="MediumGearVisualizer" parent="TextureRect/Page1/GoldGears" unique_id=1763112018 instance=ExtResource("4_kvob0")]
+[node name="MediumGearVisualizer" parent="Catalogus/TextureRect/Page1/GoldGears" unique_id=1763112018 instance=ExtResource("4_kvob0")]
 position = Vector2(225, 43)
+is_gold = true
 
-[node name="hammer_gear_visualizer" parent="TextureRect/Page1/GoldGears" unique_id=1760790560 instance=ExtResource("6_ph0ub")]
+[node name="hammer_gear_visualizer" parent="Catalogus/TextureRect/Page1/GoldGears" unique_id=1760790560 instance=ExtResource("6_ph0ub")]
 position = Vector2(5, 412)
 
-[node name="Label" type="Label" parent="TextureRect/Page1/GoldGears" unique_id=650264344]
+[node name="Label" type="Label" parent="Catalogus/TextureRect/Page1/GoldGears" unique_id=650264344]
 layout_mode = 0
 offset_left = -42.0
 offset_top = 147.0
@@ -341,31 +413,31 @@ start turning when you press Start.
          to them, which can have various
          effects depending on the item."
 
-[node name="Page2" type="Control" parent="TextureRect" unique_id=656969993]
+[node name="Page2" type="Control" parent="Catalogus/TextureRect" unique_id=656969993]
 visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Control2" type="Control" parent="TextureRect/Page2" unique_id=1878489903]
+[node name="Control2" type="Control" parent="Catalogus/TextureRect/Page2" unique_id=1878489903]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TextureRect/Page2/Control2" unique_id=1130960646]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Catalogus/TextureRect/Page2/Control2" unique_id=1130960646]
 position = Vector2(997, 185)
 sprite_frames = SubResource("SpriteFrames_y1hr0")
 autoplay = "default"
 frame_progress = 0.67442864
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="TextureRect/Page2/Control2" unique_id=1619273902]
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Catalogus/TextureRect/Page2/Control2" unique_id=1619273902]
 modulate = Color(0.43, 1, 0.5249999, 1)
 position = Vector2(1273, 186)
 sprite_frames = SubResource("SpriteFrames_y1hr0")
 autoplay = "default"
 frame_progress = 0.2844749
 
-[node name="Label" type="Label" parent="TextureRect/Page2/Control2" unique_id=683774957]
+[node name="Label" type="Label" parent="Catalogus/TextureRect/Page2/Control2" unique_id=683774957]
 layout_mode = 0
 offset_left = 876.0
 offset_top = 335.0
@@ -376,17 +448,17 @@ for physics projects.
 
 Purple platforms are bouncy."
 
-[node name="Bell" type="Control" parent="TextureRect/Page2" unique_id=946624988]
+[node name="Bell" type="Control" parent="Catalogus/TextureRect/Page2" unique_id=946624988]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TextureRect/Page2/Bell" unique_id=315208784]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Catalogus/TextureRect/Page2/Bell" unique_id=315208784]
 
-[node name="BigBellVisualizer" parent="TextureRect/Page2/Bell" unique_id=1492191923 instance=ExtResource("38_1l3tc")]
+[node name="BigBellVisualizer" parent="Catalogus/TextureRect/Page2/Bell" unique_id=1492191923 instance=ExtResource("38_1l3tc")]
 position = Vector2(421, 184)
 
-[node name="Label" type="Label" parent="TextureRect/Page2/Bell" unique_id=1698643006]
+[node name="Label" type="Label" parent="Catalogus/TextureRect/Page2/Bell" unique_id=1698643006]
 layout_mode = 0
 offset_left = 155.0
 offset_top = 339.0
@@ -398,24 +470,24 @@ gear with a hammer or a projectile.
 Try to ring the bell the exact moment
 the level timer runs out!"
 
-[node name="Page3" type="Control" parent="TextureRect" unique_id=1299760701]
+[node name="Page3" type="Control" parent="Catalogus/TextureRect" unique_id=1299760701]
 visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Cannon" type="Control" parent="TextureRect/Page3" unique_id=1688437802]
+[node name="Cannon" type="Control" parent="Catalogus/TextureRect/Page3" unique_id=1688437802]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TextureRect/Page3/Cannon" unique_id=1002982586]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Catalogus/TextureRect/Page3/Cannon" unique_id=1002982586]
 position = Vector2(359, 164)
 sprite_frames = SubResource("SpriteFrames_tso7p")
 autoplay = "default"
 frame_progress = 0.59404016
 
-[node name="Label" type="Label" parent="TextureRect/Page3/Cannon" unique_id=933249717]
+[node name="Label" type="Label" parent="Catalogus/TextureRect/Page3/Cannon" unique_id=933249717]
 layout_mode = 0
 offset_left = 123.0
 offset_top = 308.0
@@ -429,29 +501,29 @@ a Gnoom projectile.
 You can aim the cannon with right-click 
 and shift-right-click."
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="TextureRect/Page3/Cannon" unique_id=1174038731]
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Catalogus/TextureRect/Page3/Cannon" unique_id=1174038731]
 position = Vector2(594, 205)
 sprite_frames = SubResource("SpriteFrames_erp6k")
 autoplay = "default"
 frame_progress = 0.65673226
 
-[node name="Control" type="Control" parent="TextureRect/Page3" unique_id=367172284]
+[node name="Control" type="Control" parent="Catalogus/TextureRect/Page3" unique_id=367172284]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TextureRect/Page3/Control" unique_id=2130777570]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Catalogus/TextureRect/Page3/Control" unique_id=2130777570]
 position = Vector2(1275, 188)
 sprite_frames = SubResource("SpriteFrames_ybf7a")
 autoplay = "default"
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="TextureRect/Page3/Control" unique_id=358782076]
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Catalogus/TextureRect/Page3/Control" unique_id=358782076]
 position = Vector2(1051, 209)
 sprite_frames = SubResource("SpriteFrames_i36nv")
 autoplay = "default"
 frame_progress = 0.14581898
 
-[node name="Label" type="Label" parent="TextureRect/Page3/Control" unique_id=1042770233]
+[node name="Label" type="Label" parent="Catalogus/TextureRect/Page3/Control" unique_id=1042770233]
 layout_mode = 0
 offset_left = 856.0
 offset_top = 320.0
@@ -465,24 +537,24 @@ Projectiles respect gravity and can
 be hit into certain components to
 activate them."
 
-[node name="Page4" type="Control" parent="TextureRect" unique_id=1530487361]
+[node name="Page4" type="Control" parent="Catalogus/TextureRect" unique_id=1530487361]
 visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Zloper" type="Control" parent="TextureRect/Page4" unique_id=385462026]
+[node name="Zloper" type="Control" parent="Catalogus/TextureRect/Page4" unique_id=385462026]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TextureRect/Page4/Zloper" unique_id=2131600569]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Catalogus/TextureRect/Page4/Zloper" unique_id=2131600569]
 position = Vector2(422, 196)
 sprite_frames = SubResource("SpriteFrames_3ochu")
 autoplay = "default"
 frame_progress = 0.86239064
 
-[node name="Label" type="Label" parent="TextureRect/Page4/Zloper" unique_id=828242762]
+[node name="Label" type="Label" parent="Catalogus/TextureRect/Page4/Zloper" unique_id=828242762]
 layout_mode = 0
 offset_left = 164.0
 offset_top = 373.0
@@ -495,15 +567,46 @@ golden winder.
 After 3 seconds, it will turn a gear
 at its base."
 
-[node name="MediumGearVisualizer" parent="TextureRect/Page4/Zloper" unique_id=933585643 instance=ExtResource("4_kvob0")]
+[node name="MediumGearVisualizer" parent="Catalogus/TextureRect/Page4/Zloper" unique_id=933585643 instance=ExtResource("4_kvob0")]
 position = Vector2(531, 321)
 
-[node name="Water" type="Control" parent="TextureRect/Page4" unique_id=671996994]
+[node name="Water" type="Control" parent="Catalogus/TextureRect/Page4" unique_id=671996994]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="PrevPage" type="Button" parent="." unique_id=801736398]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Catalogus/TextureRect/Page4/Water" unique_id=286517688]
+position = Vector2(1309, 235)
+sprite_frames = SubResource("SpriteFrames_cb18o")
+autoplay = "default"
+frame_progress = 0.8979282
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Catalogus/TextureRect/Page4/Water" unique_id=1259406338]
+position = Vector2(966, 207)
+sprite_frames = SubResource("SpriteFrames_e8g6n")
+autoplay = "default"
+frame_progress = 0.27241725
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Catalogus/TextureRect/Page4/Water/AnimatedSprite2D2" unique_id=1649857064]
+position = Vector2(6, -59)
+sprite_frames = SubResource("SpriteFrames_ym5tq")
+autoplay = "default"
+frame_progress = 0.7020091
+
+[node name="Label" type="Label" parent="Catalogus/TextureRect/Page4/Water" unique_id=1257752605]
+layout_mode = 0
+offset_left = 858.0
+offset_top = 389.0
+offset_right = 1472.0
+offset_bottom = 680.0
+text = "The faucet takes a gear input and wil
+open more and more the further it turns,
+letting out more and more water.
+
+The waterwheel spins if it receives a
+certain amount of water."
+
+[node name="PrevPage" type="Button" parent="Catalogus" unique_id=801736398]
 layout_mode = 0
 offset_left = 217.0
 offset_top = 699.0
@@ -512,9 +615,10 @@ offset_bottom = 804.0
 theme_override_font_sizes/font_size = 54
 text = "Previous Page"
 script = ExtResource("8_eyl0k")
+custom_audio = ExtResource("43_x7xwy")
 metadata/_custom_type_script = "uid://bi1mirmf8lwc4"
 
-[node name="NextPage" type="Button" parent="." unique_id=1646036]
+[node name="NextPage" type="Button" parent="Catalogus" unique_id=1646036]
 layout_mode = 0
 offset_left = 1044.0
 offset_top = 700.0
@@ -523,9 +627,20 @@ offset_bottom = 796.0
 theme_override_font_sizes/font_size = 48
 text = "Next Page"
 script = ExtResource("8_eyl0k")
+custom_audio = ExtResource("43_x7xwy")
 metadata/_custom_type_script = "uid://bi1mirmf8lwc4"
 
-[connection signal="pressed" from="PrevPage" to="." method="_on_prev_page_pressed"]
-[connection signal="pressed" from="NextPage" to="." method="_on_next_page_pressed"]
+[node name="RemoveBook" type="Button" parent="Catalogus" unique_id=671282078]
+layout_mode = 0
+offset_left = 1399.0
+offset_top = 798.0
+offset_right = 1587.0
+offset_bottom = 873.0
+theme_override_font_sizes/font_size = 32
+text = "Close Book"
+script = ExtResource("8_eyl0k")
+metadata/_custom_type_script = "uid://bi1mirmf8lwc4"
 
-[editable path="TextureRect/Page1/GoldGears/MediumGearVisualizer"]
+[connection signal="pressed" from="Catalogus/PrevPage" to="Catalogus" method="_on_prev_page_pressed"]
+[connection signal="pressed" from="Catalogus/NextPage" to="Catalogus" method="_on_next_page_pressed"]
+[connection signal="pressed" from="Catalogus/RemoveBook" to="Catalogus" method="_on_remove_book_pressed"]
