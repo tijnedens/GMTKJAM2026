@@ -13,11 +13,17 @@ static var gear_ratios = {
 }
 
 static func check_chain(gear : GearComponent) -> bool:
+	print("check gear: ", gear.name)
 	gear.is_checked = true
 	var is_legal = true
 	for g in gear.next_gears:
+		if !g.is_checked && g.is_only_activator:
+			gear.is_activated = false
+			gear.show_jam()
+			is_legal = false
+			break
 		# Case: g is stacked on top of or under gear
-		if g == gear.stacked_gear or g == gear.base_gear:
+		elif g == gear.stacked_gear or g == gear.base_gear:
 			g.rotation_speed = gear.rotation_speed
 			g.is_activated = true
 		elif gear.is_activated && !g.is_activated:
@@ -35,7 +41,7 @@ static func check_chain(gear : GearComponent) -> bool:
 				gear.is_activated = false
 				is_legal = false
 				break
-	print("check gear: ", gear.name, ", legal: ", is_legal)
+	print("return from ", gear.name, " , is legal: ", is_legal)
 	return is_legal
 
 static func start_chain(gear : GearComponent):

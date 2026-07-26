@@ -42,6 +42,8 @@ bell_activators=""
 THEBELL=""
 baseball=""
 prullenbak=""
+WaterSink=""
+WaterEmitter=""
 
 [input]
 
