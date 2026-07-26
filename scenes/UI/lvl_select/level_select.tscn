@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://shkdup40j3e8"]
+
+[ext_resource type="Theme" uid="uid://btposgr6y63dn" path="res://assets/images/ui/theme/default_theme.tres" id="1_fnhyc"]
+[ext_resource type="Texture2D" uid="uid://c3jvclos3b4s6" path="res://assets/images/ui/lvl_select_menu/lvl_select_base.png" id="1_jtb2g"]
+[ext_resource type="Texture2D" uid="uid://bpvxrk6i63sas" path="res://assets/images/ui/lvl_select_menu/clockrond.png" id="2_e3jcn"]
+[ext_resource type="Script" uid="uid://b7ftjm6i0lr8h" path="res://scenes/UI/lvl_select/level_select.gd" id="2_t4whj"]
+[ext_resource type="Texture2D" uid="uid://b77yv04f8gb4b" path="res://assets/images/ui/lvl_select_menu/wijzer2.png" id="3_fnhyc"]
+[ext_resource type="Texture2D" uid="uid://bbyfotp450wwx" path="res://assets/images/ui/lvl_select_menu/wijzer1.png" id="3_fsl0b"]
+[ext_resource type="FontFile" uid="uid://csfbtlgnblx46" path="res://assets/images/ui/theme/theme_components/Comic-Sans.ttf" id="3_xvmev"]
+[ext_resource type="Script" uid="uid://b6q4qt3exm7rw" path="res://scenes/UI/lvl_select/wijzer_1.gd" id="4_e3jcn"]
+[ext_resource type="Script" uid="uid://bi1mirmf8lwc4" path="res://scenes/class_nodes/AudioButton.gd" id="5_slslb"]
+[ext_resource type="Shader" uid="uid://c6joaulresxfj" path="res://assets/shaders/pixel_shader.gdshader" id="7_msp2g"]
+[ext_resource type="PackedScene" uid="uid://lum0fti62ntc" path="res://scenes/UI/settings_menu/settings_menu.tscn" id="9_nbdcb"]
+[ext_resource type="Script" uid="uid://dvc78o67f1y2f" path="res://scenes/class_nodes/CustomCamera.gd" id="10_qs7p0"]
+[ext_resource type="PackedScene" uid="uid://dnwhfik4v8wus" path="res://scenes/UI/lvl_select/level_select_button.tscn" id="13_tlt8y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3ochu"]
+font = ExtResource("3_xvmev")
+font_size = 64
+font_color = Color(0, 0, 0, 1)
+outline_size = 20
+outline_color = Color(0, 0, 0, 0.21176471)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tlt8y"]
+shader = ExtResource("7_msp2g")
+shader_parameter/mix_sampling = 0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ahg1x"]
+shader = ExtResource("7_msp2g")
+shader_parameter/mix_sampling = 0
+
+[node name="LevelSelect" type="Control" unique_id=543994308]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_fnhyc")
+script = ExtResource("2_t4whj")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=923442556]
+custom_minimum_size = Vector2(1600, 900)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("1_jtb2g")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1241901535]
+custom_minimum_size = Vector2(1600, 900)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=844522845]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 120
+
+[node name="Spacer" type="Control" parent="VBoxContainer/HBoxContainer" unique_id=1748940307]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=465816657]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=929838947]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Gnevel Gnelect"
+label_settings = SubResource("LabelSettings_3ochu")
+
+[node name="Spacer" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1596541118]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MainMenu" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1874242602]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Main Menu"
+script = ExtResource("5_slslb")
+metadata/_custom_type_script = "uid://bi1mirmf8lwc4"
+
+[node name="Settings" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=394231110]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Settings"
+script = ExtResource("5_slslb")
+metadata/_custom_type_script = "uid://bi1mirmf8lwc4"
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer" unique_id=525169263]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_e3jcn")
+stretch_mode = 2
+
+[node name="Wijzer2" type="Sprite2D" parent="VBoxContainer/HBoxContainer/TextureRect" unique_id=1984023699]
+material = SubResource("ShaderMaterial_tlt8y")
+position = Vector2(400, 400)
+texture = ExtResource("3_fsl0b")
+
+[node name="Wijzer1" type="Sprite2D" parent="VBoxContainer/HBoxContainer/TextureRect" unique_id=2095693763 node_paths=PackedStringArray("wijzer2")]
+material = SubResource("ShaderMaterial_ahg1x")
+position = Vector2(400, 400)
+texture = ExtResource("3_fnhyc")
+script = ExtResource("4_e3jcn")
+wijzer2 = NodePath("../Wijzer2")
+
+[node name="SettingsMenu" parent="." unique_id=1097210671 instance=ExtResource("9_nbdcb")]
+visible = false
+layout_mode = 1
+
+[node name="LevelButtons" type="Node2D" parent="." unique_id=1899949565]
+
+[node name="LevelButton1" parent="LevelButtons" unique_id=2082296201 instance=ExtResource("13_tlt8y")]
+modulate = Color(0.63, 1, 0.88899994, 1)
+position = Vector2(1080, 120)
+level_path = "res://scenes/level_environment.tscn"
+
+[node name="LevelButton2" parent="LevelButtons" unique_id=561212082 instance=ExtResource("13_tlt8y")]
+modulate = Color(1, 0.63, 0.63, 1)
+position = Vector2(1350, 210)
+level_path = "res://scenes/level_environment_2.tscn"
+label_text = "2"
+
+[node name="CustomCamera" type="Camera2D" parent="." unique_id=989078703]
+anchor_mode = 0
+script = ExtResource("10_qs7p0")
+metadata/_custom_type_script = "uid://dvc78o67f1y2f"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/Settings" to="SettingsMenu" method="appear"]
