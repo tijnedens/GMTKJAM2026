@@ -6,6 +6,7 @@ extends BaseComponent
 var is_activated : bool = false
 
 func _ready():
+	super()
 	timer.timeout.connect(_on_timer_timeout)
 	ResetManager.register_component(self)
 
@@ -19,6 +20,10 @@ func reset():
 	timer.stop()
 	sprite_2d.stop()
 	sprite_2d.frame = 0
+
+	
+func _find_connection(anchor: Node2D, direction: GlobalEnum.ComponentIODirection) -> BaseComponent:
+	return null
 
 func _physics_process(_delta):
 	if sprite_2d.frame == 3:
