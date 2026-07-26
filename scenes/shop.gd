@@ -6,6 +6,7 @@ extends CenterContainer
 @onready var button_small_gear: Button = $container/ScrollContainer/MarginContainer/GridContainer/ButtonSmallGear
 @onready var button_kannon: Button = $container/ScrollContainer/MarginContainer/GridContainer/ButtonKannon
 @onready var button_bounce_pad: Button = $container/ScrollContainer/MarginContainer/GridContainer/ButtonBouncePad
+@onready var button_hammer_medium: Button = $container/ScrollContainer/MarginContainer/GridContainer/ButtonHammerMedium
 
 const BIG_GEAR_COMPONENT = preload("uid://cfkc3vjob3gm0")
 const MEDIUM_GEAR_COMPONENT = preload("uid://dbn6ymfsdljgu")
@@ -13,12 +14,14 @@ const SMALL_GEAR_COMPONENT = preload("uid://bjknbkgpoppmi")
 const KANON = preload("uid://br5r705ueiobe")
 const PLATFORM_KLEIN_BOUNCE = preload("uid://qs4f1oosmr1y")
 const NOP = preload("uid://d12mytyfecqty")
+const HAMMER_GEAR = preload("uid://bk3703qewpvr7")
 
 @export var button_big_gear_disabled : bool
 @export var button_mid_gear_disabled : bool
 @export var button_small_gear_disabled : bool
 @export var button_kannon_disabled : bool
 @export var button_bounce_pad_disabled : bool
+@export var button_gear_hammer_mid_disabled : bool
 
 func _ready():
 	
@@ -27,6 +30,7 @@ func _ready():
 	button_small_gear.pressed.connect(_on_small_gear_buy)
 	button_kannon.pressed.connect(_on_kanon_gear_buy)
 	button_bounce_pad.pressed.connect(_on_bounce_buy)
+	button_hammer_medium.pressed.connect(_on_hammer_buy)
 
 	
 	if button_big_gear_disabled:
@@ -43,6 +47,16 @@ func _ready():
 		
 	if button_bounce_pad_disabled:
 		button_bounce_pad.icon = NOP
+		
+	if button_gear_hammer_mid_disabled:
+		button_hammer_medium.icon = NOP
+
+func _on_hammer_buy():
+	if get_parent().gnollars >= 100 and !button_gear_hammer_mid_disabled:
+		get_parent().gnollars -= 100
+		var inst = HAMMER_GEAR.instantiate()
+		inst.position = get_global_mouse_position()
+		get_parent().add_child(inst)
 
 func _on_bounce_buy():
 	if get_parent().gnollars >= 100 and !button_bounce_pad_disabled:

@@ -105,6 +105,7 @@ stretch_mode = 2
 [node name="Wijzer2" type="Sprite2D" parent="VBoxContainer/HBoxContainer/TextureRect" unique_id=1984023699]
 material = SubResource("ShaderMaterial_tlt8y")
 position = Vector2(400, 400)
+rotation = 1.5707964
 texture = ExtResource("3_fsl0b")
 
 [node name="Wijzer1" type="Sprite2D" parent="VBoxContainer/HBoxContainer/TextureRect" unique_id=2095693763 node_paths=PackedStringArray("wijzer2")]
