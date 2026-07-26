@@ -18,13 +18,15 @@ func _on_music_volume_slider_value_changed(value: float) -> void:
 
 
 func appear() -> void:
-	await CustomCamera.current_camera.fade_to_black()
+	self.modulate = Color.TRANSPARENT
 	self.show()
-	CustomCamera.current_camera.fade_to_clear()
+	await create_tween().tween_property(
+		self, "modulate", Color.WHITE, 0.3
+	).finished
 
 func fade_away() -> void:
 	await create_tween().tween_property(
-		self, "modulate", Color(0.0, 0.0, 0.0, 0.0), 0.5
+		self, "modulate", Color(0.0, 0.0, 0.0, 0.0), 0.3
 	).finished
 	hide()
 	modulate = Color.WHITE
@@ -33,3 +35,9 @@ func fade_away() -> void:
 func _on_button_pressed() -> void:
 	if fade_on_button_press:
 		fade_away()
+
+
+func _on_main_menu_button_pressed() -> void:
+	await CustomCamera.current_camera.transition_scene(
+		load("res://scenes/UI/main_menu/main_menu.tscn")
+	)
