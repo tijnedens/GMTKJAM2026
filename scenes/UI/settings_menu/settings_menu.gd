@@ -18,9 +18,11 @@ func _on_music_volume_slider_value_changed(value: float) -> void:
 
 
 func appear() -> void:
-	await CustomCamera.current_camera.fade_to_black()
+	self.modulate = Color.TRANSPARENT
 	self.show()
-	CustomCamera.current_camera.fade_to_clear()
+	await create_tween().tween_property(
+		self, "modulate", Color.WHITE, 0.3
+	).finished
 
 func fade_away() -> void:
 	await create_tween().tween_property(

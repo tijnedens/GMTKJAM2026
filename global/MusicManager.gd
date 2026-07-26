@@ -10,6 +10,9 @@ var KASTEEL_DEUR: AudioStream = load(
 var GNOOM_SONG: AudioStream = load(
 	"res://assets/audio/music/gnoomsong.mp3"
 )
+var KONT_LIED: AudioStream = load(
+	"res://assets/audio/music/kontlied.mp3"
+)
 
 var player: CustomAudioPlayer = CustomAudioPlayer.new()
 
@@ -20,12 +23,16 @@ func _ready() -> void:
 
 func play_music(new_stream: AudioStream) -> void:
 	if player.stream:
+		if player.stream == new_stream:
+			return
 		await create_tween().tween_property(
-			player, "volume_linear", 0, 1.0
+			player, "volume_linear", 0.0, 1.0
 		).finished
 	else:
 		player.volume_linear = 0.0
+	player.stop()
 	player.stream = new_stream
+	player.volume_linear = player.get_volume()
 	player.play()
 	await create_tween().tween_property(
 		player, "volume_linear", player.get_volume(), 1.0

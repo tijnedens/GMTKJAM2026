@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/gnoomsong.mp3-a707a16c6ef5d9e3f69e40bc454c854
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

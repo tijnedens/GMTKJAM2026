@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://1ha606nn6b1k"]
 
 [ext_resource type="Theme" uid="uid://btposgr6y63dn" path="res://assets/images/ui/theme/default_theme.tres" id="1_4gtts"]
-[ext_resource type="Texture2D" uid="uid://c3p77omimit28" path="res://assets/images/ui/main_menu/titlescreen_proposal.png" id="1_oim1r"]
 [ext_resource type="Texture2D" uid="uid://dvrjx4bicwxo3" path="res://assets/images/ui/theme/ScreenEdgeGradient.tres" id="2_6l5je"]
 [ext_resource type="Script" uid="uid://dcdnaqiey7hhh" path="res://scenes/UI/main_menu/main_menu.gd" id="2_epuki"]
+[ext_resource type="PackedScene" uid="uid://d0f3xi4mj1yfy" path="res://scenes/UI/main_menu/main_menu_bg.tscn" id="3_7pp57"]
 [ext_resource type="Script" uid="uid://dvc78o67f1y2f" path="res://scenes/class_nodes/CustomCamera.gd" id="5_0vw6h"]
 [ext_resource type="Script" uid="uid://bi1mirmf8lwc4" path="res://scenes/class_nodes/AudioButton.gd" id="5_7pp57"]
 [ext_resource type="PackedScene" uid="uid://lum0fti62ntc" path="res://scenes/UI/settings_menu/settings_menu.tscn" id="6_oelhe"]
@@ -23,17 +23,8 @@ grow_vertical = 2
 theme = ExtResource("1_4gtts")
 script = ExtResource("2_epuki")
 
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=353381376]
-custom_minimum_size = Vector2(1600, 900)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="BG" type="TextureRect" parent="CenterContainer" unique_id=735051744]
-custom_minimum_size = Vector2(1600, 900)
-layout_mode = 2
-texture = ExtResource("1_oim1r")
-expand_mode = 1
+[node name="MainMenuBG" parent="." unique_id=995020082 instance=ExtResource("3_7pp57")]
+layout_mode = 1
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1902793707]
 layout_mode = 0
@@ -199,7 +190,8 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Programming
-Art"
+Art
+Hidden Music"
 horizontal_alignment = 1
 
 [node name="Tijn" type="PanelContainer" parent="Credits/VBoxContainer/BottomRow" unique_id=1499741363]
@@ -217,7 +209,8 @@ horizontal_alignment = 1
 [node name="Label2" type="Label" parent="Credits/VBoxContainer/BottomRow/Tijn/VBoxContainer" unique_id=736306134]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Programming"
+text = "Programming
+Music"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Levels" to="." method="_on_levels_pressed"]
