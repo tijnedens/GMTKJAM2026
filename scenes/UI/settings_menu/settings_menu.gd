@@ -41,3 +41,10 @@ func _on_main_menu_button_pressed() -> void:
 	await CustomCamera.current_camera.transition_scene(
 		load("res://scenes/UI/main_menu/main_menu.tscn")
 	)
+
+
+func _on_book_button_pressed() -> void:
+	var book_pck: PackedScene = load("res://scenes/UI/catalogus/catalogus.tscn")
+	add_child(
+		book_pck.instantiate()
+	)
