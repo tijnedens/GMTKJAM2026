@@ -6,7 +6,7 @@ signal volume_updated
 	set(value):
 		sfx_volume = value
 		volume_updated.emit()
-@export var music_volume: float = 1.0 :
+@export var music_volume: float = 0.6 :
 	set(value):
 		music_volume = value
 		volume_updated.emit()

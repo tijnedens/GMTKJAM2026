@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://shkdup40j3e8"]
 
 [ext_resource type="Theme" uid="uid://btposgr6y63dn" path="res://assets/images/ui/theme/default_theme.tres" id="1_fnhyc"]
-[ext_resource type="Texture2D" uid="uid://c3jvclos3b4s6" path="res://assets/images/ui/lvl_select_menu/lvl_select_base.png" id="1_jtb2g"]
 [ext_resource type="Texture2D" uid="uid://bpvxrk6i63sas" path="res://assets/images/ui/lvl_select_menu/clockrond.png" id="2_e3jcn"]
 [ext_resource type="Script" uid="uid://b7ftjm6i0lr8h" path="res://scenes/UI/lvl_select/level_select.gd" id="2_t4whj"]
 [ext_resource type="Texture2D" uid="uid://b77yv04f8gb4b" path="res://assets/images/ui/lvl_select_menu/wijzer2.png" id="3_fnhyc"]
 [ext_resource type="Texture2D" uid="uid://bbyfotp450wwx" path="res://assets/images/ui/lvl_select_menu/wijzer1.png" id="3_fsl0b"]
+[ext_resource type="Texture2D" uid="uid://t7bmywumk5ye" path="res://assets/images/environment/background/wooden_wall.png" id="3_tlt8y"]
 [ext_resource type="FontFile" uid="uid://csfbtlgnblx46" path="res://assets/images/ui/theme/theme_components/Comic-Sans.ttf" id="3_xvmev"]
 [ext_resource type="Script" uid="uid://b6q4qt3exm7rw" path="res://scenes/UI/lvl_select/wijzer_1.gd" id="4_e3jcn"]
 [ext_resource type="Script" uid="uid://bi1mirmf8lwc4" path="res://scenes/class_nodes/AudioButton.gd" id="5_slslb"]
@@ -19,7 +19,7 @@ font = ExtResource("3_xvmev")
 font_size = 64
 font_color = Color(0, 0, 0, 1)
 outline_size = 20
-outline_color = Color(0, 0, 0, 0.21176471)
+outline_color = Color(0.8, 0.60784316, 0.39215687, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tlt8y"]
 shader = ExtResource("7_msp2g")
@@ -46,7 +46,8 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
-texture = ExtResource("1_jtb2g")
+texture = ExtResource("3_tlt8y")
+stretch_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1241901535]
 custom_minimum_size = Vector2(1600, 900)
@@ -68,7 +69,7 @@ mouse_filter = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=465816657]
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 32
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=929838947]
 layout_mode = 2
@@ -121,12 +122,12 @@ layout_mode = 1
 
 [node name="LevelButton1" parent="LevelButtons" unique_id=2082296201 instance=ExtResource("13_tlt8y")]
 modulate = Color(0.63, 1, 0.88899994, 1)
-position = Vector2(1080, 120)
+position = Vector2(1083, 88)
 level_path = "res://scenes/level_environment.tscn"
 
 [node name="LevelButton2" parent="LevelButtons" unique_id=561212082 instance=ExtResource("13_tlt8y")]
 modulate = Color(1, 0.63, 0.63, 1)
-position = Vector2(1350, 210)
+position = Vector2(1335, 196)
 level_path = "res://scenes/level_environment_2.tscn"
 label_text = "2"
 
