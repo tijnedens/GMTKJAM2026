@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cvps25sxy06pj"]
 
 [ext_resource type="Texture2D" uid="uid://do8ash2yfw6qr" path="res://assets/images/environment/paltforms/hourglass_support.png" id="1_nrbfj"]
-[ext_resource type="Script" uid="uid://btap0m7d5w2ov" path="res://scenes/Environment/patform_groot.gd" id="1_oerjg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ein8"]
 size = Vector2(358, 29)
@@ -25,11 +24,10 @@ animations = [{
 }],
 "loop": 1,
 "name": &"default",
-"speed": 5.0
+"speed": 6.0
 }]
 
 [node name="PatformGroot" type="Node2D" unique_id=1790468290]
-script = ExtResource("1_oerjg")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1598160628]
 
@@ -39,3 +37,4 @@ shape = SubResource("RectangleShape2D_5ein8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=586574600]
 sprite_frames = SubResource("SpriteFrames_vnjw7")
+autoplay = "default"

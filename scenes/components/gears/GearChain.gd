@@ -39,8 +39,9 @@ static func check_chain(gear : GearComponent) -> bool:
 	return is_legal
 
 static func start_chain(gear : GearComponent):
-	gear.is_activated = true
-	var is_legal = check_chain(gear)
-	for g in gear.get_tree().get_nodes_in_group("Gear"):
-		g.disable_drag_drop = true
-		g.is_checked = false
+	if gear:
+		gear.is_activated = true
+		var is_legal = check_chain(gear)
+		for g in gear.get_tree().get_nodes_in_group("Gear"):
+			g.disable_drag_drop = true
+			g.is_checked = false

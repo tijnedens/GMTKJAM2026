@@ -31,8 +31,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="PlatformKlein" type="Node2D" unique_id=1961614126]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_klue8"]
+size = Vector2(140, 89)
+
+[node name="PlatformKlein" type="CharacterBody2D" unique_id=736263179]
 script = ExtResource("1_klue8")
+metadata/_custom_type_script = "uid://dw5mhc2smgffb"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1991521417]
 physics_material_override = SubResource("PhysicsMaterial_nu7uj")
@@ -44,3 +48,12 @@ shape = SubResource("RectangleShape2D_vnjw7")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1654412379]
 self_modulate = Color(0.98593885, 0.37233225, 0.99999994, 1)
 sprite_frames = SubResource("SpriteFrames_vnjw7")
+
+[node name="HoverArea" type="Area2D" parent="." unique_id=2130273974]
+
+[node name="HoverShape" type="CollisionShape2D" parent="HoverArea" unique_id=1125403125]
+position = Vector2(-2, 27)
+shape = SubResource("RectangleShape2D_klue8")
+
+[connection signal="mouse_entered" from="HoverArea" to="." method="_on_mouse_shape_entered"]
+[connection signal="mouse_exited" from="HoverArea" to="." method="_on_mouse_shape_exited"]
