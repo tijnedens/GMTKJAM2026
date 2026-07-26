@@ -29,9 +29,10 @@ animations = [{
 
 [node name="PatformGroot" type="Node2D" unique_id=1790468290]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1598160628]
+[node name="CollisionArea" type="StaticBody2D" parent="." unique_id=1598160628]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=433504796]
+[node name="CollisionShape" type="CollisionShape2D" parent="CollisionArea" unique_id=433504796]
+unique_name_in_owner = true
 position = Vector2(3, 4.5)
 shape = SubResource("RectangleShape2D_5ein8")
 

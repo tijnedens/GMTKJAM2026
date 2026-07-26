@@ -27,6 +27,7 @@ output_direction = 1
 shape = SubResource("CircleShape2D_it5h2")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=1717350298]
+unique_name_in_owner = true
 shape = SubResource("CircleShape2D_r8k8w")
 
 [node name="InputAnchor" type="Area2D" parent="." unique_id=20023819]

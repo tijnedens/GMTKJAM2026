@@ -224,6 +224,7 @@ position = Vector2(4, 84.5)
 shape = SubResource("RectangleShape2D_4d6uc")
 
 [node name="CollisionShape" type="CollisionPolygon2D" parent="." unique_id=982915990]
+unique_name_in_owner = true
 position = Vector2(11, 10.706177)
 scale = Vector2(0.99038464, 0.9867256)
 polygon = PackedVector2Array(65, 116, 50, -105, -39.37864, -91.926445, -58, 61, -65, 121, 9, 116)

@@ -33,6 +33,7 @@ input_direction = 4
 shape = SubResource("CircleShape2D_it5h2")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=1396307320]
+unique_name_in_owner = true
 shape = SubResource("CircleShape2D_04fln")
 
 [node name="ConnectionArea" type="Area2D" parent="." unique_id=756091421 groups=["GearConnectionArea"]]
