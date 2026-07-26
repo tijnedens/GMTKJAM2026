@@ -140,6 +140,30 @@ position = Vector2(1335, 196)
 level_path = "res://scenes/level_environment_2.tscn"
 label_text = "2"
 
+[node name="LevelButton3" parent="LevelButtons" unique_id=176864485 instance=ExtResource("13_tlt8y")]
+modulate = Color(1, 0.5689509, 0.9271685, 1)
+position = Vector2(1442, 449)
+level_path = "res://scenes/level_environment_3.tscn"
+label_text = "3"
+
+[node name="LevelButton4" parent="LevelButtons" unique_id=855920844 instance=ExtResource("13_tlt8y")]
+modulate = Color(0.66756487, 0.8176024, 1.540184e-06, 1)
+position = Vector2(1350, 707)
+level_path = "res://scenes/level_environment_4.tscn"
+label_text = "4"
+
+[node name="LevelButton5" parent="LevelButtons" unique_id=1920163678 instance=ExtResource("13_tlt8y")]
+modulate = Color(0.66756487, 0.8176024, 1.540184e-06, 1)
+position = Vector2(1086, 814)
+level_path = "res://scenes/level_environment_kraan_1.tscn"
+label_text = "5"
+
+[node name="LevelButton6" parent="LevelButtons" unique_id=983065357 instance=ExtResource("13_tlt8y")]
+modulate = Color(0.66756487, 0.8176024, 1.540184e-06, 1)
+position = Vector2(817, 715)
+level_path = "res://scenes/level_environment_kraan_2.tscn"
+label_text = "6"
+
 [node name="CustomCamera" type="Camera2D" parent="." unique_id=989078703]
 anchor_mode = 0
 script = ExtResource("10_qs7p0")

@@ -46,6 +46,7 @@ button_mid_gear_disabled = true
 button_kannon_disabled = true
 button_bounce_pad_disabled = true
 button_gear_hammer_mid_disabled = true
+button_zandloper_disabled = true
 
 [node name="MediumGearComponent" parent="." unique_id=721174909 instance=ExtResource("5_r66ad")]
 self_modulate = Color(0.71171826, 0.4837653, 0, 1)
