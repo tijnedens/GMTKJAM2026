@@ -8,6 +8,10 @@
 [ext_resource type="Script" uid="uid://bi1mirmf8lwc4" path="res://scenes/class_nodes/AudioButton.gd" id="5_7pp57"]
 [ext_resource type="PackedScene" uid="uid://lum0fti62ntc" path="res://scenes/UI/settings_menu/settings_menu.tscn" id="6_oelhe"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_7pp57"]
+font_size = 48
+font_color = Color(0, 0, 0, 1)
+
 [node name="MainMenu" type="Control" unique_id=352987840]
 custom_minimum_size = Vector2(1600, 900)
 layout_mode = 3
@@ -66,6 +70,14 @@ text = "SETTINGS"
 script = ExtResource("5_7pp57")
 metadata/_custom_type_script = "uid://bi1mirmf8lwc4"
 
+[node name="Credits" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1365928719]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "CREDITS"
+script = ExtResource("5_7pp57")
+metadata/_custom_type_script = "uid://bi1mirmf8lwc4"
+
 [node name="Quit" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=635122657]
 unique_name_in_owner = true
 layout_mode = 2
@@ -78,6 +90,7 @@ metadata/_custom_type_script = "uid://bi1mirmf8lwc4"
 layout_mode = 2
 
 [node name="CustomCamera" type="Camera2D" parent="." unique_id=596976108]
+unique_name_in_owner = true
 anchor_mode = 0
 script = ExtResource("5_0vw6h")
 metadata/_custom_type_script = "uid://dvc78o67f1y2f"
@@ -87,6 +100,127 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 1
 
+[node name="Credits" type="ColorRect" parent="." unique_id=1854832044]
+self_modulate = Color(1, 1, 1, 0)
+z_index = -1
+layout_mode = 0
+offset_top = 888.0
+offset_right = 1600.0
+offset_bottom = 1588.0
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits" unique_id=1182959848]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 16.0
+offset_right = 1600.0
+offset_bottom = 716.0
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="TopRow" type="HBoxContainer" parent="Credits/VBoxContainer" unique_id=34714809]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Elo" type="PanelContainer" parent="Credits/VBoxContainer/TopRow" unique_id=385609282]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits/VBoxContainer/TopRow/Elo" unique_id=1614932427]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Credits/VBoxContainer/TopRow/Elo/VBoxContainer" unique_id=769206569]
+layout_mode = 2
+text = "Éloise"
+label_settings = SubResource("LabelSettings_7pp57")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Credits/VBoxContainer/TopRow/Elo/VBoxContainer" unique_id=1712536544]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Sound Effect"
+horizontal_alignment = 1
+
+[node name="Gijssie" type="PanelContainer" parent="Credits/VBoxContainer/TopRow" unique_id=1222896398]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits/VBoxContainer/TopRow/Gijssie" unique_id=1068766579]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Credits/VBoxContainer/TopRow/Gijssie/VBoxContainer" unique_id=367212514]
+layout_mode = 2
+text = "Gijssie"
+label_settings = SubResource("LabelSettings_7pp57")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Credits/VBoxContainer/TopRow/Gijssie/VBoxContainer" unique_id=1301060514]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Art
+Sound Effects"
+horizontal_alignment = 1
+
+[node name="Jiri" type="PanelContainer" parent="Credits/VBoxContainer/TopRow" unique_id=26751913]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits/VBoxContainer/TopRow/Jiri" unique_id=1746725592]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Credits/VBoxContainer/TopRow/Jiri/VBoxContainer" unique_id=508516087]
+layout_mode = 2
+text = "Jiri_One"
+label_settings = SubResource("LabelSettings_7pp57")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Credits/VBoxContainer/TopRow/Jiri/VBoxContainer" unique_id=874227514]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Programming"
+horizontal_alignment = 1
+
+[node name="BottomRow" type="HBoxContainer" parent="Credits/VBoxContainer" unique_id=1865962675]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Mark" type="PanelContainer" parent="Credits/VBoxContainer/BottomRow" unique_id=1690611248]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits/VBoxContainer/BottomRow/Mark" unique_id=300302244]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Credits/VBoxContainer/BottomRow/Mark/VBoxContainer" unique_id=275777011]
+layout_mode = 2
+text = "Kram/Droom"
+label_settings = SubResource("LabelSettings_7pp57")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Credits/VBoxContainer/BottomRow/Mark/VBoxContainer" unique_id=62432632]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Programming
+Art"
+horizontal_alignment = 1
+
+[node name="Tijn" type="PanelContainer" parent="Credits/VBoxContainer/BottomRow" unique_id=1499741363]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits/VBoxContainer/BottomRow/Tijn" unique_id=1400711626]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Credits/VBoxContainer/BottomRow/Tijn/VBoxContainer" unique_id=1379763779]
+layout_mode = 2
+text = "MathMonkey"
+label_settings = SubResource("LabelSettings_7pp57")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Credits/VBoxContainer/BottomRow/Tijn/VBoxContainer" unique_id=736306134]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Programming"
+horizontal_alignment = 1
+
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Levels" to="." method="_on_levels_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Settings" to="SettingsMenu" method="appear"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Quit" to="." method="_on_quit_pressed"]
