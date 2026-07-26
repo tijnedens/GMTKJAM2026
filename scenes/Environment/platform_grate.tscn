@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://cb5c06xeed1nl"]
+
+[ext_resource type="Texture2D" uid="uid://c6i4ombblg2on" path="res://assets/images/environment/paltforms/spr_grate.png" id="1_8f3an"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vnjw7"]
+size = Vector2(357, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1lesc"]
+atlas = ExtResource("1_8f3an")
+region = Rect2(0, 0, 400, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbqqm"]
+atlas = ExtResource("1_8f3an")
+region = Rect2(400, 0, 400, 75)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1lesc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1lesc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xbqqm")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="PlatformGrate" type="Node2D" unique_id=1961614126]
+
+[node name="CollisionArea" type="StaticBody2D" parent="." unique_id=1991521417]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape2D" parent="CollisionArea" unique_id=1517049127]
+unique_name_in_owner = true
+position = Vector2(2.5, 5)
+shape = SubResource("RectangleShape2D_vnjw7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1654412379]
+sprite_frames = SubResource("SpriteFrames_1lesc")
+autoplay = "default"
+frame_progress = 0.7838806

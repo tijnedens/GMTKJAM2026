@@ -15,6 +15,7 @@ func _find_connection(anchor: Node2D, direction: GlobalEnum.ComponentIODirection
 		var end : Vector2 = origin + ComponentConnector.io_direction_to_vector(direction) * 500
 		var query : PhysicsRayQueryParameters2D = PhysicsRayQueryParameters2D.create(origin, end)
 		query.collide_with_areas = true
+		query.collision_mask = 1
 		var result : Dictionary = space_state.intersect_ray(query)
 		if result:
 			if result.collider != self and result.collider.is_in_group("WaterEmitter"):

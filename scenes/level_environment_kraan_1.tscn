@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://ct0a26wcwii74"]
+
+[ext_resource type="Script" uid="uid://41elba81uopc" path="res://level_environment.gd" id="1_u2kk1"]
+[ext_resource type="Texture2D" uid="uid://dno4dpinqfttk" path="res://assets/images/ui/reset_level.png" id="2_xtn0i"]
+[ext_resource type="Texture2D" uid="uid://0tpeww0mbe17" path="res://assets/images/ui/start_button.png" id="3_637ju"]
+[ext_resource type="PackedScene" uid="uid://chp7xur0mmb01" path="res://scenes/shop.tscn" id="4_8perd"]
+[ext_resource type="PackedScene" uid="uid://dbn6ymfsdljgu" path="res://scenes/components/gears/gear_medium/MediumGearComponent.tscn" id="5_r66ad"]
+[ext_resource type="PackedScene" uid="uid://dxrwvnvrb4wrt" path="res://scenes/components/BigBell/BigBell.tscn" id="6_ugukd"]
+[ext_resource type="Script" uid="uid://dvc78o67f1y2f" path="res://scenes/class_nodes/CustomCamera.gd" id="7_jvijm"]
+[ext_resource type="PackedScene" uid="uid://myofggoemfp2" path="res://prullenbak.tscn" id="8_6m33u"]
+[ext_resource type="PackedScene" uid="uid://bk3703qewpvr7" path="res://scenes/components/gears/gear_hammer/HammerGear.tscn" id="9_nvaqe"]
+
+[node name="LevelEnvironment" type="Node2D" unique_id=1095694394 node_paths=PackedStringArray("first_gear", "end_bell")]
+script = ExtResource("1_u2kk1")
+time_target = 14.14
+first_gear = NodePath("MediumGearComponent")
+end_bell = NodePath("BigBell")
+gnollars = 600
+
+[node name="Label" type="Label" parent="." unique_id=454304588]
+offset_right = 1154.0
+offset_bottom = 39.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResetButton" type="Button" parent="." unique_id=740313125]
+offset_left = 1531.0
+offset_top = 2.0
+offset_right = 1603.0
+offset_bottom = 74.0
+icon = ExtResource("2_xtn0i")
+flat = true
+
+[node name="startButton" type="Button" parent="." unique_id=1178931379]
+offset_left = 3.0
+offset_top = 815.0
+offset_right = 139.0
+offset_bottom = 895.0
+icon = ExtResource("3_637ju")
+
+[node name="Shop" parent="." unique_id=866003838 instance=ExtResource("4_8perd")]
+visible = false
+z_index = 10
+button_big_gear_disabled = true
+button_mid_gear_disabled = true
+button_kannon_disabled = true
+button_bounce_pad_disabled = true
+button_gear_hammer_mid_disabled = true
+
+[node name="MediumGearComponent" parent="." unique_id=721174909 instance=ExtResource("5_r66ad")]
+self_modulate = Color(0.71171826, 0.4837653, 0, 1)
+position = Vector2(386, 104)
+is_gold = true
+disable_drag_drop = true
+always_disable_drag_drop = true
+
+[node name="GnollarIndicator" type="Label" parent="." unique_id=934259654]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="BigBell" parent="." unique_id=29377478 instance=ExtResource("6_ugukd")]
+position = Vector2(880, 683)
+
+[node name="CustomCamera" type="Camera2D" parent="." unique_id=246551887]
+anchor_mode = 0
+script = ExtResource("7_jvijm")
+metadata/_custom_type_script = "uid://dvc78o67f1y2f"
+
+[node name="Prullenbak" parent="." unique_id=910685487 instance=ExtResource("8_6m33u")]
+position = Vector2(1517, 789)
+
+[node name="MediumGearComponent2" parent="." unique_id=34140745 instance=ExtResource("9_nvaqe")]
+position = Vector2(737, 701)
+inventory_item_start_angle = 3.141592653589793
+disable_drag_drop = true
+always_disable_drag_drop = true

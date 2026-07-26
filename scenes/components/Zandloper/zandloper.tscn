@@ -213,6 +213,7 @@ autoplay = &"idle"
 [node name="OutputGear" parent="." unique_id=721174909 instance=ExtResource("28_f7rfy")]
 unique_name_in_owner = true
 position = Vector2(112, 128)
+is_only_activator = true
 input_type = 0
 disable_drag_drop = true
 

@@ -3,7 +3,7 @@ extends Node2D
 var timer_running: bool = false
 var time_passed: float
 var time_left: float
-var time_target: float = 8
+@export var time_target: float = 8
 var time_end: float
 
 @onready var label: Label = $Label
