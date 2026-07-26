@@ -10,6 +10,13 @@ func _ready() -> void:
 	%SfxVolumeSlider.value = SettingsManager.settings.sfx_volume
 	%MusicVolumeSlider.value = SettingsManager.settings.music_volume
 
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("esc"):
+		if visible:
+			fade_away()
+		else:
+			appear()
+			
 func _on_sfx_volume_slider_value_changed(value: float) -> void:
 	SettingsManager.settings.sfx_volume = value
 

@@ -20,6 +20,12 @@ var bell_pos
 var stopped = false
 
 func _ready() -> void:
+	var pck: PackedScene = load("res://scenes/UI/settings_menu/settings_menu.tscn")
+	var settings: SettingsMenu = pck.instantiate()
+	settings.position = Vector2.ZERO
+	settings.z_index = 10
+	add_child(settings)
+	
 	time_left = time_target-time_passed
 	start_button.pressed.connect(_on_start_button_pressed)
 	reset_button.pressed.connect(_on_reset_pressed)
