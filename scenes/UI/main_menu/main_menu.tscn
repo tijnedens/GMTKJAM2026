@@ -88,7 +88,6 @@ metadata/_custom_type_script = "uid://dvc78o67f1y2f"
 
 [node name="SettingsMenu" parent="." unique_id=1097210671 instance=ExtResource("6_oelhe")]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 
 [node name="Credits" type="ColorRect" parent="." unique_id=1854832044]
