@@ -3,14 +3,18 @@ extends BaseComponent
 
 @onready var anim_player: AnimationPlayer = %AnimationPlayer
 @onready var output_gear: GearComponent = %OutputGear
+@onready var audio_player: CustomAudioPlayer = $CustomAudioPlayer
 
 func flip_zandloper() -> void:
+	
 	anim_player.play("start_countdown")
 
 func _on_projectile_caught() -> void:
 	flip_zandloper()
+	audio_player.play()
 
 func reset() -> void:
+	super()
 	idle_anim()
 
 func idle_anim() -> void:

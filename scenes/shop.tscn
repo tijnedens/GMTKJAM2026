@@ -7,9 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://dgctt1p7y10sa" path="res://assets/images/ui/icons/component_icons7.png" id="4_y6sft"]
 [ext_resource type="Texture2D" uid="uid://bohmvwfwlwtxs" path="res://assets/images/ui/icons/component_icons15.png" id="5_m4ofw"]
 [ext_resource type="Texture2D" uid="uid://rbusyrwugvk8" path="res://assets/images/ui/icons/component_icons23.png" id="6_ajxib"]
-[ext_resource type="Texture2D" uid="uid://cseum1mll6a5g" path="res://assets/images/ui/icons/component_icons11.png" id="8_y6sft"]
 [ext_resource type="Texture2D" uid="uid://bc6p7he1br7ry" path="res://assets/images/ui/icons/l0_sprite_31.png" id="7_y6sft"]
+[ext_resource type="Texture2D" uid="uid://cseum1mll6a5g" path="res://assets/images/ui/icons/component_icons11.png" id="8_y6sft"]
 [ext_resource type="Texture2D" uid="uid://v3flpoelboen" path="res://assets/images/ui/icons/l0_sprite_29.png" id="9_m4ofw"]
+[ext_resource type="Texture2D" uid="uid://dg63x55sf6441" path="res://assets/images/ui/icons/component_icons19.png" id="10_1v8qu"]
 
 [node name="Shop" type="CenterContainer" unique_id=866003838]
 offset_right = 1599.0
@@ -92,11 +93,11 @@ text = "Cost:
 100"
 icon = ExtResource("9_m4ofw")
 
-[node name="Button12" type="Button" parent="container/ScrollContainer/MarginContainer/GridContainer" unique_id=1275421492]
+[node name="ButtonZandloper" type="Button" parent="container/ScrollContainer/MarginContainer/GridContainer" unique_id=1275421492]
 layout_mode = 2
 text = "Cost:
 100"
-icon = ExtResource("2_xfvoa")
+icon = ExtResource("10_1v8qu")
 
 [node name="Button13" type="Button" parent="container/ScrollContainer/MarginContainer/GridContainer" unique_id=1282808597]
 layout_mode = 2

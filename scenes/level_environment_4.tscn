@@ -1,21 +1,21 @@
-[gd_scene format=3 uid="uid://didbw8yiy4352"]
+[gd_scene format=3 uid="uid://c3vceht1cial5"]
 
 [ext_resource type="Script" uid="uid://41elba81uopc" path="res://level_environment.gd" id="1_gukcx"]
 [ext_resource type="Texture2D" uid="uid://dno4dpinqfttk" path="res://assets/images/ui/reset_level.png" id="2_8g4ad"]
 [ext_resource type="Texture2D" uid="uid://0tpeww0mbe17" path="res://assets/images/ui/start_button.png" id="3_qij8j"]
 [ext_resource type="PackedScene" uid="uid://chp7xur0mmb01" path="res://scenes/shop.tscn" id="4_r722x"]
-[ext_resource type="PackedScene" uid="uid://dbn6ymfsdljgu" path="res://scenes/components/gears/gear_medium/MediumGearComponent.tscn" id="5_fuj3d"]
 [ext_resource type="PackedScene" uid="uid://dxrwvnvrb4wrt" path="res://scenes/components/BigBell/BigBell.tscn" id="6_elwpp"]
 [ext_resource type="Script" uid="uid://dvc78o67f1y2f" path="res://scenes/class_nodes/CustomCamera.gd" id="7_n6unl"]
 [ext_resource type="PackedScene" uid="uid://myofggoemfp2" path="res://prullenbak.tscn" id="8_2rkwn"]
 [ext_resource type="PackedScene" uid="uid://cvps25sxy06pj" path="res://scenes/Environment/patform_groot.tscn" id="9_3q21u"]
-[ext_resource type="PackedScene" uid="uid://br5r705ueiobe" path="res://scenes/components/kanon/kanon.tscn" id="10_xco8k"]
+[ext_resource type="PackedScene" uid="uid://bdqtpr5mcdntf" path="res://scenes/components/baseballgnoom/baseballgnoom.tscn" id="9_gukcx"]
+[ext_resource type="PackedScene" uid="uid://bwb1j0152lrel" path="res://scenes/Environment/platform_klein.tscn" id="10_8g4ad"]
+[ext_resource type="PackedScene" uid="uid://1w0c5unnqm7c" path="res://scenes/components/baseballgnoom/baseball.tscn" id="11_8g4ad"]
 
-[node name="LevelEnvironment" type="Node2D" unique_id=1095694394 node_paths=PackedStringArray("first_gear", "end_bell")]
+[node name="LevelEnvironment4" type="Node2D" unique_id=1095694394 node_paths=PackedStringArray("end_bell")]
 script = ExtResource("1_gukcx")
-first_gear = NodePath("MediumGearComponent")
-end_bell = NodePath("BigBell")
 gnollars = 600
+end_bell = NodePath("BigBell")
 
 [node name="Label" type="Label" parent="." unique_id=454304588]
 offset_right = 1154.0
@@ -41,10 +41,8 @@ icon = ExtResource("3_qij8j")
 [node name="Shop" parent="." unique_id=866003838 instance=ExtResource("4_r722x")]
 visible = false
 z_index = 10
-
-[node name="MediumGearComponent" parent="." unique_id=721174909 instance=ExtResource("5_fuj3d")]
-position = Vector2(81, 705)
-disable_drag_drop = true
+button_kannon_disabled = true
+button_bounce_pad_disabled = true
 
 [node name="GnollarIndicator" type="Label" parent="." unique_id=934259654]
 offset_right = 40.0
@@ -52,6 +50,12 @@ offset_bottom = 23.0
 
 [node name="BigBell" parent="." unique_id=29377478 instance=ExtResource("6_elwpp")]
 position = Vector2(1420, 498)
+output_type = 0
+input_type = 0
+output_direction = 0
+input_direction = 0
+no_collision = false
+cost = 100
 
 [node name="CustomCamera" type="Camera2D" parent="." unique_id=246551887]
 anchor_mode = 0
@@ -62,9 +66,25 @@ metadata/_custom_type_script = "uid://dvc78o67f1y2f"
 position = Vector2(1517, 789)
 
 [node name="PatformGroot" parent="." unique_id=1790468290 instance=ExtResource("9_3q21u")]
-position = Vector2(788, 569)
+position = Vector2(524, 682)
 rotation = 1.5707964
 
-[node name="KanonComponent" parent="." unique_id=1826207354 instance=ExtResource("10_xco8k")]
-position = Vector2(470, 596)
-disable_drag_drop = true
+[node name="BaseComponent" parent="." unique_id=1878192001 instance=ExtResource("9_gukcx")]
+position = Vector2(142, 617)
+
+[node name="PlatformKlein" parent="." unique_id=1961614126 instance=ExtResource("10_8g4ad")]
+position = Vector2(154, 683)
+
+[node name="PlatformKlein2" parent="." unique_id=1696723702 instance=ExtResource("10_8g4ad")]
+position = Vector2(298, 646)
+
+[node name="Baseball" parent="." unique_id=1528140147 instance=ExtResource("11_8g4ad")]
+position = Vector2(252, 624)
+
+[node name="PatformGroot2" parent="." unique_id=1354863769 instance=ExtResource("9_3q21u")]
+position = Vector2(1234, 123)
+rotation = 1.5707964
+
+[node name="PatformGroot3" parent="." unique_id=740777918 instance=ExtResource("9_3q21u")]
+position = Vector2(1241, 798)
+rotation = 1.5707964

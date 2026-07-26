@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://bl8lqdoipxaiv" path="res://assets/images/gnomes/gnoom_projectile/gnome_projectile_1.png" id="4_ky2kf"]
 [ext_resource type="PackedScene" uid="uid://dbn6ymfsdljgu" path="res://scenes/components/gears/gear_medium/MediumGearComponent.tscn" id="6_646wg"]
 [ext_resource type="Texture2D" uid="uid://dcf1m2fgcyeur" path="res://assets/images/components/Konnon/burner.png" id="7_1u8be"]
+[ext_resource type="AudioStream" uid="uid://cxj5j74judx6t" path="res://assets/audio/sfx/components/launcher_fire.mp3" id="9_nem20"]
+[ext_resource type="Script" uid="uid://c7a35s4u6x2ly" path="res://scenes/class_nodes/CustomAudioPlayer.gd" id="10_bj8go"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4d6uc"]
 size = Vector2(140, 89)
@@ -285,6 +287,11 @@ frame_progress = 0.13683502
 unique_name_in_owner = true
 wait_time = 2.0
 one_shot = true
+
+[node name="CustomAudioPlayer" type="AudioStreamPlayer" parent="." unique_id=2087929923]
+stream = ExtResource("9_nem20")
+script = ExtResource("10_bj8go")
+metadata/_custom_type_script = "uid://c7a35s4u6x2ly"
 
 [connection signal="mouse_entered" from="HoverArea" to="." method="_on_mouse_shape_entered"]
 [connection signal="mouse_exited" from="HoverArea" to="." method="_on_mouse_shape_exited"]

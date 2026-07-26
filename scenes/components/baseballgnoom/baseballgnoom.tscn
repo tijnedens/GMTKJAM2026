@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dpkue80lxhbcb" path="res://scenes/components/baseballgnoom/baseballgnoom.gd" id="1_v6776"]
 [ext_resource type="Texture2D" uid="uid://c3x13r6fc1kdq" path="res://assets/images/gnomes/baseballgnoom/gnoom_baseball_hit.png" id="2_nf5du"]
+[ext_resource type="AudioStream" uid="uid://c3hw4oluvijf0" path="res://assets/audio/sfx/components/baseball_bat_hit.mp3" id="3_a4grx"]
+[ext_resource type="Script" uid="uid://c7a35s4u6x2ly" path="res://scenes/class_nodes/CustomAudioPlayer.gd" id="4_afkfm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_it5h2"]
 radius = 33.01515
@@ -92,6 +94,11 @@ collision_mask = 401
 position = Vector2(114, 3.5)
 shape = SubResource("RectangleShape2D_vnjw7")
 disabled = true
+
+[node name="CustomAudioPlayer" type="AudioStreamPlayer" parent="." unique_id=843689934]
+stream = ExtResource("3_a4grx")
+script = ExtResource("4_afkfm")
+metadata/_custom_type_script = "uid://c7a35s4u6x2ly"
 
 [connection signal="mouse_entered" from="HoverArea" to="." method="_on_mouse_shape_entered"]
 [connection signal="mouse_exited" from="HoverArea" to="." method="_on_mouse_shape_exited"]
