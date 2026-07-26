@@ -14,9 +14,10 @@ var time_end: float
 @onready var gnollar_indicator: Label = $GnollarIndicator
 @onready var reset_button: Button = $ResetButton
 const STARS = preload("uid://dcfbync3s3iuw")
-
+var star_inst
 var first_gear_pos
 var bell_pos
+var stopped = false
 
 func _ready() -> void:
 	time_left = time_target-time_passed
@@ -30,6 +31,10 @@ func _ready() -> void:
 
 func _on_reset_pressed():
 	ResetManager.reset_components()
+	stopped = false
+	if star_inst:
+		print(star_inst)
+		star_inst.queue_free()
 
 func reset_timer() -> void:
 	time_passed = 0
@@ -41,24 +46,26 @@ func start_timer() -> void:
 	timer_running = true
 	
 func stop_timer() -> void:
-	timer_running = false
-	time_end = time_passed
-	print("difference in time: " + str(abs(time_end-time_target)))
-	
-	var stars = 0
-	if abs(time_end-time_target) >= 2:
-		stars = 0
-	elif abs(time_end-time_target) >= 1:
-		stars = 1
-	elif abs(time_end-time_target) >= 0.5:
-		stars = 2
-	else:
-		stars = 3
+	if !stopped:
+		stopped = true
+		timer_running = false
+		time_end = time_passed
+		print("difference in time: " + str(abs(time_end-time_target)))
 		
-	var star_inst = STARS.instantiate()
-	star_inst.stars = stars
-	star_inst.position = get_viewport_rect().size/2
-	add_child(star_inst)
+		var stars = 0
+		if abs(time_end-time_target) >= 2:
+			stars = 0
+		elif abs(time_end-time_target) >= 1:
+			stars = 1
+		elif abs(time_end-time_target) >= 0.5:
+			stars = 2
+		else:
+			stars = 3
+			
+		star_inst = STARS.instantiate()
+		star_inst.stars = stars
+		star_inst.position = get_viewport_rect().size/2
+		add_child(star_inst)
 
 func _on_start_button_pressed():
 	if !timer_running:
