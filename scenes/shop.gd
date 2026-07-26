@@ -9,6 +9,7 @@ extends CenterContainer
 @onready var button_hammer_medium: Button = $container/ScrollContainer/MarginContainer/GridContainer/ButtonHammerMedium
 @onready var button_kraan: Button = $container/ScrollContainer/MarginContainer/GridContainer/ButtonKraan
 @onready var button_water_wheel: Button = $container/ScrollContainer/MarginContainer/GridContainer/ButtonWaterWheel
+@onready var button_zandloper: Button = $container/ScrollContainer/MarginContainer/GridContainer/ButtonZandloper
 
 const BIG_GEAR_COMPONENT = preload("uid://cfkc3vjob3gm0")
 const MEDIUM_GEAR_COMPONENT = preload("uid://dbn6ymfsdljgu")
@@ -19,6 +20,7 @@ const NOP = preload("uid://d12mytyfecqty")
 const HAMMER_GEAR = preload("uid://bk3703qewpvr7")
 const KRAAN_COMPONENT = preload("uid://db2l5c8kes7q4")
 const WATER_WHEEL_COMPONENT = preload("uid://ctr7slwhew02r")
+const ZANDLOPER = preload("uid://r8e1ywow0l6p")
 
 @export var button_big_gear_disabled : bool
 @export var button_mid_gear_disabled : bool
@@ -28,6 +30,7 @@ const WATER_WHEEL_COMPONENT = preload("uid://ctr7slwhew02r")
 @export var button_gear_hammer_mid_disabled : bool
 @export var button_kraan_disabled : bool
 @export var button_water_wheel_disabled : bool
+@export var button_zandloper_disabled : bool
 
 func _ready():
 	
@@ -39,6 +42,7 @@ func _ready():
 	button_hammer_medium.pressed.connect(_on_hammer_buy)
 	button_kraan.pressed.connect(_on_kraan_buy)
 	button_water_wheel.pressed.connect(_on_water_wheel_buy)
+	button_zandloper.pressed.connect(_on_zandloper_buy)
 
 	
 	if button_big_gear_disabled:
@@ -64,6 +68,9 @@ func _ready():
 	
 	if button_water_wheel_disabled:
 		button_water_wheel.icon = NOP
+		
+	if button_zandloper_disabled:
+		button_zandloper.icon = NOP
 
 func _on_hammer_buy():
 	if get_parent().gnollars >= 100 and !button_gear_hammer_mid_disabled:
@@ -119,6 +126,13 @@ func _on_water_wheel_buy():
 	if get_parent().gnollars >= 100 and !button_water_wheel_disabled:
 		get_parent().gnollars -= 100
 		var inst = WATER_WHEEL_COMPONENT.instantiate()
+		inst.position = get_global_mouse_position()
+		get_parent().add_child(inst)
+
+func _on_zandloper_buy():
+	if get_parent().gnollars >= 100 and !button_zandloper_disabled:
+		get_parent().gnollars -= 100
+		var inst = ZANDLOPER.instantiate()
 		inst.position = get_global_mouse_position()
 		get_parent().add_child(inst)
 

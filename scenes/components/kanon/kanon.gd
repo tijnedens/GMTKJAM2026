@@ -62,6 +62,7 @@ func _on_vlam():
 	
 func _on_vlam_timer_timeout():
 	gnogel.shoot(shoot_dir * shoot_str)
+	$CustomAudioPlayer.play()
 
 
 func _on_medium_gear_component_inventory_item_reached(_count) -> void:

@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b2l6j4ywe2hop"]
+[gd_scene format=3 uid="uid://bbv7dt7wcbu67"]
 
 [ext_resource type="Script" uid="uid://41elba81uopc" path="res://level_environment.gd" id="1_mo8r6"]
 [ext_resource type="Texture2D" uid="uid://dno4dpinqfttk" path="res://assets/images/ui/reset_level.png" id="2_mauug"]
@@ -11,11 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://cvps25sxy06pj" path="res://scenes/Environment/patform_groot.tscn" id="9_f4jue"]
 [ext_resource type="PackedScene" uid="uid://br5r705ueiobe" path="res://scenes/components/kanon/kanon.tscn" id="10_14s11"]
 
-[node name="LevelEnvironment" type="Node2D" unique_id=1095694394 node_paths=PackedStringArray("first_gear", "end_bell")]
+[node name="LevelEnvironment3" type="Node2D" unique_id=1095694394 node_paths=PackedStringArray("first_gear", "end_bell")]
 script = ExtResource("1_mo8r6")
+gnollars = 600
 first_gear = NodePath("MediumGearComponent")
 end_bell = NodePath("BigBell")
-gnollars = 600
 
 [node name="Label" type="Label" parent="." unique_id=454304588]
 offset_right = 1154.0
@@ -44,6 +44,7 @@ z_index = 10
 
 [node name="MediumGearComponent" parent="." unique_id=721174909 instance=ExtResource("5_ipmio")]
 position = Vector2(81, 705)
+is_gold = true
 disable_drag_drop = true
 
 [node name="GnollarIndicator" type="Label" parent="." unique_id=934259654]

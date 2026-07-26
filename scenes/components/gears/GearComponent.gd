@@ -202,7 +202,8 @@ func _on_connection_area_area_shape_entered(_area_rid, area, _area_shape_index, 
 				collision_layer = 1 << (9 - 1)
 				collision_mask = 1 << (9 - 1) | 1 << (8 - 1) | 1
 				gear_component.base_gear.next_gears.erase(self)
-		
+
+			
 
 
 func _on_connection_area_area_shape_exited(_area_rid, area, _area_shape_index, _local_shape_index):

@@ -43,6 +43,7 @@ z_index = 10
 
 [node name="MediumGearComponent" parent="." unique_id=721174909 instance=ExtResource("4_1mrva")]
 position = Vector2(581, 475)
+is_gold = true
 disable_drag_drop = true
 
 [node name="GnollarIndicator" type="Label" parent="." unique_id=934259654]

@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://b03dj0bt55met" path="res://scenes/components/BigBell/big_bell.gd" id="1_xums4"]
 [ext_resource type="PackedScene" uid="uid://bpoveoh41xnhm" path="res://scenes/components/big_bell_vis/big_bell_visualizer.tscn" id="2_kio7o"]
 [ext_resource type="Script" uid="uid://bewfuomtmylsc" path="res://scenes/class_nodes/ProjectileCatcher.gd" id="3_yosre"]
+[ext_resource type="AudioStream" uid="uid://b6wias5p5mvxg" path="res://assets/audio/sfx/components/absolute_ass.wav" id="4_2f47q"]
+[ext_resource type="Script" uid="uid://c7a35s4u6x2ly" path="res://scenes/class_nodes/CustomAudioPlayer.gd" id="4_p0m37"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_it5h2"]
 radius = 33.01515
@@ -18,13 +20,7 @@ input_pickable = true
 motion_mode = 1
 platform_on_leave = 2
 script = ExtResource("1_xums4")
-output_type = null
-input_type = null
-output_direction = null
-input_direction = null
-no_collision = null
 disable_drag_drop = true
-cost = null
 
 [node name="HoverArea" type="Area2D" parent="." unique_id=898076736]
 
@@ -46,6 +42,11 @@ metadata/_custom_type_script = "uid://bewfuomtmylsc"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ProjectileCatcher" unique_id=354082299]
 position = Vector2(2, 12)
 shape = SubResource("CircleShape2D_5ein8")
+
+[node name="CustomAudioPlayer" type="AudioStreamPlayer" parent="." unique_id=1313663886]
+stream = ExtResource("4_2f47q")
+script = ExtResource("4_p0m37")
+metadata/_custom_type_script = "uid://c7a35s4u6x2ly"
 
 [connection signal="mouse_entered" from="HoverArea" to="." method="_on_mouse_shape_entered"]
 [connection signal="mouse_exited" from="HoverArea" to="." method="_on_mouse_shape_exited"]
